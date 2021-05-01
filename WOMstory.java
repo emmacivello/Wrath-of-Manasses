@@ -1,0 +1,469 @@
+/*
+ * Program title: WOMstory.java
+ * Author: CEH Emma Civello, CA Alicia Chen
+ * Description: The text-based portion of Wrath of Manasses
+ */
+
+package wrathOfManasses;
+
+import java.util.*;	// import statements
+
+public class WOMstory {	// class header
+
+	private Scanner carl;
+	private String charName;	// the name the character chooses
+	private String gender;	// gender the character chooses
+	private ArrayList<String> inventory;
+	private ArrayList<String> partyMembers;	// possibly change to a custom object (Character)
+	// add sprite image name later
+	
+	public WOMstory() {	// constructor
+		carl = new Scanner(System.in);
+		charName = "";
+		gender = "";
+		inventory = new ArrayList<>();
+	}
+	
+	public static void main(String[] args) {	// main method header
+		
+		WOMstory wom = new WOMstory();	// class instance
+		wom.run();
+		
+	}
+
+	private void run() {
+		
+		charSelection();
+		castleScene();
+		
+	}
+	
+	private void charSelection() {
+		
+		/*
+		while(!gender.toLowerCase().equals("girl") && !gender.toLowerCase().equals("boy")) {
+			
+			System.out.print("Would you like to look like a BOY or a GIRL? ");
+			gender = carl.nextLine();
+			
+			if(!gender.toLowerCase().equals("girl") && !gender.toLowerCase().equals("boy")) {
+				System.out.println("Please choose one of the above choices. \n");
+			}
+			
+		}
+		System.out.println("\n");
+		
+		System.out.println("The wizard Mercurion walks into his study and sees you standing there. \n");
+		pauseText(2);
+		System.out.println("MERCURION: *rubs eyes* My apologies, I didn't see you there. \n");
+		pauseText(2);
+		System.out.println("Mercurion walks over to his desk and picks up a stack of paper. \n");
+		pauseText(2);
+		System.out.println("MERCURION: You forgot to sign the report you gave me yesterday. Mind doing it now? \n");
+		System.out.print("What is your name? ");
+		charName = carl.nextLine();
+		System.out.println("\nMERCURION: Thank you, " + charName + ". ");
+		pauseText(2);
+		*/
+		
+		charName = "Rick Astley";
+		gender = "boy";
+		
+	}
+	
+	private void castleScene() {
+		
+		String ucname = charName.toUpperCase();	// for ease of formatting
+		
+		if(charName.equals("MERCURION")) {
+			System.out.println("MERCURION: *laughs* The fact that we share the same name will never fail to amuse me. \n");
+			pauseText(2);
+			System.out.print(ucname + ": It's definitely funny. ");
+		}
+		else {
+			System.out.print(ucname + ": It's no problem, Mercurion. ");
+		}
+		System.out.println("What task do you want me to do today? \n");
+		pauseText(2);
+		System.out.println("MERCURION: Could you please gather some Rust Weed? We need it for the next potion. There's \n"
+						 + "a good patch of it near the Forest of Babbage. You know where that is- on the West edge of \n"
+						 + "the castle grounds. Take some of these leather satchels, and remember to only choose the weeds \n"
+						 + "with the reddest stalks. The others won't be ripe enough for our purposes. Actually, just take \n"
+						 + "one bag. Filling this should be enough. \n");
+		pauseText(4);
+		System.out.println("Mercurion hands you a satchel. \n");
+		pauseText(1);
+		
+		inventory.add("Leather satchel");	// add item to inventory ArrayList
+		System.out.println("ITEM GET! Leather satchel x1 has been added to your inventory. \n");	// maybe add an option later to check the inventory whenever
+		pauseText(1);
+		
+		int choice = -1;
+		while(choice != 1 && choice != 2) {
+			System.out.print("Choose something to say. \n"
+							 + "\t1) Yes, of course. I will return shortly. \n"
+							 + "\t2) Actually, I was planning on learning some spells today. \n"
+							 + "Your choice? ");
+			choice = carl.nextInt();
+			System.out.println();
+			
+			switch(choice) {
+			case 1:	// collection path
+				System.out.println("MERCURION: Excellent. Do be careful in the forest, I hear that the poison ivy's gotten \n"
+								 + "out of control lately. \n");
+				pauseText(2);
+				System.out.println("You leave the castle and head towards the Forest of Babbage, collecting all of the \n"
+								 + "rust weed that you can find. ");
+				
+				inventory.add("Bundle of Rust Weed");
+				pauseText(2);
+				
+				System.out.println("All of a sudden, you hear the noise of a loud explosion coming from the castle. You \n"
+								 + "are suddenly thankful that you took this job. It might've been dull, but you are safe \n"
+								 + "out here. The same cannot be said for the people inside. \n");
+				pauseText(3);
+				System.out.println(ucname + ": Oh no- I should probably go check on everyone. \n");
+				pauseText(2);
+				System.out.println("As you approach the castle, you can see that the whole structure is shaking. A wave of \n"
+								 + "gray seems to be spreading - seeping up the oaken front doors and across the water of \n"
+								 + "the moat. \n");
+				pauseText(3);
+				System.out.println("MERCURION: " + charName + "! Up here!");
+				pauseText(2);
+				System.out.println(ucname + ": Mercurion! What's going on? I don't understand- \n");
+				pauseText(2);
+				System.out.println("Mercurion's entire body shudders. The old man is trying his best to steady himself, \n"
+								 + "but it seems to be getting harder for him to do so with each passing second. With a \n"
+								 + "shaky voice, he shouts out the window to you. \n");
+				pauseText(3);
+				System.out.println("MERCURION: This- this is Manasses's doing. " + charName + ", go to the University of \n"
+								 + "Meyestern and find- \n");
+				pauseText(2);
+				System.out.println("There is a great pause. The man in the window seems to be fighting off a force- one \n"
+								 + "that is invisible, but no less powerful than something that can be seen. \n");
+				pauseText(3);
+				System.out.println("MERCURION: *gasps* Go to Meyerstern. Find my old friend, Ruthard. \n");
+				pauseText(2);
+				System.out.println("The gray wave makes its way towards you. You look down in horror as the nearby grass \n"
+								 + "begins to turn into stone. \n");
+				pauseText(3);
+				System.out.println("MERCURION: Mey- Meyerstern. Ruthard. Go now. It'll be alright, " + charName + ". ");
+				pauseText(2);
+				System.out.println(ucname + ": I will. \n");
+				pauseText(2);
+				System.out.println("You turn around and run away from the gray boundary. You glance backwards, and see a \n"
+								 + "perfect stone replica of Mercurion standing near the window where he once was. Thankfully, \n"
+								 + "as you reach the edge of the castle grounds, the spell stops spreading. This wicked curse \n"
+								 + "has chosen not to leave the castle grounds. \n");
+				pauseText(4);
+				System.out.println("You jog through the woods until you reach the main road, the one that stretches across \n"
+								 + "Adalos and touches the seas on either side. You stop at the edge of the cobblestone, the \n"
+								 + "name echoing in your head. “Ruthard.” The University of Meyerstern is not terribly far, \n"
+								 + "and you are dressed adequately, in a leather vest, cotton tunic, and fine boots. \n");
+				pauseText(4);
+				System.out.println("However, you are slightly hungry, and having faster transportation would not hurt. You \n"
+								 + "might be able to borrow a horse in the local town, Edenshel, since their stables owe \n"
+								 + "the castle a number of favors. You could also pick up a simple set of armor. However, \n"
+								 + "Mercurion was insistent: find Ruthard... \n");
+				pauseText(4);
+				
+				choice = -1;
+				while(choice != 1 && choice != 2) {
+					System.out.print("Choose an action. \n"
+							 + "\t1) Go to the town to stock up on supplies. \n"
+							 + "\t2) Head straight to the University of Meyerstern. \n"
+							 + "Your choice? ");
+					choice = carl.nextInt();
+					System.out.println();
+					switch(choice) {
+					case 1:
+						// method for town scene
+						break;
+						
+					case 2:
+						// method for university scene
+						break;
+					}
+					
+
+					if(choice != 1 && choice != 2)
+						System.out.println("Please choose a valid answer. \n");
+					
+				}
+				break;
+				
+			case 2:	// staying in the castle
+				System.out.println("MERCURION: Remember that not all magic is waving wands and casting spells. You need \n"
+						 		 + "to put in the hard work, and that involves some manual labor. Because you did well \n"
+						 		 + "with potion-making yesterday, I will assign you something more ‘interesting' today, \n"
+						 		 + "but in the future, I may not always let you off- \n");
+				pauseText(4);
+				System.out.println("A sudden explosion interrupts his sentence. \n");
+				pauseText(3);
+				System.out.println("MERCURION: Get down! \n");
+				pauseText(2);
+				System.out.println("Both of you shelter beneath an old oak-wood table as the castle shakes violently. \n");
+				pauseText(3);
+				System.out.println("MERCURION: I am going to cast a protection spell around us, but if what I think is \n"
+								 + "happening is indeed happening, my spell will not hold for long. \n");
+				pauseText(2);
+				
+				choice = -1;
+				while(choice != 1 && choice != 2) {
+					System.out.print("Choose an action. \n"
+							 + "\t1) Panic and dash towards the door. \n"
+							 + "\t2) Get closer to Mercurion, so his spell around you will be stronger. \n"
+							 + "Your choice? ");
+					choice = carl.nextInt();
+					System.out.println();
+					switch(choice) {
+					case 1:	// flee
+						System.out.println("Your leather boots pound loudly on stone as you crash towards the hallway. \n"
+										 + "From everywhere yet nowhere, a crashing, harsh voice sounds one word with \n"
+										 + "dreadfully happy glee: “Free. Free. Free.” The floor seems to tilt and the \n"
+										 + "air thickens as this voice--this being--asserts its will on the castle. \n"
+										 + "Slowly, you lose the ability to scream (which you barely realized you were \n"
+										 + "doing anyhow). \n");
+						pauseText(4);
+						System.out.println("Once in the hallway, you also lose the ability to use your legs. Your body \n"
+										 + "stiffens quickly until it matches the stone of the floor. As the voice continues \n"
+										 + "its joyous chant, you realize that you may be here for a few minutes \n"
+										 + "or for an eternity, watching the castle's lawn dissolve into chaos beyond the \n"
+										 + "hallway windows. Either way, events are no longer in your control. ");
+						pauseText(4);
+						System.out.println("\n-=~[GAME OVER]~=-");
+						break;
+						
+					case 2:	// get closer to Mercurion
+						System.out.println("Mercurion begins, while simultaneously moving his hands in the air so that a \n"
+										 + "forcefield of sorts takes form around you. \n");
+						pauseText(3);
+						System.out.println("MERCURION: Many eons ago, there was a great battle between the alchemists Turin \n"
+										 + "and Manasses, the founders of Adalos. Together, they fought to free this land \n"
+										 + "from the control of an enemy lord, and were eventually successful. \n");
+						pauseText(4);
+						System.out.println("However, as history has proven time and time again, men are easily corrupted by \n"
+										 + "power. Such was the fate of Manasses, who became obsessed with spreading their \n"
+										 + "revolutionary ideals to neighboring lands by any means necessary. Countless \n"
+										 + "innocents died on the edge of his blade before his old friend realized what he had \n"
+										 + "become.");
+						pauseText(4);
+						System.out.println("Turin swore to put a stop to this senseless bloodshed. He banished Manasses, locking \n"
+										 + "him in a cell deep, deep beneath this castle. According to most prophecies, Manasses \n"
+										 + "would eventually escape. However, these prophecies failed to mention that he would do \n"
+										 + "so today. \n");
+						pauseText(4);
+						
+						choice = -1;
+						while(choice != 1 && choice != 2) {
+							System.out.print("Choose something to say. \n"
+									 + "\t1) How do you know that this curse is Manasses's doing? \n"
+									 + "\t2) Will we be safe? \n"
+									 + "Your choice? ");
+							choice = carl.nextInt();
+							System.out.println();
+							switch(choice) {
+							case 1:	// it is manasses because
+								System.out.println("Mercurion glances towards you with a dreadful certainty. \n");
+								pauseText(3);
+								System.out.println("MERCURION: Very few alchemists have the power to shake this castle's foundations. \n"
+												 + "I am one of them, which makes the other options even fewer. \n");
+								pauseText(2);
+								System.out.println("He pauses upon seeing the questioning glance on your face. A twinge of sadness shows on his face. \n");
+								pauseText(3);
+								System.out.println("MERCURION: But I am not powerful enough to make it stop shaking once it has started. \n");
+								pauseText(2);
+								System.out.println("You look up, wondering how long the shimmering protective spell will last, when \n"
+												 + "you notice that the table over your head is no longer oak but stone. \n");
+								pauseText(3);
+								System.out.println("MERCURION: Ah, yes. It has already begun. Manasses was known for his power across spell \n"
+												 + "disciplines, but his most famous ability was with stone-turning spells- he could turn \n"
+												 + "objects to stone, bodies to stone, and most impressively, he came close to petrifying \n"
+												 + "time and the soul itself. ");
+								pauseText(4);
+								System.out.println("That is one reason, among many, that Turin fought him. Manasses planned to do awful \n"
+												 + "things with that power. He wanted to control the world - to remake it for \"the \n"
+												 + "better\" - and he had a tyrant's definition of \"better.\"\n");
+								pauseText(4);
+								System.out.println("Then, Mercurion's protection gives way, and Manasses's spell engulfs the two of you. \n"
+												 + "You realize that you may be here for a few minutes or for an eternity, mulling over the \n"
+												 + "alchemist's last, grim lesson. Either way, it is no longer in your control. ");
+								pauseText(4);
+								System.out.println("\n-=~[GAME OVER]~=-");
+								break;
+								
+							case 2:	// "Heck no boi, we screwed." - Mercurion, 2021
+								System.out.println("Mercurion glances towards you with great sadness. \n");
+								pauseText(2);
+								System.out.println("MERCURION: This particular protection spell is the strongest, but against the strongest \n"
+												 + "alchemist, I doubt that much will hold. \n");
+								pauseText(2);
+								System.out.println("You look up at the shimmering forcefield. Cracks are beginning to appear in it. \n"
+												 + "Mercurion is visibly struggling, beads of sweat rolling down his face. \n");
+								pauseText(3);
+								System.out.println("MERCURION: By locking him up for so long, we may have inadvertently given him time to \n"
+												 + "study his powers. When I release this spell, I suspect we will both turn into stone. The \n"
+												 + "state may not be permanent, but that is out of our control. I am sorry. \n");
+								pauseText(4);
+								
+								choice = -1;
+								while(choice != 1 && choice != 2) {
+									System.out.print("Choose an action. \n"
+											 + "\t1) Ask Mercurion if there's anything that you can do. \n"
+											 + "\t2) Allow the hopelessness of the situation to overtake you. \n"
+											 + "Your choice? ");
+									choice = carl.nextInt();
+									System.out.println();
+									switch(choice) {
+									case 1:	// take action
+										System.out.println(ucname + ": Is there anything I can do? \n");
+										pauseText(2);
+										System.out.println("Your question seems to shake the alchemist from his dark thoughts. His eyes \n"
+														 + "brighten suddenly. \n");
+										pauseText(3);
+										System.out.println("MERCURION: Go find my old friend, Ruthard. ");
+										pauseText(2);
+										System.out.println(ucname + ": What? ");
+										pauseText(2);
+										System.out.println("MERCURION: You'll be able to find him at the University of Meyerstern - he's \n"
+														 + "a professor there. Just give me a moment. \n");
+										pauseText(2);
+										System.out.println("Mercurion begins to move his hands in a new pattern, and a faint golden sphere \n"
+														 + "erupts around you. The man’s hands are shaking so badly that you worry he will \n"
+														 + "not be able to carry out whatever he plans to do. Yet somehow, they keep moving \n"
+														 + "in patterns through the air, and the golden light grows stronger. He locks eyes with you. \n");
+										pauseText(4);
+										System.out.println("MERCURION: Go find Ruthard, " + charName + ". Don't worry, it'll be alright. \n");
+										pauseText(2);
+										System.out.println("With the last of his energy, he makes a grand gesture toward the hallway and the \n"
+														 + "golden sphere, with you inside, shoots out of his office, through the window, \n"
+														 + "and out of the castle. \n");
+										pauseText(4);
+										System.out.println("The golden orb deposits you beyond the castle boundary, and you fall to your \n"
+														 + "knees on the grass. Thankfully, the stone seems to have stopped spreading. This \n"
+														 + "wicked curse has chosen not to leave the castle grounds. \n");
+										pauseText(4);
+										System.out.println("You jog through the woods until you reach the main road, the one that stretches across \n"
+														 + "Adalos and touches the seas on either side. You stop at the edge of the cobblestone, the \n"
+														 + "name echoing in your head. “Ruthard.” The University of Meyerstern is not terribly far, \n"
+														 + "and you are dressed adequately, in a leather vest, cotton tunic, and fine boots. \n");
+										pauseText(4);
+										System.out.println("However, you are slightly hungry, and having faster transportation would not hurt. You \n"
+														 + "might be able to borrow a horse in the local town, Edenshel, since their stables owe \n"
+														 + "the castle a number of favors. You could also pick up a simple set of armor. However, \n"
+														 + "Mercurion was insistent: find Ruthard... \n");
+										pauseText(4);
+										
+										choice = -1;
+										while(choice != 1 && choice != 2) {
+											System.out.print("Choose an action. \n"
+													 + "\t1) Go to the town to stock up on supplies. \n"
+													 + "\t2) Head straight to the University of Meyerstern. \n"
+													 + "Your choice? ");
+											choice = carl.nextInt();
+											System.out.println();
+											switch(choice) {
+											case 1:
+												// method for town scene
+												break;
+												
+											case 2:
+												// method for university scene
+												break;
+											}
+											
+
+											if(choice != 1 && choice != 2)
+												System.out.println("Please choose a valid answer. \n");
+											
+										}
+										break;
+										
+									case 2:	// surrender
+										System.out.println("All too soon, the inevitable arrives. The forcefield’s cracks expand with a sharp \n"
+														 + "snapping sound, and your body starts turning to stone. You realize that you may be \n"
+														 + "here for a few minutes or for an eternity, mulling over the alchemist’s last, grim \n"
+														 + "lesson. Either way, events are no longer in your control. ");
+										pauseText(4);
+										System.out.println("\n-=~[GAME OVER]~=-");
+										break;
+									}
+									
+
+									if(choice != 1 && choice != 2)
+										System.out.println("Please choose a valid answer. \n");
+									
+								}
+								
+								break;
+							}
+							
+
+							if(choice != 1 && choice != 2)
+								System.out.println("Please choose a valid answer. \n");
+							
+						}
+						
+						break;
+					}
+					
+
+					if(choice != 1 && choice != 2)
+						System.out.println("Please choose a valid answer. \n");
+					
+				}
+				
+				break;
+			}
+			
+			if(choice != 1 && choice != 2)
+				System.out.println("Please choose a valid answer. \n");
+			
+		}
+		
+	}
+	
+	private void pauseText(int dur) {	// pause time for a specified period
+		
+		if(dur == 1) {
+			try {
+				Thread.currentThread().sleep(500);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if(dur == 2) {
+			try {
+				Thread.currentThread().sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if(dur == 3) {
+			try {
+				Thread.currentThread().sleep(3000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if(dur == 4) {
+			try {
+				Thread.currentThread().sleep(4000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		if(dur == 5) {
+			try {
+				Thread.currentThread().sleep(5000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
+}
