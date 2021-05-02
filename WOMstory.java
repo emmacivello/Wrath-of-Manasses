@@ -927,7 +927,7 @@ public class WOMstory {	// class header
 	private boolean checkMember(String nameIn) {	// check if you have a particular party member
 		for(PartyMember member: partyMembers) {
 			//System.out.println(member.toString());
-			if(!member.getName().equals(null) && member.getName().equals(nameIn))
+			if(member.getName() != null && member.getName().equals(nameIn))
 				return true;
 		}
 		return false;
