@@ -41,7 +41,7 @@ public class WOMstory {	// class header
 		
 	}
 	
-	private void charSelection() {
+	private void charSelection() {	// name/gender selection
 		
 		/*
 		while(!gender.toLowerCase().equals("girl") && !gender.toLowerCase().equals("boy")) {
@@ -74,7 +74,7 @@ public class WOMstory {	// class header
 		
 	}
 	
-	private void castleScene() {
+	private void castleScene() {	// castle scene
 		
 		String ucname = charName.toUpperCase();	// for ease of formatting
 		
@@ -180,11 +180,11 @@ public class WOMstory {	// class header
 					System.out.println();
 					switch(choice) {
 					case 1:
-						// method for town scene
+						townScene();	// method for town scene
 						break;
 						
 					case 2:
-						// method for university scene
+						universityScene();	// method for university scene
 						break;
 					}
 					
@@ -198,7 +198,7 @@ public class WOMstory {	// class header
 			case 2:	// staying in the castle
 				System.out.println("MERCURION: Remember that not all magic is waving wands and casting spells. You need \n"
 						 		 + "to put in the hard work, and that involves some manual labor. Because you did well \n"
-						 		 + "with potion-making yesterday, I will assign you something more ï¿½interesting' today, \n"
+						 		 + "with potion-making yesterday, I will assign you something more \"interesting\" today, \n"
 						 		 + "but in the future, I may not always let you off- \n");
 				pauseText(4);
 				System.out.println("A sudden explosion interrupts his sentence. \n");
@@ -223,7 +223,7 @@ public class WOMstory {	// class header
 					case 1:	// flee
 						System.out.println("Your leather boots pound loudly on stone as you crash towards the hallway. \n"
 										 + "From everywhere yet nowhere, a crashing, harsh voice sounds one word with \n"
-										 + "dreadfully happy glee: ï¿½Free. Free. Free.ï¿½ The floor seems to tilt and the \n"
+										 + "dreadfully happy glee: \"Free. Free. Free.\" The floor seems to tilt and the \n"
 										 + "air thickens as this voice--this being--asserts its will on the castle. \n"
 										 + "Slowly, you lose the ability to scream (which you barely realized you were \n"
 										 + "doing anyhow). \n");
@@ -243,7 +243,7 @@ public class WOMstory {	// class header
 						pauseText(3);
 						System.out.println("MERCURION: Many eons ago, there was a great battle between the alchemists Turin \n"
 										 + "and Manasses, the founders of Adalos. Together, they fought to free this land \n"
-										 + "from the control of an enemy lord, and were eventually successful. \n");
+										 + "from the control of an enemy lord, and were eventually successful. ");
 						pauseText(4);
 						System.out.println("However, as history has proven time and time again, men are easily corrupted by \n"
 										 + "power. Such was the fate of Manasses, who became obsessed with spreading their \n"
@@ -332,7 +332,7 @@ public class WOMstory {	// class header
 														 + "a professor there. Just give me a moment. \n");
 										pauseText(2);
 										System.out.println("Mercurion begins to move his hands in a new pattern, and a faint golden sphere \n"
-														 + "erupts around you. The manï¿½s hands are shaking so badly that you worry he will \n"
+														 + "erupts around you. The man's hands are shaking so badly that you worry he will \n"
 														 + "not be able to carry out whatever he plans to do. Yet somehow, they keep moving \n"
 														 + "in patterns through the air, and the golden light grows stronger. He locks eyes with you. \n");
 										pauseText(4);
@@ -348,7 +348,7 @@ public class WOMstory {	// class header
 										pauseText(4);
 										System.out.println("You jog through the woods until you reach the main road, the one that stretches across \n"
 														 + "Adalos and touches the seas on either side. You stop at the edge of the cobblestone, the \n"
-														 + "name echoing in your head. ï¿½Ruthard.ï¿½ The University of Meyerstern is not terribly far, \n"
+														 + "name echoing in your head. \"Ruthard\" The University of Meyerstern is not terribly far, \n"
 														 + "and you are dressed adequately, in a leather vest, cotton tunic, and fine boots. \n");
 										pauseText(4);
 										System.out.println("However, you are slightly hungry, and having faster transportation would not hurt. You \n"
@@ -367,12 +367,12 @@ public class WOMstory {	// class header
 											System.out.println();
 											switch(choice) {
 											case 1:
-												System.out.println("Hi"); //debugging - this line doesn't work either
+												// System.out.println("Hi"); //debugging - this line doesn't work either
 												townScene(); //this method call isn't working
 												break;
 												
 											case 2:
-												// method for university scene
+												universityScene();	// method for university scene
 												break;
 											}
 											
@@ -384,9 +384,9 @@ public class WOMstory {	// class header
 										break;
 										
 									case 2:	// surrender
-										System.out.println("All too soon, the inevitable arrives. The forcefieldï¿½s cracks expand with a sharp \n"
+										System.out.println("All too soon, the inevitable arrives. The forcefield's cracks expand with a sharp \n"
 														 + "snapping sound, and your body starts turning to stone. You realize that you may be \n"
-														 + "here for a few minutes or for an eternity, mulling over the alchemistï¿½s last, grim \n"
+														 + "here for a few minutes or for an eternity, mulling over the alchemist's last, grim \n"
 														 + "lesson. Either way, events are no longer in your control. ");
 										pauseText(4);
 										System.out.println("\n-=~[GAME OVER]~=-");
@@ -428,7 +428,7 @@ public class WOMstory {	// class header
 	}
 
 	private void townScene(){
-		System.out.println("After walking a little ways down The Kingâ€™s Road, you arrive in Edenshel.");
+		System.out.println("After walking a little ways down The King's Road, you arrive in Edenshel.");
 		pauseText(2);
 		System.out.println("On both sides of the road, merchants display their wares across broad tables.");
 		pauseText(2);
@@ -465,7 +465,7 @@ public class WOMstory {	// class header
 		pauseText(2);
 		System.out.println("There is a small table inside the door where the Stable Master sits.\n"
 						+"You have come here once before, seeking his advice on an illness affecting\n"
-						+"the castleâ€™s steeds. He recognizes you now.\n");
+						+"the castle's steeds. He recognizes you now.\n");
 		pauseText(4);
 		System.out.println("STABLE MASTER: Hello, "+charName+". How can I help you today?");
 		pauseText(2);
@@ -476,7 +476,7 @@ public class WOMstory {	// class header
 		System.out.println("At that moment, bells begin to ring--not the church bells of the Tamali faith\n"
 						+"(which ring in beautiful melodies)--but a deeper gong. An urgent warning.");
 		pauseText(3);
-		System.out.println("The Stable Masterâ€™s face pales.\n");
+		System.out.println("The Stable Master's face pales.\n");
 		pauseText(1);
 		System.out.println("STABLE MASTER: *whispering* Oh no. Have you been at the castle recenly?\n"
 						+"Is something happening there? Please, please no . . . ");
@@ -506,7 +506,7 @@ public class WOMstory {	// class header
 			if(op==1){
 				System.out.println("\nA moment later, the Stable Master's son appears\n"
 									+"and introduces himself as Akhal.\n");
-				System.out.println("PARTY MEMBER GET! Akhal added to party\n");
+				System.out.println("Ahkal has joined the party! \n");
 				PartyMember Akhal = new PartyMember("Akhal");
 				partyMembers.add(Akhal);
 			}
@@ -516,7 +516,7 @@ public class WOMstory {	// class header
 		}while(!(op==1 || op==2));
 		System.out.println("Finally, you visit the armory. The head armorer is just looking the doors when you arrive.\n");
 		pauseText(2);
-		System.out.println(charName+": Please, sir, can I purchase some armor? It is urgent, and I will be quick.\n");
+		System.out.println(charName.toUpperCase()+": Please, sir, can I purchase some armor? It is urgent, and I will be quick.\n");
 		pauseText(2);
 		System.out.println("He looks like he is about to resist when he notices the castle's crest on your sash.\n");
 		pauseText(3);
@@ -581,6 +581,204 @@ public class WOMstory {	// class header
 		//call to At the University method
 	}//TownScene
 	
+	private void universityScene() {	// university scene
+		
+		System.out.println("After a long journey, you finally end up at the gates of the University of Meyerstern. ");
+		pauseText(2);
+		
+		// partyMembers.add(new PartyMember("Ahkal"));	// for debugging
+		// System.out.print(partyMembers.size());
+		
+		if(partyMembers.contains(checkMember("Ahkal"))) {	// debug this section, the method isn't working (problem with equals()?)
+			System.out.print("\nAHKHAL: I'll wait outside with the horses. You go meet this Ruthard fellow. ");
+			pauseText(2);
+			System.out.println(charName.toUpperCase() + ": Thank you, Ahkal. I'll try to be quick. \n");
+			pauseText(2);
+		}
+		else {
+			System.out.print("You tie the horses to a nearby post and head inside. ");
+			pauseText(2);
+		}
+		
+		System.out.println("You walk up to the front door, but they're locked. You groan in dismay. \n"
+						 + "Fortunately, a woman in blue exits through a side door and lets you in. \n");
+		pauseText(3);
+		System.out.println("WOMAN IN BLUE: Welcome to the University of Meyerstern. Who are you, and how \n"
+						 + "may I help you? ");
+		pauseText(2);		
+		System.out.println(charName.toUpperCase() + ": " + charName + ", a journeyman under the tutelage of the alchemist Mercurion. He sent \n"
+						 + "me here to speak with Professor Ruthard. ");
+		pauseText(2);
+		System.out.println("WOMAN IN BLUE: The professor has just returned from his break. You can find him \n"
+						 + "in his office on the second floor. Please, come in. \n");
+		pauseText(2);
+		System.out.println("You follow the woman through the side door and up a grand staircase. She leads you to a closed door. \n");
+		pauseText(2);
+		System.out.println("WOMAN IN BLUE: His office is just through there. ");
+		pauseText(2);
+		System.out.println(charName.toUpperCase() + ": Thank you. \n");
+		pauseText(2);
+		System.out.println("The woman leaves, and you walk up to the door. You hesitate for a moment, but knock on it twice. \n");
+		pauseText(2);
+		System.out.println("RUTHARD: Just a minute, please. I'll be right with you! \n");
+		pauseText(2);
+		System.out.println("The door opens, and a middle-aged man with glasses smiles warmly at you. You feel a sense of relief, \n"
+						 + "but also a twinge of uncertainty. The sense of relief comes from the office. It is warm, inviting, \n"
+						 + "and quite organized - the professor obviously takes great pride in keeping everything tidy. However, \n"
+						 + "you are unable to pinpoint why exactly you feel so uncomfortable. \n");
+		pauseText(4);
+		System.out.println("RUTHARD: Greetings, it's a pleasure to meet you! I apologize for the mess. Please, take a seat! What may I help you with? \n");
+		pauseText(2);
+		System.out.println("You explain your quest to Ruthard. His smile disappears and is replaced by a frown. You are finally able to pinpoint \n"
+						 + "where the feeling of uncertainty comes from - the professor seems kind, but there is something behind his eyes and \n"
+						 + "his smile that seem to suggest that something less than helpful lies beneath the surface. However, you brush the feeling off. \n"
+						 + "After all, it was Mercurion who told you to seek him out, and you trust the old alchemist as if he were your own father. \n");
+		pauseText(3);
+		System.out.println("RUTHARD: If it is as you say, and Manasses has returned, we are all in danger. ");
+		pauseText(2);
+		System.out.println(charName.toUpperCase() + "\n");
+		pauseText(2);
+		System.out.println("Ruthard briskly walks over to a bookshelf. He pulls out a chair and stands on it to reach the top shelf, which has lots \n"
+						 + "of scrolls stacked on it. After finding the one he wants, he returns to the desk and places it on the table. It appears \n"
+						 + "to be a rather detailed map of Adalos. \n");
+		pauseText(3);
+		System.out.println("RUTHARD: A few of my colleagues went on a quest,” he said. “Many years ago. They went west to visit the Binary Trees \n"
+						 + "of Utilio. These trees, it is said, hold great magical power. Apparently the person who destroys them is imbued with \n"
+						 + "that power and becomes strong enough to face great foes. \n");
+		pauseText(3);
+		System.out.println("Ruthard points to a spot on the map with two trees drawn on it. It is labeled \"Binary Trees of Utilio\". \n");
+		pauseText(2);
+		System.out.println("RUTHARD: I believe that destroying these trees might be our best chance at stopping Manasses. But please be careful. \n"
+						 + "One of my colleagues once travelled there to study them, but... let's just say that his quest wasn't successful. \n");
+		pauseText(2);
+	
+		int choice = -1;
+		while(choice != 1 && choice != 2) {
+			System.out.print("Choose something to say. \n"
+					 + "\t1) But your colleague... survived, didn't he? \n"
+					 + "\t2) Are you sure that these trees are real? \n"
+					 + "Your choice? ");
+			choice = carl.nextInt();
+			System.out.println();
+			switch(choice) {
+			case 1:	// did the colleague survive?
+				System.out.println("RUTHARD: My colleague made it home safely, but... he wasn't in the best condition. Please, please believe me when I say \n"
+								 + "that I wish there was a safer option, but I fear this is the only way. ");
+				pauseText(2);
+				break;
+				
+			case 2:	// are dem trees real
+				System.out.println("RUTHARD: I am positive. They appear in almost every historical text about arborology - and herbology for that matter. \n"
+								 + "Just because they are penciled into this map does not mean that they are any less real than the Forest of Babbage. \n");
+				pauseText(2);
+				System.out.println("Ruthard gestures to the location where the castle's forest is. Its label is written in beautiful ink calligraphy. \n");
+				pauseText(2);
+				System.out.println("RUTHARD: Please, please believe me when I say that I wish there was a safer option, but I fear this is the only way. ");
+				pauseText(2);
+				break;
+			}
+
+			if(choice != 1 && choice != 2)
+				System.out.println("Please choose a valid answer. \n");
+			
+		}
+		
+		System.out.println(charName.toUpperCase() + ": Are you sure there isn't another way? ");
+		pauseText(2);
+		System.out.println("RUTHARD: The only other option I could think of is finding the Tome of Turin, but it has been lost for centuries. \n"
+						 + "I hate to be a pessimist, but there is little hope of recovering it quickly enough to defeat Manasses. \n");
+		pauseText(2);
+		System.out.println("You are not entirely convinced that the quest is a safe or viable one. However, since Mercurion trusts Ruthard, you take \n"
+						 + "his advice and agree to travel to the Binary Trees of Utilio. ");
+		pauseText(3);
+		System.out.println("RUTHARD: The world thanks you, " + charName + ". I wish you the best of luck on your journey. But before you go, let me give you \n"
+						 + "something that might be of use. \n");
+
+		pauseText(1);
+		inventory.add("Flamethrower");	// add flamethrower to inventory ArrayList
+		System.out.println("ITEM GET! Flamethrower x1 has been added to your inventory. \n");
+		pauseText(1);
+		
+		System.out.println("RUTHARD: I'm calling this a \"flamethrower\". Has Mercurion ever mentioned that I take great interest in mechanical creations? \n");
+		pauseText(2);
+		
+		choice = -1;
+		while(choice != 1 && choice != 2) {
+			System.out.print("Choose something to say. \n"
+					 + "\t1) Uh... actually, he hasn't told me much about you. \n"
+					 + "\t2) I don't think it ever came up in any of our conversations, no. \n"
+					 + "Your choice? ");
+			choice = carl.nextInt();
+			System.out.println();
+
+			if(choice != 1 && choice != 2)
+				System.out.println("Please choose a valid answer. \n");
+			
+		}
+		
+		System.out.println("RUTHARD: Ah, well. I consider myself to have some skill in engineering, and I think that my latest invention might \n"
+						 + "help you destroy the trees. \n");
+		pauseText(2);
+		System.out.println("You awkwardly take the device from Ruthard. It is made of metal, and quite heavy. \n");
+		pauseText(2);
+		System.out.println(charName.toUpperCase() + ": Thank you. This looks like a powerful weapon. ");
+		pauseText(2);
+		System.out.println("RUTHARD: It's still a prototype, but I'm working on developing a model that has more uses and requires less fuel. \n"
+						 + "Feel free to take the map! Oh, and one last thing, would you like me to send one of my teaching assistants with \n"
+						 + "you to aid you on your quest? \n");
+		pauseText(3);
+		
+		choice = -1;
+		while(choice != 1 && choice != 2) {
+			System.out.print("Choose something to say. \n"
+					 + "\t1) I would greatly appreciate that. \n"
+					 + "\t2) I appreciate your kind offer, but I refuse. \n"
+					 + "Your choice? ");
+			choice = carl.nextInt();
+			System.out.println();
+			switch(choice) {
+			case 1:	// Vertaine joins the party
+				System.out.println("RUTHARD: Alright. Vertaine? \n");
+				pauseText(2);
+				System.out.println("Out of nowhere, a young woman pops her head out from behind a bookshelf. Upon seeing you, she smiles and \n"
+								 + "waves. You return the gesture. \n");
+				pauseText(2);
+				System.out.println("VERTAINE: What may I help you with, Professor Ruthard? ");
+				pauseText(2);
+				System.out.println("RUTHARD: Could you please accompany " + charName + " here on their journey to the Binary Trees? Quickly, grab a \n"
+								 + "cloak and a horse from the stable. There are evil things happening at the castle - I'm sure " + charName + "\n "
+								 + "will explain to you on the way. Please be careful, my dear. ");
+				
+				pauseText(1);
+				System.out.println("Vertaine has joined the party! \n");
+				partyMembers.add(new PartyMember("Vertaine"));
+				pauseText(1);
+				
+				break;
+				
+			case 2:	// Vertaine doesn't join the party
+				// sucks for you
+				break;
+			}
+
+			if(choice != 1 && choice != 2)
+				System.out.println("Please choose a valid answer. \n");
+			
+		}
+		
+		System.out.println("RUTHARD: Very well. Good luck on your journey, you two. I look forward to your return. ");
+		
+	}
+	
+	private boolean checkMember(String nameIn) {	// check if you have a particular party member
+		for(PartyMember member: partyMembers) {
+			//System.out.println(member.toString());
+			if(member.getName() != null && member.getName().equals(nameIn))
+				return true;
+		}
+		return false;
+	}
+	
 	private void pauseText(int dur) {	// pause time for a specified period
 		
 		if(dur == 1) {
@@ -627,13 +825,16 @@ public class WOMstory {	// class header
 }
 
 class PartyMember{
-	String name;
-	int health; //also add power?
+	
+	private String name;
+	private int health; //also add power?
+	private int powerLevel;
+	
 	public PartyMember(String name){
 		this.name = name;
 		health = 20; //randomize this?
 	}
-	public String toString(){
+	public String getName(){	// return name of party member
 		return name;
 	}
 }
