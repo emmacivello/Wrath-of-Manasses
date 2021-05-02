@@ -590,7 +590,7 @@ public class WOMstory {	// class header
 		// partyMembers.add(new PartyMember("Ahkal"));	// for debugging
 		// System.out.print(partyMembers.size());
 		
-		if(partyMembers.contains(checkMember("Ahkal"))) {	// debug this section, the method isn't working (problem with equals()?)
+		if(checkMember("Ahkal")) {	// debug this section, the method isn't working (problem with equals()?)
 			System.out.print("\nAHKHAL: I'll wait outside with the horses. You go meet this Ruthard fellow. ");
 			pauseText(2);
 			System.out.println(charName.toUpperCase() + ": Thank you, Ahkal. I'll try to be quick. \n");
@@ -952,9 +952,9 @@ public class WOMstory {	// class header
 
 	private boolean checkMember(String nameIn) {	// check if you have a particular party member
 		for(PartyMember member: partyMembers) {
-			//System.out.println(member.toString());
-			if(member.getName() != null && member.getName().equals(nameIn))
+			if(member != null && member.getName().equals(nameIn)) {
 				return true;
+			}
 		}
 		return false;
 	}
