@@ -432,13 +432,13 @@ public class WOMstory {	// class header
 		pauseText(2);
 		System.out.println("On both sides of the road, merchants display their wares across broad tables.");
 		pauseText(2);
-		System.out.println("Some are muttering, heads together, and you wonder if the explosion at the castle" 
+		System.out.println("Some are muttering, heads together, and you wonder if the explosion at the castle\n" 
 						+"was loud enough for them to hear.");
 		pauseText(3);
-		System.out.println("However, gossip often occupies the townspeople,"
+		System.out.println("However, gossip often occupies the townspeople,\n"
 						+"and other merchants continue to shout the merits of their products.\n");
 		pauseText(3);
-		System.out.println("You have only the 20 dollars that was on your person when you left the grounds."
+		System.out.println("You have only the 20 dollars that was on your person when you left the grounds.\n"
 						+"If you buy food, your ability to buy other items will be limited.\n");
 		pauseText(3);
 		String[]foods = {"bread and strawberry preserve", "venison", "dragon tenders"};
