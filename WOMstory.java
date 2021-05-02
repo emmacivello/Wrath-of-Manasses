@@ -642,7 +642,7 @@ public class WOMstory {	// class header
 						 + "of scrolls stacked on it. After finding the one he wants, he returns to the desk and places it on the table. It appears \n"
 						 + "to be a rather detailed map of Adalos. \n");
 		pauseText(3);
-		System.out.println("RUTHARD: A few of my colleagues went on a quest,� he said. �Many years ago. They went west to visit the Binary Trees \n"
+		System.out.println("RUTHARD: A few of my colleagues went on a quest,� he said. �Many years ago. They went west to visit the Binary Trees \n"
 						 + "of Utilio. These trees, it is said, hold great magical power. Apparently the person who destroys them is imbued with \n"
 						 + "that power and becomes strong enough to face great foes. \n");
 		pauseText(3);
@@ -769,7 +769,159 @@ public class WOMstory {	// class header
 		System.out.println("RUTHARD: Very well. Good luck on your journey, you two. I look forward to your return. ");
 		
 	}
-	
+	private goblinFight(){
+        System.out.print("You dismount your horse and suddenly realize that your only weapon is\n" 
+                        +"the small dagger used for cutting Rust Weed. "); 
+        System.out.println("There is also the flamethrower,\n"
+                        +"but you are hesitant to use up the fuel.");
+        pauseText(4);
+        System.out.println("You decide to act as a distraction and hope that the man on the ground\n"
+                        +"makes it away. Maybe you can even try reasoning with these beasts …");       
+        pauseText(3);
+        System.out.println("but no, the goblin nearest the road lunges toward you.\n");
+        pauseText(2);
+        System.out.println("How do you react to the goblin’s attack?\n"
+                        +"\t1) Cross your arms before you in a defensive position\n"
+                        +"\t2) Leap out of the way\n"
+                        +"\t3) Yell loudly\n"
+                        +"Your choice? ");
+        int op;
+        do{
+            op = carl.nextInt();
+            if(!(op==1 || op==2 || op==3))
+                System.out.println("Please choose a valid option.");
+        }while(!(op==1 || op==2 || op==3));
+        System.out.println("\nYou successfully avoid the goblin’s first attack. However, he readies himself again.\n"
+                        +"You must make another decision:\n"
+                        +"\t1) Use dagger\n"
+                        +"\t2) Use basic attack/defense spell\n"
+                        +"\t3) Use your fists");
+        do{
+            op = carl.nextInt();
+            if(!(op==1 || op==2 || op==3))
+                System.out.println("Please choose a valid option.");
+        }while(!(op==1 || op==2 || op==3));
+        System.out.println("\nUnfortunately, the goblin still falls on you, leaving a painful gash in your arm.\n"
+                        +"You scream and writhe, attempting to throw the monster off.");
+        //print health stats
+        pauseText(2);
+        System.out.println("Suddenly he does leave, rushing to help the second goblin free the third who the stranger\n"
+                        +"has pinned to the ground.\n");
+        pauseText(2);
+        System.out.println("You have a brief moment to recuperate before you need to help.\n"
+                        +"What do you do?\n"
+                        +"\t1) Re-enter the fight immediately\n"
+                        +"\t2) Don armor\n"
+                        +"\t3) Take a bite of food\n"
+                        +"\t4) Wait as your comrades fight the goblins\n"
+                        +"\t5) Mount your horse and leave the scene\n"
+                        +"Your choice? ");
+        boolean go = false;
+        do{
+            op = carl.nextInt();
+            if(op==1){
+                go = true;
+                System.out.println("The three goblins together topple the man again, and now one comes back toward you.\n"
+                                +"The pain in your arm is overwhelming, and to make matters worse, another two goblins\n"
+                                +"emerge from the trees.");
+                pauseText(3);
+                System.out.println("You realize that you will not make it to your destination in time. Pictures of Mercurion\n"
+                                +"and the castle, encased in stone, flash before your vision as the goblin leaps on top of you.\n"
+                                +"The situation is out of your control.\n"
+                                +"\n-=~[GAME OVER]~=-");
+
+            }
+            else if(op==2){
+                if(inventory.contains("helmet") || inventory.contains("chestplate") || inventory.contains("shield")){
+                    go = true;
+                    System.out.println("You take the armor out of your bag and immediately feel better protected.");
+                    pausetext(2);
+                    System.out.println("You are ready to fight again. What do you do?\n"
+                                    +"\t1) Use dagger\n"
+                                    +"\t2) Yell loudly\n"
+                                    +"\t3) Use basic attack/defense spell\n");
+                    op = carl.nextInt();
+                    System.out.println("Your action successfully distracts the goblins, and together, you and this stranger\n"
+                                +"fight them back into the woods.");
+                }
+                else{
+                    System.out.println("You don't have any armor. Please choose another option.");
+                }
+            }
+            else if(op==3){
+                if(inventory.contains("bread and strawberry preserve") || inventory.contains("venison") || inventory.contains("dragon tenders")){
+                    go = true;
+                    System.out.println("You take the food from your bag, and immediately feel energized.\n"
+                                    +"The pain in your arm diminishes, and you are ready to fight again.\n"
+                                    +"What do you do?");
+                    pausetext(2);
+                    System.out.println("\t1) Use dagger\n"
+                                    +"\t2) Yell loudly\n"
+                                    +"\t3) Use basic attack/defense spell\n");
+                    op = carl.nextInt();
+                    System.out.println("Your action successfully distracts the goblins, and together, you and this stranger\n"
+                                +"fight them back into the woods.");
+                }
+                else{
+                    System.out.println("You don't have any food. Please choose another option.");
+                }
+            }
+            else if(op==4){
+                if(!partyMembers.isEmpty()){
+                    if(partyMembers.size()==1)
+                        System.out.println("You scramble backwards and watch as "+partyMembers.get(0).getName()+" joins the stranger\n"
+                                            +"and successfully drives the goblins back into the woods.");
+                    else if(partyMembers.size()==2)
+                        System.out.println("You scramble backwards and watch as "+partyMembers.get(0).getName()+" and "+partyMembers.get(1).getName()
+                                        +"\njoin the stranger and successfully drive the goblins back into the woods.");
+                }
+                else{
+                    System.out.println("You don't have any party members. Please choose another option.");
+                }
+            }
+            else if(op==5){
+                System.out.println("You feel terrible about leaving the man on the ground, but if you had stayed to fight,"
+                                +"you yourself would have perished.");
+                pauseText(2);
+                System.out.println("'I will save lives by going to the trees,' you tell yourself. You focus on that above the guilt.");
+                //call to Toward the Trees scene
+            }
+            else{
+                System.out.println("Please choose a valid option.");
+            }
+        }while(!(op==1 || op==2 || op==3 || op==4 || op==5));
+        if(op==2 || op==3 || op==4){
+            System.out.println("Once the goblins have disappeared, you turn back towards the stranger.\n"
+                            +"He wears a bandana over one eye, suggesting that this is not the first time\n"
+                            +"he has been attacked like this.");
+            pauseText(3);
+            System.out.println("As he walks over, you notice that his other eye has a triangular rune beneath it.");
+            pauseText(2);
+            System.out.println("'Is he a soothsayer?' you wonder, knowing that practitioners of that magic\n"
+                            +"often identify themselves with such tattoos. He speaks just then, answering your\n"
+                            +"unspoken question.\n");
+            pauseText(4);
+            System.out.println("MIHAIL: Thank you one thousand times. My name is Mihail, Soothsayer of Sedes.\n"
+                            +"You have just saved my life. Can I ask you to return to my tower with me?\n"
+                            +"I can feed you and treat your wounds. Perhaps I can start to repay you.\n");
+            pauseText(3);
+            System.out.println("Would you like to go to Mihail’s tower?\n"
+                            +"\t1) Yes, I will accept your kind offer.\n"
+                            +"\t2) Thank you, but I must continue along the road. We are on a quest.");
+            do{
+                op = carl.nextInt();
+                if(op==1){
+                    //call to Mihail's tower scene
+                }
+                else if(op==2){
+                    System.out.println("MIHAIL: Very well, I will not hold up your progress any more than I have.\n"
+                                    +"But, may the angels of the Tamali faith guide your quest.\n");
+                    //call to Toward the Trees
+                }
+            }while(!(op==1 || op==2));
+        }
+    }
+
 	private boolean checkMember(String nameIn) {	// check if you have a particular party member
 		for(PartyMember member: partyMembers) {
 			//System.out.println(member.toString());
