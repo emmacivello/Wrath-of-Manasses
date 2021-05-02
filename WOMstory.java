@@ -771,7 +771,34 @@ public class WOMstory {	// class header
 		goblinFight();
 		
 	}
-	private goblinFight(){
+
+	private void goblinFight(){
+		System.out.println("You have been travelling toward the trees for a little while when\n"
+                        +"you come upon three goblins crouching over some sort of prey on the side\n"
+                        +"of the road.");
+        pauseText(3);
+        System.out.println("The scene is not unusual near the Berg Mountains which are inhabited\n"
+                        +"by a number of goblin and ogre clans. Amidst the low grunts, however,\n"
+                        +"is another voice, and as you look closer, you recognize that their prey is a human.");
+        pauseText(3);
+        System.out.println("THE STRANGER: HELP!!\n");
+        System.out.println("At his cry, the goblins notice you, and the closest one bears its teeth.\n")
+        pauseText(2);
+        System.out.println("Do you rescue the man from the goblins?\n"
+                        +"\t1) Yes\n"
+                        +"\t2) No\n");
+        int op;
+        do{
+            if(op==2){
+                System.out.println("You feel terrible about leaving the man on the ground, but you\n"
+                                +"tell yourself that you will save lives by going on towards the trees.\n"
+                                +"You focus on that above the guilt.");
+                //method call toward the trees scene
+            }
+            else if(op!=1){
+                System.out.println("Please choose a valid answer.");
+            }
+        }while(!(op==1 || op==2));
         System.out.print("You dismount your horse and suddenly realize that your only weapon is\n" 
                         +"the small dagger used for cutting Rust Weed. "); 
         System.out.println("There is also the flamethrower,\n"
@@ -787,7 +814,6 @@ public class WOMstory {	// class header
                         +"\t2) Leap out of the way\n"
                         +"\t3) Yell loudly\n"
                         +"Your choice? ");
-        int op;
         do{
             op = carl.nextInt();
             if(!(op==1 || op==2 || op==3))
