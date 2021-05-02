@@ -596,7 +596,7 @@ public class WOMstory {	// class header
 			pauseText(2);
 		}
 		else {
-			System.out.print("You tie the horses to a nearby post and head inside. ");
+			System.out.print("You tie the horses to a nearby post and head inside. \n");
 			pauseText(2);
 		}
 		
