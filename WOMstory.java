@@ -578,6 +578,7 @@ public class WOMstory {	// class header
 			}
 		}while(go==false);
 		System.out.println("Now, equipped for your journey, you head toward the University of Meyerstern.");
+		universityScene();
 		//call to At the University method
 	}//TownScene
 	
@@ -767,6 +768,7 @@ public class WOMstory {	// class header
 		}
 		
 		System.out.println("RUTHARD: Very well. Good luck on your journey, you two. I look forward to your return. ");
+		goblinFight();
 		
 	}
 	private goblinFight(){
