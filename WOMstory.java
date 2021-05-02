@@ -13,15 +13,18 @@ public class WOMstory {	// class header
 	private Scanner carl;
 	private String charName;	// the name the character chooses
 	private String gender;	// gender the character chooses
+	private int money;
 	private ArrayList<String> inventory;
-	private ArrayList<String> partyMembers;	// possibly change to a custom object (Character)
+	private ArrayList<PartyMember> partyMembers;	// possibly change to a custom object (Character)
 	// add sprite image name later
 	
 	public WOMstory() {	// constructor
 		carl = new Scanner(System.in);
 		charName = "";
 		gender = "";
+		money = 20;
 		inventory = new ArrayList<>();
+		partyMembers = new ArrayList<>();
 	}
 	
 	public static void main(String[] args) {	// main method header
@@ -137,7 +140,7 @@ public class WOMstory {	// class header
 								 + "shaky voice, he shouts out the window to you. \n");
 				pauseText(3);
 				System.out.println("MERCURION: This- this is Manasses's doing. " + charName + ", go to the University of \n"
-								 + "Meyestern and find- \n");
+								 + "Meyerstern and find- \n");
 				pauseText(2);
 				System.out.println("There is a great pause. The man in the window seems to be fighting off a force- one \n"
 								 + "that is invisible, but no less powerful than something that can be seen. \n");
@@ -158,7 +161,7 @@ public class WOMstory {	// class header
 				pauseText(4);
 				System.out.println("You jog through the woods until you reach the main road, the one that stretches across \n"
 								 + "Adalos and touches the seas on either side. You stop at the edge of the cobblestone, the \n"
-								 + "name echoing in your head. “Ruthard.” The University of Meyerstern is not terribly far, \n"
+								 + "name echoing in your head. ï¿½Ruthard.ï¿½ The University of Meyerstern is not terribly far, \n"
 								 + "and you are dressed adequately, in a leather vest, cotton tunic, and fine boots. \n");
 				pauseText(4);
 				System.out.println("However, you are slightly hungry, and having faster transportation would not hurt. You \n"
@@ -195,7 +198,7 @@ public class WOMstory {	// class header
 			case 2:	// staying in the castle
 				System.out.println("MERCURION: Remember that not all magic is waving wands and casting spells. You need \n"
 						 		 + "to put in the hard work, and that involves some manual labor. Because you did well \n"
-						 		 + "with potion-making yesterday, I will assign you something more ‘interesting' today, \n"
+						 		 + "with potion-making yesterday, I will assign you something more ï¿½interesting' today, \n"
 						 		 + "but in the future, I may not always let you off- \n");
 				pauseText(4);
 				System.out.println("A sudden explosion interrupts his sentence. \n");
@@ -220,7 +223,7 @@ public class WOMstory {	// class header
 					case 1:	// flee
 						System.out.println("Your leather boots pound loudly on stone as you crash towards the hallway. \n"
 										 + "From everywhere yet nowhere, a crashing, harsh voice sounds one word with \n"
-										 + "dreadfully happy glee: “Free. Free. Free.” The floor seems to tilt and the \n"
+										 + "dreadfully happy glee: ï¿½Free. Free. Free.ï¿½ The floor seems to tilt and the \n"
 										 + "air thickens as this voice--this being--asserts its will on the castle. \n"
 										 + "Slowly, you lose the ability to scream (which you barely realized you were \n"
 										 + "doing anyhow). \n");
@@ -292,7 +295,7 @@ public class WOMstory {	// class header
 								System.out.println("\n-=~[GAME OVER]~=-");
 								break;
 								
-							case 2:	// "Heck no boi, we screwed." - Mercurion, 2021
+							case 2:	// "Heck no boi, we screwed." - Mercurion, 2021 :D
 								System.out.println("Mercurion glances towards you with great sadness. \n");
 								pauseText(2);
 								System.out.println("MERCURION: This particular protection spell is the strongest, but against the strongest \n"
@@ -329,7 +332,7 @@ public class WOMstory {	// class header
 														 + "a professor there. Just give me a moment. \n");
 										pauseText(2);
 										System.out.println("Mercurion begins to move his hands in a new pattern, and a faint golden sphere \n"
-														 + "erupts around you. The man’s hands are shaking so badly that you worry he will \n"
+														 + "erupts around you. The manï¿½s hands are shaking so badly that you worry he will \n"
 														 + "not be able to carry out whatever he plans to do. Yet somehow, they keep moving \n"
 														 + "in patterns through the air, and the golden light grows stronger. He locks eyes with you. \n");
 										pauseText(4);
@@ -345,7 +348,7 @@ public class WOMstory {	// class header
 										pauseText(4);
 										System.out.println("You jog through the woods until you reach the main road, the one that stretches across \n"
 														 + "Adalos and touches the seas on either side. You stop at the edge of the cobblestone, the \n"
-														 + "name echoing in your head. “Ruthard.” The University of Meyerstern is not terribly far, \n"
+														 + "name echoing in your head. ï¿½Ruthard.ï¿½ The University of Meyerstern is not terribly far, \n"
 														 + "and you are dressed adequately, in a leather vest, cotton tunic, and fine boots. \n");
 										pauseText(4);
 										System.out.println("However, you are slightly hungry, and having faster transportation would not hurt. You \n"
@@ -364,7 +367,8 @@ public class WOMstory {	// class header
 											System.out.println();
 											switch(choice) {
 											case 1:
-												// method for town scene
+												System.out.println("Hi"); //debugging - this line doesn't work either
+												townScene(); //this method call isn't working
 												break;
 												
 											case 2:
@@ -380,9 +384,9 @@ public class WOMstory {	// class header
 										break;
 										
 									case 2:	// surrender
-										System.out.println("All too soon, the inevitable arrives. The forcefield’s cracks expand with a sharp \n"
+										System.out.println("All too soon, the inevitable arrives. The forcefieldï¿½s cracks expand with a sharp \n"
 														 + "snapping sound, and your body starts turning to stone. You realize that you may be \n"
-														 + "here for a few minutes or for an eternity, mulling over the alchemist’s last, grim \n"
+														 + "here for a few minutes or for an eternity, mulling over the alchemistï¿½s last, grim \n"
 														 + "lesson. Either way, events are no longer in your control. ");
 										pauseText(4);
 										System.out.println("\n-=~[GAME OVER]~=-");
@@ -422,6 +426,160 @@ public class WOMstory {	// class header
 		}
 		
 	}
+
+	private void townScene(){
+		System.out.println("After walking a little ways down The Kingâ€™s Road, you arrive in Edenshel.");
+		pauseText(2);
+		System.out.println("On both sides of the road, merchants display their wares across broad tables.");
+		pauseText(2);
+		System.out.println("Some are muttering, heads together, and you wonder if the explosion at the castle" 
+						+"was loud enough for them to hear.");
+		pauseText(3);
+		System.out.println("However, gossip often occupies the townspeople,"
+						+"and other merchants continue to shout the merits of their products.\n");
+		pauseText(3);
+		System.out.println("You have only the 20 dollars that was on your person when you left the grounds."
+						+"If you buy food, your ability to buy other items will be limited.\n");
+		pauseText(3);
+		String[]foods = {"bread and strawberry preserve", "venison", "dragon tenders"};
+		int[]prices = {5, 10, 15};
+		System.out.println("What would you like to do?\n"
+		+"\t1) Purchase "+foods[0]+" ($"+prices[0]+")\n"
+		+"\t2) Purchase "+foods[1]+" ($"+prices[1]+")\n"
+		+"\t3) Purchase "+foods[2]+" ($"+prices[2]+")\n"
+		+"\t4) Save my money");
+		int op;
+		do{
+			op = carl.nextInt();
+			if(op==1 || op==2 || op==3){
+				inventory.add(foods[op-1]);
+				System.out.println("\nITEM GET! "+foods[op-1]+" x1 has been added to your inventory. \n");
+				money = money - prices[op-1];
+				System.out.println("Monetary balance: $"+money+"\n");
+			}
+			else if(op != 4){
+				System.out.println("Please choose a valid answer.");
+			}
+		}while(!(op==1 || op==2 || op==3 || op==4));
+		System.out.println("You hurry deeper into town and find the stable building.\n");
+		pauseText(2);
+		System.out.println("There is a small table inside the door where the Stable Master sits.\n"
+						+"You have come here once before, seeking his advice on an illness affecting\n"
+						+"the castleâ€™s steeds. He recognizes you now.\n");
+		pauseText(4);
+		System.out.println("STABLE MASTER: Hello, "+charName+". How can I help you today?");
+		pauseText(2);
+		System.out.println(charName.toUpperCase()+": Stable Master, can you please lend me a horse?");
+		pauseText(2);
+		System.out.println("STABLE MASTER: For what purpose?\n");
+		pauseText(2);
+		System.out.println("At that moment, bells begin to ring--not the church bells of the Tamali faith\n"
+						+"(which ring in beautiful melodies)--but a deeper gong. An urgent warning.");
+		pauseText(3);
+		System.out.println("The Stable Masterâ€™s face pales.\n");
+		pauseText(1);
+		System.out.println("STABLE MASTER: *whispering* Oh no. Have you been at the castle recenly?\n"
+						+"Is something happening there? Please, please no . . . ");
+		pauseText(3);
+		System.out.println("STABLE MASTER: The bells ring in pairs. 'Trouble on the horizon, not yet arrived.\n'"
+						+"We are safe for the moment. Have you seen anything suspicious?");
+		pauseText(3);
+		System.out.println(charName.toUpperCase()+": Manasses. Mercurion says he has escaped his banishment,\n" 
+						+"and so Mercurion sent me here--well, technically to the University of Meyerstern,\n"
+						+"but I stopped off for supplies. Please, sir, I need a horse. I will return it,\n"
+						+"but I am supposed to meet Ruthard at the university.\n");
+		pauseText(4);
+		System.out.println("The Stable Master's face is snowy white at this point, but he is also good under pressure.\n");
+		pauseText(2);
+		System.out.println("STABLE MASTER: Of course. A horse.\n");
+		pauseText(2);
+		System.out.println("The man disappears down the hallway and quickly returns, leading a gray steed.\n");
+		pauseText(2);
+		System.out.println("STABLE MASTER: Go, make haste. Would you like my son to come with you? He is an\n"
+							+"accomplished stable hand--he can lead this horse quickly.\n");
+		pauseText(3);
+		System.out.println("1) Yes, thank you for the offer. I could use his assistance.\n"
+							+"2) I appreciate your offer, but I will brave the journey alone.\n"
+							+"Your choice? ");
+		do{
+			op = carl.nextInt();
+			if(op==1){
+				System.out.println("\nA moment later, the Stable Master's son appears\n"
+									+"and introduces himself as Akhal.\n");
+				System.out.println("PARTY MEMBER GET! Akhal added to party\n");
+				PartyMember Akhal = new PartyMember("Akhal");
+				partyMembers.add(Akhal);
+			}
+			else{
+				System.out.println("STABLE MASTER: Very well. I wish you luck.\n");
+			}
+		}while(!(op==1 || op==2));
+		System.out.println("Finally, you visit the armory. The head armorer is just looking the doors when you arrive.\n");
+		pauseText(2);
+		System.out.println(charName+": Please, sir, can I purchase some armor? It is urgent, and I will be quick.\n");
+		pauseText(2);
+		System.out.println("He looks like he is about to resist when he notices the castle's crest on your sash.\n");
+		pauseText(3);
+		System.out.println("ARMORER: *gruffly* Fine. The prices--\n");
+		pauseText(2);
+		System.out.println("He points to a sheet of parchment hanging on the wall.\n");
+		pauseText(2);
+		String[]armor = {"Helmet", "Chestplate", "Shield", "Nothing"};
+		int[]armor_prices = {10, 15, 20, 0};
+		System.out.println("What would you like to buy?\n"
+						+"\t1) "+armor[0]+" ($"+armor_prices[0]+")\n"
+						+"\t2) "+armor[1]+" ($"+armor_prices[1]+")\n"
+						+"\t3) "+armor[2]+" ($"+armor_prices[2]+")\n"
+						+"\t4) "+armor[3]+"\n");
+		boolean go = false;
+		do{
+			op = carl.nextInt();
+			if(op==1){
+				if(money>=armor_prices[0]){
+					inventory.add(armor[0]);
+					System.out.println("\nITEM GET! "+armor[0]+" x1 has been added to your inventory. \n");
+					money = money - armor_prices[0];
+					System.out.println("Monetary balance: $"+money+"\n");
+					go = true;
+				}
+				else{
+					System.out.println("ARMORER: *irritated* You do not have enough to buy "+armor[0]);
+				}
+			}
+			else if(op==2){
+				if(money>=armor_prices[1]){
+					inventory.add(armor[1]);
+					System.out.println("\nITEM GET! "+armor[1]+" x1 has been added to your inventory. \n");
+					money = money - armor_prices[1];
+					System.out.println("Monetary balance: $"+money+"\n");
+					go = true;
+				}
+				else{
+					System.out.println("ARMORER: *irritated* You do not have enough to buy "+armor[1]);
+				}
+			}
+			else if(op==3){
+				if(money>=armor_prices[2]){
+					inventory.add(armor[2]);
+					System.out.println("\nITEM GET! "+armor[2]+" x1 has been added to your inventory. \n");
+					money = money - armor_prices[2];
+					System.out.println("Monetary balance: $"+money+"\n");
+					go = true;
+				}
+				else{
+					System.out.println("ARMORER: *irritated* You do not have enough to buy "+armor[2]);
+				}
+			}
+			else if(op==4){
+				go = true;
+			}
+			else{
+				System.out.println("Please choose a valid answer.");
+			}
+		}while(go==false);
+		System.out.println("Now, equipped for your journey, you head toward the University of Meyerstern.");
+		//call to At the University method
+	}//TownScene
 	
 	private void pauseText(int dur) {	// pause time for a specified period
 		
@@ -466,4 +624,16 @@ public class WOMstory {	// class header
 		
 	}
 	
+}
+
+class PartyMember{
+	String name;
+	int health; //also add power?
+	public PartyMember(String name){
+		this.name = name;
+		health = 20; //randomize this?
+	}
+	public String toString(){
+		return name;
+	}
 }
