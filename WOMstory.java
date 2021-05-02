@@ -36,8 +36,10 @@ public class WOMstory {	// class header
 
 	private void run() {
 		
-		charSelection();
-		castleScene();
+		//charSelection();
+		//castleScene();
+		townScene();
+		universityScene();
 		
 	}
 	
@@ -505,10 +507,10 @@ public class WOMstory {	// class header
 			op = carl.nextInt();
 			if(op==1){
 				System.out.println("\nA moment later, the Stable Master's son appears\n"
-									+"and introduces himself as Akhal.\n");
+									+"and introduces himself as Ahkal.\n");
 				System.out.println("Ahkal has joined the party! \n");
-				PartyMember Akhal = new PartyMember("Akhal");
-				partyMembers.add(Akhal);
+				PartyMember Ahkal = new PartyMember("Ahkal");
+				partyMembers.add(Ahkal);
 			}
 			else{
 				System.out.println("STABLE MASTER: Very well. I wish you luck.\n");
