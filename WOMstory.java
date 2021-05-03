@@ -39,7 +39,6 @@ public class WOMstory {	// class header
 		//charSelection();
 		//castleScene();
 		townScene();
-		universityScene();
 		
 	}
 	
@@ -781,16 +780,17 @@ public class WOMstory {	// class header
         pauseText(3);
         System.out.println("The scene is not unusual near the Berg Mountains which are inhabited\n"
                         +"by a number of goblin and ogre clans. Amidst the low grunts, however,\n"
-                        +"is another voice, and as you look closer, you recognize that their prey is a human.");
+                        +"is another voice, and as you look closer, you recognize that their prey is a human.\n");
         pauseText(3);
         System.out.println("THE STRANGER: HELP!!\n");
-        System.out.println("At his cry, the goblins notice you, and the closest one bears its teeth.\n")
+        System.out.println("At his cry, the goblins notice you, and the closest one bears its teeth.\n");
         pauseText(2);
         System.out.println("Do you rescue the man from the goblins?\n"
                         +"\t1) Yes\n"
                         +"\t2) No\n");
         int op;
         do{
+			op = carl.nextInt();
             if(op==2){
                 System.out.println("You feel terrible about leaving the man on the ground, but you\n"
                                 +"tell yourself that you will save lives by going on towards the trees.\n"
@@ -865,7 +865,7 @@ public class WOMstory {	// class header
                 if(inventory.contains("helmet") || inventory.contains("chestplate") || inventory.contains("shield")){
                     go = true;
                     System.out.println("You take the armor out of your bag and immediately feel better protected.");
-                    pausetext(2);
+                    pauseText(2);
                     System.out.println("You are ready to fight again. What do you do?\n"
                                     +"\t1) Use dagger\n"
                                     +"\t2) Yell loudly\n"
@@ -884,7 +884,7 @@ public class WOMstory {	// class header
                     System.out.println("You take the food from your bag, and immediately feel energized.\n"
                                     +"The pain in your arm diminishes, and you are ready to fight again.\n"
                                     +"What do you do?");
-                    pausetext(2);
+                    pauseText(2);
                     System.out.println("\t1) Use dagger\n"
                                     +"\t2) Yell loudly\n"
                                     +"\t3) Use basic attack/defense spell\n");
@@ -919,7 +919,7 @@ public class WOMstory {	// class header
             else{
                 System.out.println("Please choose a valid option.");
             }
-        }while(!(op==1 || op==2 || op==3 || op==4 || op==5));
+        }while(!(op==1 || op==2 || op==3 || op==4 || op==5) && go==false);
         if(op==2 || op==3 || op==4){
             System.out.println("Once the goblins have disappeared, you turn back towards the stranger.\n"
                             +"He wears a bandana over one eye, suggesting that this is not the first time\n"
@@ -941,7 +941,7 @@ public class WOMstory {	// class header
             do{
                 op = carl.nextInt();
                 if(op==1){
-                    //call to Mihail's tower scene
+                    atMihailsTower();
                 }
                 else if(op==2){
                     System.out.println("MIHAIL: Very well, I will not hold up your progress any more than I have.\n"
@@ -950,6 +950,79 @@ public class WOMstory {	// class header
                 }
             }while(!(op==1 || op==2));
         }
+    }
+
+	private void atMihailsTower(){
+        //String ucname = charName.toUpperCase();	// for ease of formatting
+        String ucname = "Hi";
+
+        System.out.println("Your party soon arrives at a decrepit tower.\n");
+        pauseText(2);
+        System.out.println("MIHAIL: Denise! Where are you?\n");
+        pauseText(2);
+        System.out.println("A lady opens the tower door.\n");
+        pauseText(2);
+        System.out.println("DENISE: Here, Soothsayer.\n");
+        pauseText(2);
+        System.out.println("Mihail gives introductions. Denise, you learn, is his scribe.");
+        pauseText(2);
+        System.out.println("Then, they feed you. He and Denise are gracious hosts.\n"
+                        +"After you have finished the thick soup and tough bread, conversation starts.\n");
+        pauseText(2);
+        System.out.println("MIHAIL: So, where were you off to when you came upon me?");
+        System.out.println(ucname+": We are on our way to destroy the Binary Trees of Utilio. We need their\n"
+                        +"power to defeat Manasses--he has come back from banishment and taken siege of the castle.");
+        pauseText(3);
+        System.out.println("MIHAIL: *aghast* You are going to cut down the trees? Do you even know the tales\n"
+                        +"of them? They are the source of magic for all the land. Cutting them down will stop\n"
+                        +"Manasses, surely, but it will also rob everyone of their powers. Why would you make\n"
+                        +"that decision?");
+        pauseText(3);
+        System.out.println(ucname+": Professor Ruthard at the University of Meyerstern told me to.");
+        pauseText(2);
+        System.out.println("MIHAIL: That place, no no no. Have you not heard the rumors? There is blackmailing \n"
+                        +"business afoot. Ruthard is at the center of it. He and the lady of the sea, Melynas.\n"
+                        +"Something is not right with them. I have seen it in my visions.");
+        pauseText(4);
+        System.out.println(ucname+": What should I do then?\n");
+        pauseText(2);
+        System.out.println("Mihail stands up and begins to pace. After a long while, his eyes alight on a book\n"
+                        +"on the desk.\n");
+        pauseText(2);
+        System.out.println("MIHAIL: I found this book not long ago in an abandoned castle. The spirits\n"
+                        +"there told me to take it. They told me that it may be of some use in the future.\n"
+                        +"I think that you should take it now. Return to the castle with it. I have a feeling\n"
+                        +"that it will help.");
+        pauseText(4);
+        System.out.println("MIHAIL: *after your silence* Please trust me. I will even come with you--and I’ll\n" 
+                        +"bring Denise. If nothing else, we know some spells to try against Manasses. Just please,\n"
+                        +"please do not attack those sacred Binary Trees.");
+        pauseText(3);
+        System.out.println(ucname+": Can I look at the book?\n");
+        pauseText(2);
+        System.out.println("Mihail seems suddenly hesitant to say yes. There is a possessive glint in his eye and\n"
+                        +"a tremor in his hand.");
+        pauseText(4);
+        System.out.println("After a protracted silence, he hands it to you.");
+        pauseText(1);
+        System.out.println("It takes you a moment to translate the Old Elvish on the cover, but once you do,\n"
+                        +"you shiver. 'Tome of Turin,' it says.\n");
+        System.out.println("What would you like to do?\n"
+                        +"\t1) Agree to Mihail's plan.\n"
+                        +"\t2) Continue toward the trees.");
+        int op;
+        do{
+            op = carl.nextInt();
+            if(op==1){
+                //call to back at the castle method
+            }
+            else if(op==2){
+                //call to toward the trees method
+            }
+            else{
+                System.out.println("Please choose a valid option.");
+            }
+        }while(!(op==1 || op==2));
     }
 
 	private boolean checkMember(String nameIn) {	// check if you have a particular party member
