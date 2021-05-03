@@ -482,7 +482,7 @@ public class WOMstory {	// class header
 		System.out.println("STABLE MASTER: *whispering* Oh no. Have you been at the castle recenly?\n"
 						+"Is something happening there? Please, please no . . . ");
 		pauseText(3);
-		System.out.println("STABLE MASTER: The bells ring in pairs. 'Trouble on the horizon, not yet arrived.\n'"
+		System.out.println("STABLE MASTER: The bells ring in pairs. 'Trouble on the horizon, not yet arrived.'\n"
 						+"We are safe for the moment. Have you seen anything suspicious?");
 		pauseText(3);
 		System.out.println(charName.toUpperCase()+": Manasses. Mercurion says he has escaped his banishment,\n" 
