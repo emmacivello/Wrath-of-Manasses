@@ -38,9 +38,6 @@ public class WOMstory {	// class header
 		
 		charSelection();
 		castleScene();
-		// townScene();	// for debugging purposes
-		// universityScene();
-		// bindingManasses();
 		
 	}
 	
@@ -770,7 +767,7 @@ public class WOMstory {	// class header
 			
 		}
 		
-		System.out.println("RUTHARD: Very well. Good luck on your journey, you two. I look forward to your return. ");
+		System.out.println("RUTHARD: Very well. Good luck on your journey, you two. I look forward to your return. \n");
 		goblinFight();
 		
 	}
