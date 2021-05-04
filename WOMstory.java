@@ -233,7 +233,7 @@ public class WOMstory {	// class header
 										 + "stiffens quickly until it matches the stone of the floor. As the voice continues \n"
 										 + "its joyous chant, you realize that you may be here for a few minutes \n"
 										 + "or for an eternity, watching the castle's lawn dissolve into chaos beyond the \n"
-										 + "hallway windows. Either way, events are no longer in your control. ");
+										 + "hallway windows. Either way, events are no longer in your control. \n");
 						pauseText(4);
 						System.out.println("\n-=~[GAME OVER]~=-");
 						break;
@@ -291,7 +291,7 @@ public class WOMstory {	// class header
 								pauseText(4);
 								System.out.println("Then, Mercurion's protection gives way, and Manasses's spell engulfs the two of you. \n"
 												 + "You realize that you may be here for a few minutes or for an eternity, mulling over the \n"
-												 + "alchemist's last, grim lesson. Either way, it is no longer in your control. ");
+												 + "alchemist's last, grim lesson. Either way, it is no longer in your control. \n");
 								pauseText(4);
 								System.out.println("\n-=~[GAME OVER]~=-");
 								break;
@@ -388,7 +388,7 @@ public class WOMstory {	// class header
 										System.out.println("All too soon, the inevitable arrives. The forcefield's cracks expand with a sharp \n"
 														 + "snapping sound, and your body starts turning to stone. You realize that you may be \n"
 														 + "here for a few minutes or for an eternity, mulling over the alchemist's last, grim \n"
-														 + "lesson. Either way, events are no longer in your control. ");
+														 + "lesson. Either way, events are no longer in your control. \n");
 										pauseText(4);
 										System.out.println("\n-=~[GAME OVER]~=-");
 										break;
@@ -857,7 +857,7 @@ public class WOMstory {	// class header
                 pauseText(3);
                 System.out.println("You realize that you will not make it to your destination in time. Pictures of Mercurion\n"
                                 +"and the castle, encased in stone, flash before your vision as the goblin leaps on top of you.\n"
-                                +"The situation is out of your control.\n"
+                                +"The situation is out of your control. \n"
                                 +"\n-=~[GAME OVER]~=-");
 
             }
@@ -1025,6 +1025,34 @@ public class WOMstory {	// class header
         }while(!(op==1 || op==2));
     }
 
+	private void bindingManasses() {	// binding Manasses with the String of Morcom
+		
+		System.out.println("It takes a final, brief command to bind the man - his body zooms \n"
+						 + "toward the bracelet that you hold, outstretched, in one hand. ");
+		pauseText(2);
+		System.out.println("When he comes close enough, he shrinks and then merges with the \n"
+						 + "metal. After the process finishes, you take a glance at the bracelet. \n"
+						 + "It looks completely unchanged. \n");
+		pauseText(3);
+		System.out.println(charName.toUpperCase() + ": I think I'll call this... the String of Morcom. \n");
+		pauseText(2);
+		System.out.println("You move towards the castle. With each step you take, a wave of color \n"
+						 + "spreads outward. The stone spell is retreating. \n");
+		pauseText(2);
+		System.out.println("You win... but at the cost of the world's magic. Was it worth it? \n");
+		pauseText(3);
+		System.out.println("You can almost hear these questions in the king's mind as he shakes \n"
+						 + "your hand. Another woman in dark clothing stands next to him. \n");
+		pauseText(2);
+		System.out.println("KARALIUS: This lady here is Denise. She is a scribe for Mihail, the \n"
+						 + "Soothsayer of Sedes. She is going to ask you some questions about the \n"
+						 + "events that have just transpired, and we will send you a copy of the \n"
+						 + "record. Thank you again for you service. \n");
+		pauseText(4);
+		System.out.println("\n-=~[THE END]~=-");
+		
+	}
+	
 	private boolean checkMember(String nameIn) {	// check if you have a particular party member
 		for(PartyMember member: partyMembers) {
 			if(member != null && member.getName().equals(nameIn)) {
