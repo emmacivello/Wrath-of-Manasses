@@ -1048,6 +1048,223 @@ public class WOMstory {	// class header
         }while(!(op==1 || op==2));
     }
 
+private void burningTrees() {	// burning dem trees
+		
+		System.out.println("A day passes. It is nearly nightfall before you notice that the trees \n"
+						 + "on either side of the road are no longer dark oak or spruce, but a new \n"
+						 + "species of silvery birch. ");
+		pauseText(3);
+		System.out.println("Checking Ruthard's map, you find your position on the edge of The Argent Woods. ");
+		pauseText(2);
+		System.out.println("You must decide where to go. The map shows the trees' general location, \n"
+						 + "but the path you are on splits into three. \n");
+		pauseText(2);
+		
+		int choice = -1;
+		while(choice != 2) {
+			System.out.print("Choose an action. \n"
+					 + "\t1) Head left. \n"
+					 + "\t2) Head straight. \n"
+					 + "\t3) Head right. \n"
+					 + "Your choice? ");
+			choice = carl.nextInt();
+			System.out.println();
+			switch(choice) {
+			case 1:	// head left
+				System.out.println("After traveling for a while, you realize that this is not the correct path. \n"
+								 + "This path travels by a small pond and then veers off to the north, away from \n"
+								 + "the area on the map. You backtrack to the fork. \n");
+				pauseText(3);
+				break;
+				
+			case 2:	// head straight
+				System.out.println("It turns out the center path is the correct one, but it takes a long time for \n"
+								 + "you to realize that. After traveling down the same path for what feels like \n"
+								 + "the fourth time, you suddenly arrive at a clearing that was not there on your \n"
+								 + "first three passes. ");
+				pauseText(4);
+				System.out.println("The Binary Trees - for what else could they be? - sit apart from the rest of \n"
+								 + "the forest in a small clearing. You have never before seen trees with such pale \n"
+								 + "bark or such golden leaves. Furthermore, they seem to shimmer, to emit a wave of \n"
+								 + "energy that makes the surrounding grass greener and the surrounding air clearer. ");
+				pauseText(4);
+				System.out.println("Despite their beauty, you must bring them down. You didn't come all this way \n"
+								 + "just to sightsee. You approach the tree on the left. \n");
+				pauseText(3);
+				
+				choice = -1;
+				while(choice != 1 && choice != 2 && choice != 3) {
+					System.out.print("Which part would you like to burn first? \n"
+							 + "\t1) The trunk. \n"
+							 + "\t2) The branches. \n"
+							 + "\t3) The leaves. \n"
+							 + "Your choice? ");
+					choice = carl.nextInt();
+					System.out.println();
+					switch(choice) {
+					case 1:
+						System.out.println("The trunk begins to blaze a fierce yellow, but the fire quickly dims to orange, then \n"
+										 + "red, then nothing. The bark seems to be flame resistant. You turn to the right tree, \n"
+										 + "hoping that it is weaker. \n");
+						pauseText(3);
+						break;
+						
+					case 2:
+						System.out.println("The branches begin to blaze a fierce yellow, but the fire quickly dims to orange, then \n"
+										 + "red, then nothing. The branches seems to be flame resistant. You turn to the right tree, \n"
+										 + "hoping that it is weaker. \n");
+						pauseText(3);
+						break;
+						
+					case 3:
+						System.out.println("The leaves begin to blaze a fierce yellow, but the fire quickly dims to orange, then \n"
+										 + "red, then nothing. The leaves seems to be flame resistant. You turn to the right tree, \n"
+										 + "hoping that it is weaker. \n");
+						pauseText(3);
+						break;
+					}
+					
+					if(choice != 1 && choice != 2 && choice != 3)
+						System.out.println("Please choose a valid answer. \n");
+					
+				}
+				
+				choice = -1;
+				while(choice != 1 && choice != 2 && choice != 3) {
+					
+					System.out.print("Which area do you light on fire? \n"
+							 + "\t1) The trunk. \n"
+							 + "\t2) The branches. \n"
+							 + "\t3) The leaves. \n"
+							 + "Your choice? ");
+					choice = carl.nextInt();
+					System.out.println();
+					
+					System.out.println("Again, the flames start and stop. Your head begins to feel heavy, and the flamethrower \n"
+									 + "slips in the sweat that has accumulated on your hands. You hear a voice, a low moaning, \n"
+									 + "that rings in your ears but not in the clearing. It is as though the trees have a guardian, \n"
+									 + "and it is invading your mind. You must concentrate, for you have one use of the flamethrower remaining. \n");
+					pauseText(4);
+					
+					if(choice != 1 && choice != 2 && choice != 3)
+						System.out.println("Please choose a valid answer. \n");
+					
+				}
+				
+				choice = -1;
+				while(choice != 1 && choice != 2 && choice != 3) {
+					
+					System.out.print("Which area do you light on fire? \n"
+							 + "\t1) The trunk. \n"
+							 + "\t2) The branches. \n"
+							 + "\t3) The leaves. \n"
+							 + "Your choice? ");
+					choice = carl.nextInt();
+					System.out.println();
+					
+					System.out.println("This time, the right tree catches fire and stays lit. The flames must have gotten \n"
+									 + "through the bark and into the wood at the tree's core, for it starts to glow from the inside. ");
+					pauseText(2);
+					System.out.println("A moment later, as Ruthard had described, you absorb the full force of a magical \n"
+									 + "wave that emanates from the tree as it crashes down.");
+					pauseText(2);
+					System.out.println("The left tree is now on fire since its branches are entwined with those of the right one. A \n"
+									 + "moment later, you catch the left tree in one hand just before it crashes into your head. You \n"
+									 + "don't even feel the heat. You lower it slowly to the ground as though it were a mere twig. \n");
+					pauseText(3);
+					
+					choice = -1;
+					while(choice != 1 && choice != 2 && choice != 3) {
+						System.out.print("Eager to test out your new power, you: \n"
+								 + "\t1) Pick up a nearby boulder. \n"
+								 + "\t2) Cast a spell on a nearby ant. \n"
+								 + "\t3) Cast a flight spell on yourself. \n"
+								 + "Your choice? ");
+						choice = carl.nextInt();
+						System.out.println();
+						switch(choice) {
+						case 1:	// pick up rock
+							System.out.println("The boulder is light, like a pebble. ");
+							pauseText(2);
+							break;
+							
+						case 2:	// animal abuse
+							System.out.println("The ant pauses. You are able to make it run, dance, and jump with your mind. ");
+							pauseText(2);
+							break;
+							
+						case 3:	// I believe I can flyyy
+							System.out.println("You have always struggled with this spell, but now it is easy. You hover a \n"
+											 + "few feet off the ground. ");
+							pauseText(2);
+							break;
+						}
+						
+						if(choice != 1 && choice != 2 && choice != 3)
+							System.out.println("Please choose a valid answer. \n");
+							
+					}
+					
+					if(partyMembers.size() == 1)
+						System.out.println("Your companion is very impressed. \n");
+					else if(partyMembers.size() >= 2)
+						System.out.println("Your companions are very impressed. \n");
+					
+					if(checkMember("Ahkal")) {
+						System.out.println("AHKAL: *whistles* Now that's what I'm talking about. ");
+						pauseText(2);
+					}
+					if(checkMember("Mihail") && checkMember("Denise")) {
+						System.out.println("MIHAIL: *claps* Nice! Very nice. ");
+						pauseText(2);
+						System.out.println("DENISE: You can say that again. ");
+						pauseText(2);
+					}
+					if(checkMember("Vertaine")) {
+						System.out.println("VERTAINE: That is COOL. ");
+						pauseText(2);
+					}
+					System.out.println();
+						
+					if(partyMembers.size() > 1) {
+						System.out.println("It seems like you've all absorbed a little bit of the magical essence, for \n"
+										 + partyMembers.get((int)(Math.random()*partyMembers.size())).getName() + " is now able to roll a boulder along the ground with ease. ");
+						pauseText(2);
+						System.out.println("You also realize that you have now gained the ability to run quickly. The \n"
+										 + "group concedes to split up. You will run ahead, and they will follow on horseback. ");
+						pauseText(2);
+					}
+					else {
+						System.out.println("You also realize that you have now gained the ability to run quickly. With \n"
+										 + "not a moment to waste, you begin running in the direction of the castle. ");
+						pauseText(2);
+					}
+			
+					// START TYPING SECOND CASTLE PART HERE
+					
+					if(choice != 1 && choice != 2 && choice != 3)
+						System.out.println("Please choose a valid answer. \n");
+					
+				}
+				
+				break;
+				
+			case 3:	// head right
+				System.out.println("After traveling for a while, you realize that this is not the correct path. \n"
+								 + "This path turns south, away from the area on the map. You backtrack to the fork. \n");
+				pauseText(3);
+				break;
+			}
+			
+			if(choice != 1 && choice != 2 && choice != 3)
+				System.out.println("Please choose a valid answer. \n");
+			
+			choice = 2;
+			
+		}
+		
+	}
+	
 	private void bindingManasses() {	// binding Manasses with the String of Morcom
 		
 		System.out.println("It takes a final, brief command to bind the man - his body zooms \n"
@@ -1083,6 +1300,23 @@ public class WOMstory {	// class header
 			}
 		}
 		return false;
+	}
+	
+	private void fullHouse() {
+		if(gender.equals("boy"))
+			partyMembers.add(new PartyMember("Reyna"));
+		else if(gender.equals("girl"))
+			partyMembers.add(new PartyMember("Reinhardt"));
+		partyMembers.add(new PartyMember("Ahkal"));
+		partyMembers.add(new PartyMember("Mihail"));
+		partyMembers.add(new PartyMember("Denise"));
+		partyMembers.add(new PartyMember("Ruthard"));
+		partyMembers.add(new PartyMember("Melynas"));
+		partyMembers.add(new PartyMember("Vertaine"));
+		partyMembers.add(new PartyMember("Mercurion"));
+		partyMembers.add(new PartyMember("Karalius"));
+		partyMembers.add(new PartyMember("Turin"));
+		partyMembers.add(new PartyMember("Manasses"));
 	}
 	
 	private void pauseText(int dur) {	// pause time for a specified period
