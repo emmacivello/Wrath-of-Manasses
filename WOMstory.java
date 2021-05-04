@@ -36,9 +36,11 @@ public class WOMstory {	// class header
 
 	private void run() {
 		
-		//charSelection();
-		//castleScene();
-		townScene();
+		charSelection();
+		castleScene();
+		// townScene();	// for debugging purposes
+		// universityScene();
+		// bindingManasses();
 		
 	}
 	
