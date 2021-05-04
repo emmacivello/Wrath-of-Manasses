@@ -619,8 +619,11 @@ public class WOMstory {	// class header
 		pauseText(2);
 
 		if(charName.equals("Ruthard"))
-			System.out.println("WOMAN IN BLUE: How fascinating, you two have the same name. The professor has just \n"
-							 + "returned from his break. You can find him in his office on the second floor. Please, come in. \n");
+			System.out.println("WOMAN IN BLUE: How fascinating, you two share a name. The professor has just returned "
+							 + "from his break. You can find him in his office on the second floor. Please, come in. \n");
+		else if(charName.equals("Melynas"))
+			System.out.println("WOMAN IN BLUE: That's my name as well! Anyway, the professor has just returned from \n"
+							 + "his break. You can find him in his office on the second floor. Please, come in. \n");
 		else
 			System.out.println("WOMAN IN BLUE: The professor has just returned from his break. You can find him \n"
 						 	 + "in his office on the second floor. Please, come in. \n");
@@ -642,9 +645,9 @@ public class WOMstory {	// class header
 						 + "you are unable to pinpoint why exactly you feel so uncomfortable. \n");
 		pauseText(4);
 		
-		System.out.print("RUTHARD: Greetings, it's a pleasure to meet you! I apologize for the mess. Please, take a seat! What may I help you with? ");
+		System.out.println("RUTHARD: Greetings, it's a pleasure to meet you! I apologize for the mess. Please, take a seat! What may I help you with? \n");
 		if(charName.equals("Ruthard"))
-			System.out.println("Melynas told me we share a name- how exciting! It's always a pleasure, meeting another Ruthard. ");
+			System.out.println("Melynas told me we share a name- how exciting! It's always a pleasure, meeting another Ruthard. \n");
 		System.out.println();
 		
 		pauseText(2);
