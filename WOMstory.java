@@ -1217,7 +1217,7 @@ public class WOMstory {	// class header
 					if(checkMember("Mihail") && checkMember("Denise")) {
 						System.out.println("MIHAIL: *claps* Nice! Very nice. ");
 						pauseText(2);
-						System.out.println("DENISE: You can say that again. ");
+						System.out.println("DENISE: I agree with Mihail. ");
 						pauseText(2);
 					}
 					if(checkMember("Vertaine")) {
