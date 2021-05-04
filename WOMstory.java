@@ -1048,7 +1048,7 @@ public class WOMstory {	// class header
         }while(!(op==1 || op==2));
     }
 
-private void burningTrees() {	// burning dem trees
+	private void burningTrees() {	// burning dem trees
 		
 		System.out.println("A day passes. It is nearly nightfall before you notice that the trees \n"
 						 + "on either side of the road are no longer dark oak or spruce, but a new \n"
