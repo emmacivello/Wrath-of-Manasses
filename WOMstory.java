@@ -771,6 +771,9 @@ public class WOMstory {	// class header
 								 + "cloak and a horse from the stable. There are evil things happening at the castle - I'm sure " + charName + "\n "
 								 + "will explain to you on the way. Please be careful, my dear. ");
 				
+				if(charName.equals("Vertaine"))
+					System.out.println("VERTAINE: *smiles* I've never met another Vertaine before. That's dope. ");
+				
 				pauseText(1);
 				System.out.println("Vertaine has joined the party! \n");
 				partyMembers.add(new PartyMember("Vertaine"));
