@@ -145,7 +145,11 @@ public class WOMstory {	// class header
 				System.out.println("There is a great pause. The man in the window seems to be fighting off a force- one \n"
 								 + "that is invisible, but no less powerful than something that can be seen. \n");
 				pauseText(3);
-				System.out.println("MERCURION: *gasps* Go to Meyerstern. Find my old friend, Ruthard. \n");
+				if(charName.equals("Ruthard"))
+					System.out.println("MERCURION: *gasps* Go to Meyerstern. Find my old friend, Ruthard. Yes, he has the \n"
+									 + "same name as you. No, I will not... be taking any more questions. \n");
+				else
+					System.out.println("MERCURION: *gasps* Go to Meyerstern. Find my old friend, Ruthard. \n");
 				pauseText(2);
 				System.out.println("The gray wave makes its way towards you. You look down in horror as the nearby grass \n"
 								 + "begins to turn into stone. \n");
@@ -161,7 +165,7 @@ public class WOMstory {	// class header
 				pauseText(4);
 				System.out.println("You jog through the woods until you reach the main road, the one that stretches across \n"
 								 + "Adalos and touches the seas on either side. You stop at the edge of the cobblestone, the \n"
-								 + "name echoing in your head. �Ruthard.� The University of Meyerstern is not terribly far, \n"
+								 + "name echoing in your head. \"Ruthard.\" The University of Meyerstern is not terribly far, \n"
 								 + "and you are dressed adequately, in a leather vest, cotton tunic, and fine boots. \n");
 				pauseText(4);
 				System.out.println("However, you are slightly hungry, and having faster transportation would not hurt. You \n"
@@ -324,7 +328,11 @@ public class WOMstory {	// class header
 										System.out.println("Your question seems to shake the alchemist from his dark thoughts. His eyes \n"
 														 + "brighten suddenly. \n");
 										pauseText(3);
-										System.out.println("MERCURION: Go find my old friend, Ruthard. ");
+										if(charName.equals("Ruthard"))
+											System.out.println("MERCURION: Go find my old friend, Ruthard. Yes, he has the same name as you. No, I never \n"
+															 + "understood either.");
+										else
+											System.out.println("MERCURION: Go find my old friend, Ruthard. ");
 										pauseText(2);
 										System.out.println(ucname + ": What? ");
 										pauseText(2);
@@ -367,8 +375,7 @@ public class WOMstory {	// class header
 											System.out.println();
 											switch(choice) {
 											case 1:
-												// System.out.println("Hi"); //debugging - this line doesn't work either
-												townScene(); //this method call isn't working
+												townScene();	// method for town scene
 												break;
 												
 											case 2:
@@ -610,8 +617,14 @@ public class WOMstory {	// class header
 		System.out.println(charName.toUpperCase() + ": " + charName + ", a journeyman under the tutelage of the alchemist Mercurion. He sent \n"
 						 + "me here to speak with Professor Ruthard. ");
 		pauseText(2);
-		System.out.println("WOMAN IN BLUE: The professor has just returned from his break. You can find him \n"
-						 + "in his office on the second floor. Please, come in. \n");
+
+		if(charName.equals("Ruthard"))
+			System.out.println("WOMAN IN BLUE: How fascinating, you two have the same name. The professor has just \n"
+							 + "returned from his break. You can find him in his office on the second floor. Please, come in. \n");
+		else
+			System.out.println("WOMAN IN BLUE: The professor has just returned from his break. You can find him \n"
+						 	 + "in his office on the second floor. Please, come in. \n");
+		
 		pauseText(2);
 		System.out.println("You follow the woman through the side door and up a grand staircase. She leads you to a closed door. \n");
 		pauseText(2);
@@ -628,7 +641,12 @@ public class WOMstory {	// class header
 						 + "and quite organized - the professor obviously takes great pride in keeping everything tidy. However, \n"
 						 + "you are unable to pinpoint why exactly you feel so uncomfortable. \n");
 		pauseText(4);
-		System.out.println("RUTHARD: Greetings, it's a pleasure to meet you! I apologize for the mess. Please, take a seat! What may I help you with? \n");
+		
+		System.out.print("RUTHARD: Greetings, it's a pleasure to meet you! I apologize for the mess. Please, take a seat! What may I help you with? ");
+		if(charName.equals("Ruthard"))
+			System.out.println("Melynas told me we share a name- how exciting! It's always a pleasure, meeting another Ruthard. ");
+		System.out.println();
+		
 		pauseText(2);
 		System.out.println("You explain your quest to Ruthard. His smile disappears and is replaced by a frown. You are finally able to pinpoint \n"
 						 + "where the feeling of uncertainty comes from - the professor seems kind, but there is something behind his eyes and \n"
@@ -643,7 +661,7 @@ public class WOMstory {	// class header
 						 + "of scrolls stacked on it. After finding the one he wants, he returns to the desk and places it on the table. It appears \n"
 						 + "to be a rather detailed map of Adalos. \n");
 		pauseText(3);
-		System.out.println("RUTHARD: A few of my colleagues went on a quest,� he said. �Many years ago. They went west to visit the Binary Trees \n"
+		System.out.println("RUTHARD: A few of my colleagues went on a quest. Many years ago. They went west to visit the Binary Trees \n"
 						 + "of Utilio. These trees, it is said, hold great magical power. Apparently the person who destroys them is imbued with \n"
 						 + "that power and becomes strong enough to face great foes. \n");
 		pauseText(3);
@@ -1043,7 +1061,7 @@ public class WOMstory {	// class header
 		System.out.println("You can almost hear these questions in the king's mind as he shakes \n"
 						 + "your hand. Another woman in dark clothing stands next to him. \n");
 		pauseText(2);
-		System.out.println("KARALIUS: This lady here is Denise. She is a scribe for Mihail, the \n"
+		System.out.println("KARALIUS: This woman here is Denise. She is a scribe for Mihail, the \n"
 						 + "Soothsayer of Sedes. She is going to ask you some questions about the \n"
 						 + "events that have just transpired, and we will send you a copy of the \n"
 						 + "record. Thank you again for you service. \n");
