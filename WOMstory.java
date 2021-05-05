@@ -921,6 +921,7 @@ public class WOMstory {	// class header
             }
             else if(op==4){
                 if(!partyMembers.isEmpty()){
+					go = true;
                     if(partyMembers.size()==1)
                         System.out.println("You scramble backwards and watch as "+partyMembers.get(0).getName()+" joins the stranger\n"
                                             +"and successfully drives the goblins back into the woods.");
@@ -933,6 +934,7 @@ public class WOMstory {	// class header
                 }
             }
             else if(op==5){
+				go = true;
                 System.out.println("You feel terrible about leaving the man on the ground, but if you had stayed to fight,"
                                 +"you yourself would have perished.");
                 pauseText(2);
