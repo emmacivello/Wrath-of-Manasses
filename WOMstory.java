@@ -515,10 +515,12 @@ public class WOMstory {	// class header
 				System.out.println("\nA moment later, the Stable Master's son appears\n"
 									+"and introduces himself as Ahkal.\n");
 				System.out.println("Ahkal has joined the party! \n");
+				pauseText(2);
 				PartyMember Ahkal = new PartyMember("Ahkal");
 				partyMembers.add(Ahkal);
 				if(ucname.equals("AHKAL")){
-					System.out.println("The stable hand laughs when you introduce yourself as another Ahkal.\n");
+					System.out.println("Ahkal laughs when you introduce yourself as another Ahkal.\n");
+					pauseText(2);
 					System.out.println("STABLE MASTER: Oh boy, this could get confusing. *chuckles* Anyhow, good\n"
 									+"luck on your quest.");
 				}
@@ -527,6 +529,7 @@ public class WOMstory {	// class header
 				System.out.println("STABLE MASTER: Very well. I wish you luck.\n");
 			}
 		}while(!(op==1 || op==2));
+		pauseText(3);
 		System.out.println("Finally, you visit the armory. The head armorer is just looking the doors when you arrive.\n");
 		pauseText(2);
 		System.out.println(charName.toUpperCase()+": Please, sir, can I purchase some armor? It is urgent, and I will be quick.\n");
