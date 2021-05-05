@@ -942,7 +942,7 @@ public class WOMstory {	// class header
             else{
                 System.out.println("Please choose a valid option.");
             }
-        }while(!(op==1 || op==2 || op==3 || op==4 || op==5) && go==false);
+        }while(!(op==1 || op==2 || op==3 || op==4 || op==5) || go==false);
         if(op==2 || op==3 || op==4){
             System.out.println("Once the goblins have disappeared, you turn back towards the stranger.\n"
                             +"He wears a bandana over one eye, suggesting that this is not the first time\n"
@@ -1048,6 +1048,7 @@ public class WOMstory {	// class header
     }
 
 	private void burningTrees() {	// burning dem trees
+		String ucname = charName.toUpperCase();
 		
 		System.out.println("A day passes. It is nearly nightfall before you notice that the trees \n"
 						 + "on either side of the road are no longer dark oak or spruce, but a new \n"
@@ -1238,8 +1239,110 @@ public class WOMstory {	// class header
 										 + "not a moment to waste, you begin running in the direction of the castle. ");
 						pauseText(2);
 					}
-			
-					// START TYPING SECOND CASTLE PART HERE
+
+					String ucname = charName.toUpperCase();
+					System.out.println("It takes you less than an hour to return to the castle. You stop on the edge of the stone spell,\n"
+									+"still unsure what will happen if you touch it. Even from this distance, however, you can see\n"
+									+"Manasses lounging on the castle’s front steps. His golden, horn-like crown reflects the sun, and he\n"
+									+"has draped his long scarlet cape over the bannister.\n");
+					pauseText(4);
+					System.out.println("You decide to attempt a binding spell, and so you remove a bracelet from your wrist--\n"
+									+"this will be the artifact in which you trap him. You start to perform the binding spell\n"
+									+"when suddenly, your powers allow you to take control of his mind.\n");
+					pauseText(4);
+					System.out.println("What do you do next?\n"
+									+"\t1) Immediately bind him to the bracelet\n"
+									+"\t2) Bring him over to the edge of the stone so that you can talk.\n");
+					int op;
+					do{
+						op = carl.nextInt();
+						if(op==1){
+							System.out.println("With another half-effort, you compel this powerful being to stand at your bidding.\n"
+											+"You watch him turn his hands over, attempting to cast a spell--probably one for protection.\n"
+											+"Manasses seems at first confused and then terrified when it does not work.\n");
+							pauseText(4);
+							bindingManasses();
+						}
+						else if(op==2){
+							System.out.println("He speaks first.\n");
+							pauseText(1);
+							System.out.println("MANASSES: So you are the one who killed the trees. Never thought it’d be a student."
+											+"Always thought it’d be myself. Opportunity lost I suppose, but nicely done.");
+							pauseText(3);
+							System.out.println("Being praised by such an evil being makes you feel queasy and so you turn the conversation.\n");
+							pauseText(3);
+							System.out.println(ucname+": How did you escape your banishment?");
+							pauseText(2);
+							System.out.println("MANASSES: “Maybe because Turin, my dear old friend, trapped me in this dollar store trinket.\n");
+							pauseText(2);
+							System.out.println("He holds out a strand of plastic beads.\n");
+							pauseText(2);
+							System.out.println("MANASSES: I would've at least expected gold. Not because it's a fine metal, a tribute to our\n"
+											+"fine friendship, but because it's hard to break out of as banishment curses go. I thought he would\n"
+											+"have known this.\n");
+							pauseText(4);
+							System.out.println("As Manasses continues to describe the properties of metals, it strikes you that this accomplished\n"
+											+"sorcerer may know a way to replant the trees. You feel immense guilt for what you did, and so you\n"
+											+"decide to ask when he pauses for breath.\n");
+							pauseText(3);
+							System.out.println(ucname+": Is there a way to restore the trees?");
+							pauseText(2);
+							System.out.println("MANASSES: I know of one, but if I tell you, you must agree to a bargain. You cannot banish me,\n"
+											+"and you must promise to restore the trees--to restore magic to the people of this world.");
+							pauseText(2);
+							System.out.println("'To yourself, you mean,' you add in your head.\n");
+							pauseText(2);
+							System.out.println("Option: Do you accept these terms?\n"
+											+"\t1) Yes. Your guilt is overwhelming and besides, you figure that there will be a way to keep Manasses\n"
+											+"\tfrom regaining power. It would be breaking this bargain, but that is a trick he has pulled on so many others\n"
+											+"\tin the past. It would be fitting. You shake his hand.\n"
+											+"\t2) No. If you did, you would be undoing all of your previous work, and besides someone else must know how to\n"
+											+"replant the trees. You decide to hold onto the guilt a while longer.\n");
+							do{
+								if(op==1){
+									System.out.println("As you shake his hand, you suddenly feel very heavy. You're not turning to rock--at least\n"
+													+"not yet--but you realize that you no longer have the trees' power. It also becomes evident that Manasses\n"
+													+"does . . . how?\n");
+									pauseText(4);
+									System.out.println("MANASSES: *as though reading your mind* Ha! Skin-to-skin contact. Specifically, palm-to-palm.\n"
+													+"The easiest way to transfer a power if you know how.");
+									pauseText(3);
+									System.out.println("Of course, Spell-Sharing was a bit experimental in my day, but it's a good thing I broke the law to\n"
+													+"study it. Thank you for the powers ... what is your name?\n");
+									pauseText(4);
+									System.out.println("He pulls it out of your mind before you can answer. "+ucname+". Thank you, "+ucname+". You know, I was\n"
+													+"really hoping my colleague Professor Ruthard of Meyerstern was going to help me himself, but it seems that\n"
+													+"you are a good proxy.\n");
+									pauseText(4);
+									System.out.println("Come into the castle. I won’t turn you to stone, don’t worry! I want to tell you about my plans for the\n"
+													+"future, about how I will rescue countries beyond Adalos’ borders, about how I will expand the boundaries of\n"
+													+"what is possible with magic. Would you like to listen?\n");
+									pauseText(4);
+									System.out.println("It is a question, but you no longer have a choice of answers.");
+									pauseText(2);
+									System.out.println("Your fate--and the world's--is now out of your hands, and so you follow Manasses into the castle.");
+									if(!partyMembers.isEmpty()){
+										if(partyMembers.size()==1)
+											System.out.println("Your last fleeting hope is that "+partyMembers.get(0).getName()+" absorbed enough of the trees'\n"
+															+"magic to fight Manasses.\n");
+										else
+											System.out.println("Your last fleeting hope is that your traveling companions absorbed enough of the trees'\n"
+															+"magic to fight Manasses.\n");
+									}
+									System.out.println("-=~[THE END]~=-");
+								}//if
+								else if(op==2){
+									bindingManasses();
+								}//else if
+								else{
+									System.out.println("Please choose a valid option.");
+								}
+							}while(!(op==1 || op==2));
+						}
+						else{
+							System.out.println("Please enter a valid choice.");
+						}
+					}while(!(op==1||op==2));
 					
 					if(choice != 1 && choice != 2 && choice != 3)
 						System.out.println("Please choose a valid answer. \n");
@@ -1424,7 +1527,7 @@ public class WOMstory {	// class header
                         +"\t1) "+foods[0]+"\n"
                         +"\t2) "+foods[1]+"\n"
                         +"\t3) "+foods[2]+"\n");
-        String food;
+        String food = "";
         do{
             if(!(op==1 || op==2 || op==3))
                 System.out.println("Please choose a valid option.");
@@ -1436,7 +1539,7 @@ public class WOMstory {	// class header
                         +"\t1) "+drinks[0]+"\n"
                         +"\t2) "+drinks[1]+"\n"
                         +"\t3) "+drinks[2]+"\n");
-        String drink;
+        String drink = "";
         do{
             if(!(op==1 || op==2 || op==3))
                 System.out.println("Please choose a valid option.");
