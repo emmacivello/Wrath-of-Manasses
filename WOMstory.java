@@ -791,7 +791,7 @@ public class WOMstory {	// class header
 			
 		}
 		
-		System.out.println("RUTHARD: Very well. Good luck on your journey, you two. I look forward to your return. \n");
+		System.out.println("RUTHARD: Very well. Good luck on your journey. I look forward to your return. \n"); //I took out the 'you two' part because it was reading even if Vertaine didn't join
 		goblinFight();
 		
 	}
@@ -904,8 +904,12 @@ public class WOMstory {	// class header
             else if(op==3){
                 if(inventory.contains("bread and strawberry preserve") || inventory.contains("venison") || inventory.contains("dragon tenders")){
                     go = true;
-                    System.out.println("You take the food from your bag, and immediately feel energized.\n"
-                                    +"The pain in your arm diminishes, and you are ready to fight again.\n"
+					if(inventory.contains("bread and strawberry preserve") inventory.remove();
+					else if(inventory.contains("venison") inventory.remove();
+					else if(inventory.contains("dragon tenders") inventory.remove();
+                    System.out.println("You take the food from your bag [ITEM removed from INVENTORY], and\n"
+									+"immediately feel energized. The pain in your arm diminishes, and you\n"
+                                    +"are ready to fight again.\n"
                                     +"What do you do?");
                     pauseText(2);
                     System.out.println("\t1) Use dagger\n"
