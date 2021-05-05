@@ -435,6 +435,7 @@ public class WOMstory {	// class header
 	}
 
 	private void townScene(){
+		String ucname = charName.toUpperCase();
 		System.out.println("After walking a little ways down The King's Road, you arrive in Edenshel.");
 		pauseText(2);
 		System.out.println("On both sides of the road, merchants display their wares across broad tables.");
@@ -516,6 +517,11 @@ public class WOMstory {	// class header
 				System.out.println("Ahkal has joined the party! \n");
 				PartyMember Ahkal = new PartyMember("Ahkal");
 				partyMembers.add(Ahkal);
+				if(ucname.equals("AHKAL")){
+					System.out.println("The stable hand laughs when you introduce yourself as another Ahkal.\n");
+					System.out.println("STABLE MASTER: Oh boy, this could get confusing. *chuckles* Anyhow, good\n"
+									+"luck on your quest.");
+				}
 			}
 			else{
 				System.out.println("STABLE MASTER: Very well. I wish you luck.\n");
@@ -797,6 +803,7 @@ public class WOMstory {	// class header
 	}
 
 	private void goblinFight(){
+		String ucname = charName.toUpperCase();
 		System.out.println("You have been travelling toward the trees for a little while when\n"
                         +"you come upon three goblins crouching over some sort of prey on the side\n"
                         +"of the road.");
@@ -963,10 +970,13 @@ public class WOMstory {	// class header
                             +"often identify themselves with such tattoos. He speaks just then, answering your\n"
                             +"unspoken question.\n");
             pauseText(4);
-            System.out.println("MIHAIL: Thank you one thousand times. My name is Mihail, Soothsayer of Sedes.\n"
+            System.out.println("SOOTHSAYER?: Thank you one thousand times. My name is Mihail, Soothsayer of Sedes.\n"
                             +"You have just saved my life. Can I ask you to return to my tower with me?\n"
                             +"I can feed you and treat your wounds. Perhaps I can start to repay you.\n");
             pauseText(3);
+			if(ucname.equals("MIHAIL")){
+				System.out.println(ucname+": No way, your name is Mihail? That's my name, too.");
+			}
             System.out.println("Would you like to go to Mihail’s tower?\n"
                             +"\t1) Yes, I will accept your kind offer.\n"
                             +"\t2) Thank you, but I must continue along the road. We are on a quest.");
@@ -995,6 +1005,10 @@ public class WOMstory {	// class header
         pauseText(2);
         System.out.println("DENISE: Here, Soothsayer.\n");
         pauseText(2);
+		if(ucname.equals("DENISE")){
+			System.out.println("MIHAIL: Denise, you won't believe this. I got saved from a pack of goblins by\n"
+								+"another person named Denise!\n");
+		}
         System.out.println("Mihail gives introductions. Denise, you learn, is his scribe.");
         pauseText(2);
         System.out.println("Then, they feed you. He and Denise are gracious hosts.\n"
