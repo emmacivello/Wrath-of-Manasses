@@ -904,9 +904,12 @@ public class WOMstory {	// class header
             else if(op==3){
                 if(inventory.contains("bread and strawberry preserve") || inventory.contains("venison") || inventory.contains("dragon tenders")){
                     go = true;
-					if(inventory.contains("bread and strawberry preserve") inventory.remove();
-					else if(inventory.contains("venison") inventory.remove();
-					else if(inventory.contains("dragon tenders") inventory.remove();
+					if(inventory.contains("bread and strawberry preserve")) 
+						inventory.remove("bread and strawberry preserve");
+					else if(inventory.contains("venison"))
+						inventory.remove("venison");
+					else if(inventory.contains("dragon tenders"))
+						inventory.remove("dragon tenders");
                     System.out.println("You take the food from your bag [ITEM removed from INVENTORY], and\n"
 									+"immediately feel energized. The pain in your arm diminishes, and you\n"
                                     +"are ready to fight again.\n"
@@ -1245,11 +1248,10 @@ public class WOMstory {	// class header
 										 + "not a moment to waste, you begin running in the direction of the castle. ");
 						pauseText(2);
 					}
-
-					String ucname = charName.toUpperCase();
+					
 					System.out.println("It takes you less than an hour to return to the castle. You stop on the edge of the stone spell,\n"
 									+"still unsure what will happen if you touch it. Even from this distance, however, you can see\n"
-									+"Manasses lounging on the castle’s front steps. His golden, horn-like crown reflects the sun, and he\n"
+									+"Manasses lounging on the castle's front steps. His golden, horn-like crown reflects the sun, and he\n"
 									+"has draped his long scarlet cape over the bannister.\n");
 					pauseText(4);
 					System.out.println("You decide to attempt a binding spell, and so you remove a bracelet from your wrist--\n"
@@ -1272,14 +1274,14 @@ public class WOMstory {	// class header
 						else if(op==2){
 							System.out.println("He speaks first.\n");
 							pauseText(1);
-							System.out.println("MANASSES: So you are the one who killed the trees. Never thought it’d be a student."
-											+"Always thought it’d be myself. Opportunity lost I suppose, but nicely done.");
+							System.out.println("MANASSES: So you are the one who killed the trees. Never thought it'd be a student."
+											+"Always thought it'd be myself. Opportunity lost I suppose, but nicely done.");
 							pauseText(3);
 							System.out.println("Being praised by such an evil being makes you feel queasy and so you turn the conversation.\n");
 							pauseText(3);
 							System.out.println(ucname+": How did you escape your banishment?");
 							pauseText(2);
-							System.out.println("MANASSES: “Maybe because Turin, my dear old friend, trapped me in this dollar store trinket.\n");
+							System.out.println("MANASSES: Maybe because Turin, my dear old friend, trapped me in this dollar store trinket.\n");
 							pauseText(2);
 							System.out.println("He holds out a strand of plastic beads.\n");
 							pauseText(2);
@@ -1320,8 +1322,8 @@ public class WOMstory {	// class header
 													+"really hoping my colleague Professor Ruthard of Meyerstern was going to help me himself, but it seems that\n"
 													+"you are a good proxy.\n");
 									pauseText(4);
-									System.out.println("Come into the castle. I won’t turn you to stone, don’t worry! I want to tell you about my plans for the\n"
-													+"future, about how I will rescue countries beyond Adalos’ borders, about how I will expand the boundaries of\n"
+									System.out.println("Come into the castle. I won't turn you to stone, don't worry! I want to tell you about my plans for the\n"
+													+"future, about how I will rescue countries beyond Adalos's borders, about how I will expand the boundaries of\n"
 													+"what is possible with magic. Would you like to listen?\n");
 									pauseText(4);
 									System.out.println("It is a question, but you no longer have a choice of answers.");
@@ -1375,6 +1377,8 @@ public class WOMstory {	// class header
 	
 	private void bindingManasses() {	// binding Manasses with the String of Morcom
 		
+		String ucname = charName.toUpperCase();
+		
 		System.out.println("It takes a final, brief command to bind the man - his body zooms \n"
 						 + "toward the bracelet that you hold, outstretched, in one hand. ");
 		pauseText(2);
@@ -1382,7 +1386,7 @@ public class WOMstory {	// class header
 						 + "metal. After the process finishes, you take a glance at the bracelet. \n"
 						 + "It looks completely unchanged. \n");
 		pauseText(3);
-		System.out.println(charName.toUpperCase() + ": I think I'll call this... the String of Morcom. \n");
+		System.out.println(ucname + ": I think I'll call this... the String of Morcom. \n");
 		pauseText(2);
 		System.out.println("You move towards the castle. With each step you take, a wave of color \n"
 						 + "spreads outward. The stone spell is retreating. \n");
@@ -1406,7 +1410,7 @@ public class WOMstory {	// class header
         System.out.println("The party arrives back at the castle many hours later. The stone spell has spread\n"
                         +"a little further, but thankfully not much.\n");
         pauseText(3);
-        System.out.println("MIHAIL: “You are going to go up to the perimeter, just there. Then, begin to read\n"
+        System.out.println("MIHAIL: You are going to go up to the perimeter, just there. Then, begin to read\n"
                         +"from this last page. I believe it is a banishing spell. It looks promising.\n");
         pauseText(3);
         System.out.println("You do as instructed. The Ancient Elvish words echo off the stone, and then suddenly,\n"
@@ -1430,7 +1434,7 @@ public class WOMstory {	// class header
         pauseText(2);
         System.out.println("TURIN: How did you escape?");
         pauseText(2);
-        System.out.println("MANASSES: Maybe it was this cheap trinket. The plastic wasn’t too hard to overcome.\n"
+        System.out.println("MANASSES: Maybe it was this cheap trinket. The plastic wasn't too hard to overcome.\n"
                         +"*leering* Are you happy to see me?");
         pauseText(3);
         System.out.println("TURIN: Far from it. I was dining with some of Tamali's angels before I was summoned here--\n"
@@ -1438,10 +1442,10 @@ public class WOMstory {	// class header
         pauseText(3);
         System.out.println("He turns to you for the first time. This brief pause gives Manasses the break he was\n"
                         +"looking for, and he swipes toward Turin with a massive hand. The ghostly figure trembles\n"
-                        +"as Manasses’ spell strikes.\n");
+                        +"as Manasses's spell strikes.\n");
         pauseText(5);
         System.out.println("How do you help?\n"
-                        +"\t1) Attack Manasses with Mihail’s flame-thrower.\n"
+                        +"\t1) Attack Manasses with Mihail's flame-thrower.\n"
                         +"\t2) Flip through the tome, searching for a helpful spell.\n"
                         +"\t3) Chuck the hefty tome toward Manasses.\n");
         int op;
@@ -1463,7 +1467,7 @@ public class WOMstory {	// class header
         }while(!(op==1 || op==2 || op==3));
         System.out.println("Your action distracts Manasses long enough for Turin to overcome the spell. Turin \n"
                         +"starts to mouth an incantation, and you realize that you must distract Manasses again--\n"
-                        +"long enough for Turin’s spell to take effect.\n");
+                        +"long enough for Turin's spell to take effect.\n");
         pauseText(4);
         System.out.println("What do you do?\n"
                         +"\t1) Throw your rust-weed-cutting dagger toward Manasses.\n"
