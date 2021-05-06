@@ -1583,7 +1583,7 @@ public class WOMstory {	// class header
         System.out.println("Finally, the conversation arrives at the matter of the Tome of Turin itself. Mihail agrees\n"
                         +"to leave it in the castle library.");
         pauseText(3);
-        System.out.println("KARALIUS: Thank you, Mihail, Soothsayer of Sedes. Turin sai that the String of Morcom should\n"
+        System.out.println("KARALIUS: Thank you, Mihail, Soothsayer of Sedes. Turin said that the String of Morcom should\n"
                         +"hold Manasses for another few centuries, but after that who knows? We may need the book again.\n");
         pauseText(2);
         System.out.println("The next few centuries are safe thanks to your bravery and intelligence.\n");
