@@ -43,7 +43,6 @@ public class WOMstory {	// class header
 	
 	private void charSelection() {	// name/gender selection
 		
-		/*
 		while(!gender.toLowerCase().equals("girl") && !gender.toLowerCase().equals("boy")) {
 			
 			System.out.print("Would you like to look like a BOY or a GIRL? ");
@@ -67,10 +66,9 @@ public class WOMstory {	// class header
 		charName = carl.nextLine();
 		System.out.println("\nMERCURION: Thank you, " + charName + ". ");
 		pauseText(2);
-		*/
 		
-		charName = "Rick Astley";
-		gender = "boy";
+		//charName = "Rick Astley";
+		//gender = "boy";
 		
 	}
 	
