@@ -34,10 +34,62 @@ public class WOMstory {	// class header
 		
 	}
 
-	private void run() {
+	private void run() {	// either runs game from the beginning or opens up a previous save file
 		
-		charSelection();
-		castleScene();
+		WOMfilereader fr = new WOMfilereader();
+		ArrayList<Object> data = fr.read();
+		
+		if(data.isEmpty()) {
+			charSelection();
+			castleScene();
+		}
+		
+		else {
+			
+			charName = (String)(data.get(0));
+			gender = (String)(data.get(1));
+			
+			ArrayList<String> temp2 = (ArrayList<String>)(data.get(2));
+			
+			for(int i=0; i<temp2.size(); i++) {
+				
+				String currMem = temp2.get(i);
+				partyMembers.add(new PartyMember(currMem));
+				
+			}
+			
+			inventory = (ArrayList<String>)(data.get(3));
+			
+			String savepoint = (String)(data.get(4));
+			
+			switch(savepoint) {
+			case "castleScene":
+				castleScene();
+				break;
+			case "townScene":
+				townScene();
+				break;
+			case "universityScene":
+				universityScene();
+				break;
+			case "goblinFight":
+				goblinFight();
+				break;
+			case "atMihailsTower":
+				atMihailsTower();
+				break;
+			case "burningTrees":
+				burningTrees();
+				break;
+			case "bindingManasses":
+				bindingManasses();
+				break;
+			case "backAtCastle":
+				backAtCastle();
+				break;
+			}
+			
+		}
 		
 	}
 	
@@ -432,7 +484,7 @@ public class WOMstory {	// class header
 		
 	}
 
-	private void townScene(){
+	private void townScene() {	// town scene
 		String ucname = charName.toUpperCase();
 		System.out.println("After walking a little ways down The King's Road, you arrive in Edenshel.");
 		pauseText(2);
@@ -803,7 +855,7 @@ public class WOMstory {	// class header
 		
 	}
 
-	private void goblinFight(){
+	private void goblinFight() {	// goblin fight
 		String ucname = charName.toUpperCase();
 		System.out.println("You have been travelling toward the trees for a little while when\n"
                         +"you come upon three goblins crouching over some sort of prey on the side\n"
@@ -995,7 +1047,7 @@ public class WOMstory {	// class header
         }
     }
 
-	private void atMihailsTower(){
+	private void atMihailsTower() {	// meeting Denise/getting to know Mihail
         String ucname = charName.toUpperCase();	// for ease of formatting
 
         System.out.println("Your party soon arrives at a decrepit tower.\n");
@@ -1420,7 +1472,7 @@ public class WOMstory {	// class header
 		
 	}
 
-	private void backAtCastle(){ //the good ending
+	private void backAtCastle(){ // the good ending
         String ucname = charName.toUpperCase();
         System.out.println("The party arrives back at the castle many hours later. The stone spell has spread\n"
                         +"a little further, but thankfully not much.\n");
@@ -1600,7 +1652,7 @@ public class WOMstory {	// class header
 		return false;
 	}
 	
-	private void fullHouse() {
+	private void fullHouse() {	// for debugging purposes, adds every possible party member to the party (as well as a few others)
 		if(gender.equals("boy"))
 			partyMembers.add(new PartyMember("Reyna"));
 		else if(gender.equals("girl"))
