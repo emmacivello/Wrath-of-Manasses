@@ -883,6 +883,7 @@ public class WOMstoryWgraphics {	// class header
 			}
 		}while(go==false);
 		System.out.println("Now, equipped for your journey, you head toward the University of Meyerstern.");
+		new_panel.updateSpeaker(frame, "");
 		System.out.println("\nYou've reached a checkpoint! Continue to next scene or finish later?\n"
 						+"Type 'c' to continue or 'f' to finish later.");
 		do{
@@ -902,12 +903,14 @@ public class WOMstoryWgraphics {	// class header
 		System.out.println("After a long journey, you finally end up at the gates of the University of Meyerstern. ");
 		pauseText(2);
 		
-		// partyMembers.add(new PartyMember("Ahkal"));	// for debugging
-		// System.out.print(partyMembers.size());
+		System.out.println("After a long journey, you finally end up at the gates of the University of Meyerstern. ");
+		pauseText(2);
 		
-		if(checkMember("Ahkal")) {	// debug this section, the method isn't working (problem with equals()?)
+		if(checkMember("Ahkal")) {
+			new_panel.updateSpeaker(frame, "Ahkal");
 			System.out.print("\nAHKHAL: I'll wait outside with the horses. You go meet this Ruthard fellow. ");
 			pauseText(2);
+			new_panel.updateSpeaker(frame, user_speaker);
 			System.out.println(charName.toUpperCase() + ": Thank you, Ahkal. I'll try to be quick. \n");
 			pauseText(2);
 		}
@@ -919,12 +922,15 @@ public class WOMstoryWgraphics {	// class header
 		System.out.println("You walk up to the front door, but they're locked. You groan in dismay. \n"
 						 + "Fortunately, a woman in blue exits through a side door and lets you in. \n");
 		pauseText(3);
+		new_panel.updateSpeaker(frame, "Melynas");
 		System.out.println("WOMAN IN BLUE: Welcome to the University of Meyerstern. Who are you, and how \n"
 						 + "may I help you? ");
-		pauseText(2);		
+		pauseText(2);
+		new_panel.updateSpeaker(frame, user_speaker);		
 		System.out.println(charName.toUpperCase() + ": " + charName + ", a journeyman under the tutelage of the alchemist Mercurion. He sent \n"
 						 + "me here to speak with Professor Ruthard. ");
 		pauseText(2);
+		new_panel.updateSpeaker(frame, "Melynas");
 
 		if(charName.equals("Ruthard"))
 			System.out.println("WOMAN IN BLUE: How fascinating, you two share a name. The professor has just returned "
@@ -941,10 +947,13 @@ public class WOMstoryWgraphics {	// class header
 		pauseText(2);
 		System.out.println("WOMAN IN BLUE: His office is just through there. ");
 		pauseText(2);
+		new_panel.updateSpeaker(frame, user_speaker);
 		System.out.println(charName.toUpperCase() + ": Thank you. \n");
 		pauseText(2);
+		new_panel.updateSpeaker(frame, "");
 		System.out.println("The woman leaves, and you walk up to the door. You hesitate for a moment, but knock on it twice. \n");
 		pauseText(2);
+		new_panel.updateSpeaker(frame, "Ruthard");
 		System.out.println("RUTHARD: Just a minute, please. I'll be right with you! \n");
 		pauseText(2);
 		System.out.println("The door opens, and a middle-aged man with glasses smiles warmly at you. You feel a sense of relief, \n"
@@ -959,14 +968,15 @@ public class WOMstoryWgraphics {	// class header
 		System.out.println();
 		
 		pauseText(2);
+		new_panel.updateSpeaker(frame, user_speaker);
 		System.out.println("You explain your quest to Ruthard. His smile disappears and is replaced by a frown. You are finally able to pinpoint \n"
 						 + "where the feeling of uncertainty comes from - the professor seems kind, but there is something behind his eyes and \n"
 						 + "his smile that seem to suggest that something less than helpful lies beneath the surface. However, you brush the feeling off. \n"
 						 + "After all, it was Mercurion who told you to seek him out, and you trust the old alchemist as if he were your own father. \n");
 		pauseText(3);
+		new_panel.updateSpeaker(frame, "Ruthard");
 		System.out.println("RUTHARD: If it is as you say, and Manasses has returned, we are all in danger. ");
 		pauseText(2);
-		//System.out.println(charName.toUpperCase() + "\n");
 		pauseText(2);
 		System.out.println("Ruthard briskly walks over to a bookshelf. He pulls out a chair and stands on it to reach the top shelf, which has lots \n"
 						 + "of scrolls stacked on it. After finding the one he wants, he returns to the desk and places it on the table. It appears \n"
@@ -981,6 +991,7 @@ public class WOMstoryWgraphics {	// class header
 		System.out.println("RUTHARD: I believe that destroying these trees might be our best chance at stopping Manasses. But please be careful. \n"
 						 + "One of my colleagues once travelled there to study them, but... let's just say that his quest wasn't successful. \n");
 		pauseText(2);
+		new_panel.updateSpeaker(frame, user_speaker);
 	
 		int choice = -1;
 		while(choice != 1 && choice != 2) {
@@ -990,6 +1001,7 @@ public class WOMstoryWgraphics {	// class header
 					 + "Your choice? ");
 			choice = carl.nextInt(); carl.nextLine();
 			System.out.println();
+			new_panel.updateSpeaker(frame, "Ruthard");
 			switch(choice) {
 			case 1:	// did the colleague survive?
 				System.out.println("RUTHARD: My colleague made it home safely, but... he wasn't in the best condition. Please, please believe me when I say \n"
@@ -1012,15 +1024,19 @@ public class WOMstoryWgraphics {	// class header
 				System.out.println("Please choose a valid answer. \n");
 			
 		}
-		
+
+		new_panel.updateSpeaker(frame, user_speaker);
 		System.out.println(charName.toUpperCase() + ": Are you sure there isn't another way? ");
 		pauseText(2);
+		new_panel.updateSpeaker(frame, "Ruthard");
 		System.out.println("RUTHARD: The only other option I could think of is finding the Tome of Turin, but it has been lost for centuries. \n"
 						 + "I hate to be a pessimist, but there is little hope of recovering it quickly enough to defeat Manasses. \n");
 		pauseText(2);
+		new_panel.updateSpeaker(frame, "");
 		System.out.println("You are not entirely convinced that the quest is a safe or viable one. However, since Mercurion trusts Ruthard, you take \n"
 						 + "his advice and agree to travel to the Binary Trees of Utilio. ");
 		pauseText(3);
+		new_panel.updateSpeaker(frame, "Ruthard");
 		System.out.println("RUTHARD: The world thanks you, " + charName + ". I wish you the best of luck on your journey. But before you go, let me give you \n"
 						 + "something that might be of use. \n");
 
@@ -1033,6 +1049,7 @@ public class WOMstoryWgraphics {	// class header
 		
 		System.out.println("RUTHARD: I'm calling this a \"flamethrower\". Has Mercurion ever mentioned that I take great interest in mechanical creations? \n");
 		pauseText(2);
+		new_panel.updateSpeaker(frame, user_speaker);
 		
 		choice = -1;
 		while(choice != 1 && choice != 2) {
@@ -1047,18 +1064,23 @@ public class WOMstoryWgraphics {	// class header
 				System.out.println("Please choose a valid answer. \n");
 			
 		}
-		
+
+		new_panel.updateSpeaker(frame, "Ruthard");
 		System.out.println("RUTHARD: Ah, well. I consider myself to have some skill in engineering, and I think that my latest invention might \n"
 						 + "help you destroy the trees. \n");
 		pauseText(2);
+		new_panel.updateSpeaker(frame, "");
 		System.out.println("You awkwardly take the device from Ruthard. It is made of metal, and quite heavy. \n");
 		pauseText(2);
+		new_panel.updateSpeaker(frame, user_speaker);
 		System.out.println(charName.toUpperCase() + ": Thank you. This looks like a powerful weapon. ");
 		pauseText(2);
+		new_panel.updateSpeaker(frame, "Ruthard");
 		System.out.println("RUTHARD: It's still a prototype, but I'm working on developing a model that has more uses and requires less fuel. \n"
 						 + "Feel free to take the map! Oh, and one last thing, would you like me to send one of my teaching assistants with \n"
 						 + "you to aid you on your quest? \n");
 		pauseText(3);
+		new_panel.updateSpeaker(frame, user_speaker);
 		
 		choice = -1;
 		while(choice != 1 && choice != 2) {
@@ -1070,19 +1092,25 @@ public class WOMstoryWgraphics {	// class header
 			System.out.println();
 			switch(choice) {
 			case 1:	// Vertaine joins the party
+				new_panel.updateSpeaker(frame, "Ruthard");
 				System.out.println("RUTHARD: Alright. Vertaine? \n");
 				pauseText(2);
+				new_panel.updateSpeaker(frame, "");
 				System.out.println("Out of nowhere, a young woman pops her head out from behind a bookshelf. Upon seeing you, she smiles and \n"
 								 + "waves. You return the gesture. \n");
 				pauseText(2);
+				new_panel.updateSpeaker(frame, "Vertaine");
 				System.out.println("VERTAINE: What may I help you with, Professor Ruthard? ");
 				pauseText(2);
+				new_panel.updateSpeaker(frame, "Ruthard");
 				System.out.println("RUTHARD: Could you please accompany " + charName + " here on their journey to the Binary Trees? Quickly, grab a \n"
 								 + "cloak and a horse from the stable. There are evil things happening at the castle - I'm sure " + charName + "\n "
 								 + "will explain to you on the way. Please be careful, my dear. ");
 				
-				if(charName.equals("Vertaine"))
+				if(charName.equals("Vertaine")) {
+					new_panel.updateSpeaker(frame, "Vertaine");
 					System.out.println("VERTAINE: *smiles* I've never met another Vertaine before. That's dope. ");
+				}
 				
 				pauseText(1);
 				System.out.println("Vertaine has joined the party! \n");
@@ -1102,9 +1130,11 @@ public class WOMstoryWgraphics {	// class header
 				System.out.println("Please choose a valid answer. \n");
 			
 		}
-		
+
+		new_panel.updateSpeaker(frame, "Ruthard");
 		System.out.println("RUTHARD: Very well. Good luck on your journey. I look forward to your return. \n"); //I took out the 'you two' part because it was reading even if Vertaine didn't join
 		System.out.println("Now, equipped for your journey, you head toward the University of Meyerstern.");
+		new_panel.updateSpeaker(frame, "");
 		System.out.println("\nYou've reached a checkpoint! Continue to next scene or finish later?\n"
 						+"Type 'c' to continue or 'f' to finish later.");
 		char op;
