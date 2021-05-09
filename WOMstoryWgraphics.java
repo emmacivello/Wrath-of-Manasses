@@ -1162,7 +1162,7 @@ public class WOMstoryWgraphics {	// class header
 
             }
             else if(op==2){
-                if(inventory.contains("helmet") || inventory.contains("chestplate") || inventory.contains("shield")){
+                if(inventory.contains("Helmet") || inventory.contains("Chestplate") || inventory.contains("Shield")){
                     go = true;
                     System.out.println("You take the armor out of your bag and immediately feel better protected.");
                     pauseText(2);
