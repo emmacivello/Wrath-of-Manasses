@@ -200,13 +200,13 @@ public class WOMstoryWgraphics {	// class header
 		pauseText(2);
 		
 		if(gender.toLowerCase().equals("girl")) {
-			partyMembers.add(new PartyMemberG("Reyna"));
+			partyMembers.add(new PartyMember("Reyna"));
 	        new_panel.updatePeople(partyMembers);
 	        frame.repaint(0);
 	        frame.setVisible(true);
 		}
 		else if(gender.toLowerCase().equals("boy")) {
-			partyMembers.add(new PartyMemberG("Reinhardt"));
+			partyMembers.add(new PartyMember("Reinhardt"));
 	        new_panel.updatePeople(partyMembers);
 	        frame.repaint(0);
 	        frame.setVisible(true);
@@ -2101,7 +2101,7 @@ class WOMpanel extends JPanel {
         items = inventory;
         for(PartyMember m:party){
             people.add(m.getName());
-        };
+        }
     }
 
     public void paint(Graphics g) { //called automatically when frame becomes visible (either in setVisible(true) or in repaint(0))
