@@ -53,7 +53,7 @@ public class WOMstoryWgraphics {	// class header
 	private void menu(){
 		int op;
 		do{
-			System.out.print("Menu\n1) Play\n2) Instructions\n3) Authors\n0) Exit\nOption? ");
+            System.out.print("Menu\n1) Play\n2) Instructions\n3) Authors\n0) Exit\nOption? ");
             op = carl.nextInt(); carl.nextLine();
             switch(op){
                 case 1: run(); break;
@@ -131,10 +131,8 @@ public class WOMstoryWgraphics {	// class header
 			
 			savepoint = (String)(data.get(4));
 
-			new_panel.updateItems(inventory);
-			new_panel.updatePeople(partyMembers);
-        	frame.repaint(0);
-        	frame.setVisible(true);
+			new_panel.updateItems(frame, inventory);
+			new_panel.updatePeople(frame, partyMembers);
 			
 			switch(savepoint) {
 			case "castleScene":
@@ -181,6 +179,7 @@ public class WOMstoryWgraphics {	// class header
 		}
 		System.out.println("\n");
 		
+		new_panel.updateSpeaker(frame, "Mercurion");
 		System.out.println("The wizard Mercurion walks into his study and sees you standing there. \n");
 		pauseText(2);
 		System.out.println("MERCURION: *rubs eyes* My apologies, I didn't see you there. \n");
@@ -225,9 +224,7 @@ public class WOMstoryWgraphics {	// class header
 		inventory.add("Leather satchel");	// add item to inventory ArrayList
 		System.out.println("ITEM GET! Leather satchel x1 has been added to your inventory. \n");	// maybe add an option later to check the inventory whenever
 		Collections.sort(inventory);
-        new_panel.updateItems(inventory);
-        frame.repaint(0);
-        frame.setVisible(true);
+        new_panel.updateItems(frame, inventory);
         pauseText(1);
 		
 		int choice = -1;
@@ -251,9 +248,7 @@ public class WOMstoryWgraphics {	// class header
 				inventory.add("Bundle of Rust Weed");
                 //update graphics screen:
                 Collections.sort(inventory);
-                new_panel.updateItems(inventory);
-                frame.repaint(0);
-                frame.setVisible(true);
+                new_panel.updateItems(frame, inventory);
 				pauseText(2);
 				
 				System.out.println("All of a sudden, you hear the noise of a loud explosion coming from the castle. You \n"
@@ -640,14 +635,12 @@ public class WOMstoryWgraphics {	// class header
 				inventory.add(foods[op-1]);
 				System.out.println("\nITEM GET! "+foods[op-1]+" x1 has been added to your inventory. \n");
                 Collections.sort(inventory);
-                new_panel.updateItems(inventory);
-                frame.repaint(0);
-                frame.setVisible(true);
+                new_panel.updateItems(frame, inventory);
 
 				money = money - prices[op-1];
 				inventory.set(0, Integer.toString(money));
 				Collections.sort(inventory);
-                new_panel.updateItems(inventory);
+                new_panel.updateItems(frame, inventory);
 				System.out.println("Monetary balance: $"+money+"\n");
 			}
 			else if(op != 4){
@@ -704,9 +697,7 @@ public class WOMstoryWgraphics {	// class header
 				PartyMember Ahkal = new PartyMember("Ahkal");
 				partyMembers.add(Ahkal);
                 Collections.sort(partyMembers, PartyMember.nameComp);
-                new_panel.updatePeople(partyMembers);
-                frame.repaint(0);
-                frame.setVisible(true);
+                new_panel.updatePeople(frame, partyMembers);
 				if(ucname.equals("AHKAL")){
 					System.out.println("Ahkal laughs when you introduce yourself as another Ahkal.\n");
 					pauseText(2);
@@ -744,13 +735,11 @@ public class WOMstoryWgraphics {	// class header
 					inventory.add(armor[0]);
 					System.out.println("\nITEM GET! "+armor[0]+" x1 has been added to your inventory. \n");
                     Collections.sort(inventory);
-                    new_panel.updateItems(inventory);
-                    frame.repaint(0);
-                    frame.setVisible(true);
+                    new_panel.updateItems(frame, inventory);
 					money = money - armor_prices[0];
 					inventory.set(0, Integer.toString(money));
 					Collections.sort(inventory);
-                	new_panel.updateItems(inventory);
+                	new_panel.updateItems(frame, inventory);
 					System.out.println("Monetary balance: $"+money+"\n");
 					go = true;
 				}
@@ -763,13 +752,11 @@ public class WOMstoryWgraphics {	// class header
 					inventory.add(armor[1]);
 					System.out.println("\nITEM GET! "+armor[1]+" x1 has been added to your inventory. \n");
                     Collections.sort(inventory);
-                    new_panel.updateItems(inventory);
-                    frame.repaint(0);
-                    frame.setVisible(true);
+                    new_panel.updateItems(frame, inventory);
 					money = money - armor_prices[1];
 					inventory.set(0, Integer.toString(money));
 					Collections.sort(inventory);
-                	new_panel.updateItems(inventory);
+                	new_panel.updateItems(frame, inventory);
 					System.out.println("Monetary balance: $"+money+"\n");
 					go = true;
 				}
@@ -782,13 +769,11 @@ public class WOMstoryWgraphics {	// class header
 					inventory.add(armor[2]);
 					System.out.println("\nITEM GET! "+armor[2]+" x1 has been added to your inventory. \n");
                     Collections.sort(inventory);
-                    new_panel.updateItems(inventory);
-                    frame.repaint(0);
-                    frame.setVisible(true);
+                    new_panel.updateItems(frame, inventory);
 					money = money - armor_prices[2];
 					inventory.set(0, Integer.toString(money));
 					Collections.sort(inventory);
-                	new_panel.updateItems(inventory);
+                	new_panel.updateItems(frame, inventory);
 					System.out.println("Monetary balance: $"+money+"\n");
 					go = true;
 				}
@@ -949,9 +934,7 @@ public class WOMstoryWgraphics {	// class header
 		inventory.add("Flamethrower");	// add flamethrower to inventory ArrayList
 		System.out.println("ITEM GET! Flamethrower x1 has been added to your inventory. \n");
         Collections.sort(inventory);
-        new_panel.updateItems(inventory);
-        frame.repaint(0);
-        frame.setVisible(true);
+        new_panel.updateItems(frame, inventory);
 		pauseText(1);
 		
 		System.out.println("RUTHARD: I'm calling this a \"flamethrower\". Has Mercurion ever mentioned that I take great interest in mechanical creations? \n");
@@ -1011,9 +994,7 @@ public class WOMstoryWgraphics {	// class header
 				System.out.println("Vertaine has joined the party! \n");
 				partyMembers.add(new PartyMember("Vertaine"));
                 Collections.sort(partyMembers, PartyMember.nameComp);
-                new_panel.updatePeople(partyMembers);
-                frame.repaint(0);
-                frame.setVisible(true);
+                new_panel.updatePeople(frame, partyMembers);
 				pauseText(1);
 				
 				break;
@@ -1376,9 +1357,7 @@ public class WOMstoryWgraphics {	// class header
                 System.out.println("Mihail has joined the party! \n");
                 System.out.println("Denise has joined the party! \n");
                 Collections.sort(partyMembers, PartyMember.nameComp);
-                new_panel.updatePeople(partyMembers);
-                frame.repaint(0);
-                frame.setVisible(true);
+                new_panel.updatePeople(frame, partyMembers);
 				System.out.println("\nYou've reached a checkpoint! Continue to next scene or finish later?\n"
 									+"Type 'c' to continue or 'f' to finish later.");
 				do{
@@ -2008,7 +1987,7 @@ public class WOMstoryWgraphics {	// class header
 		partyMembers.add(new PartyMember("Karalius"));
 		partyMembers.add(new PartyMember("Turin"));
 		partyMembers.add(new PartyMember("Manasses"));
-		new_panel.updatePeople(partyMembers);
+		new_panel.updatePeople(frame, partyMembers);
 	}
 	
 	private void pauseText(int dur) {	// pause time for a specified period
@@ -2080,6 +2059,7 @@ class PartyMember{
 
 class WOMpanel extends JPanel {
     Image image = null;
+	String speaker = "";
     ArrayList <String> items = new ArrayList<>();
     ArrayList <String> people = new ArrayList<>(); 
     public WOMpanel(ArrayList <String> inventory, ArrayList <PartyMember> party) {
@@ -2097,6 +2077,7 @@ class WOMpanel extends JPanel {
         g.setFont(font);
         g.drawString("INVENTORY (alphabetically):", 20, 20);
         g.drawString("PARTY (alphabetically): ", 200, 20);
+		g.drawString("CURRENT SPEAKER: ", 450, 20);
         font = new Font("Times New Roman", Font.PLAIN, 12);
         g.setFont(font);
         
@@ -2124,7 +2105,7 @@ class WOMpanel extends JPanel {
             for(String person:people){
                 try {
                     new_image = ImageIO.read(new File(person+".png"));
-                    g.drawImage(new_image, 200, i, 90, 100, this);
+                    g.drawImage(new_image, 450, i, 90, 100, this);
                     i+=130;
                 }
                 catch(IOException e) {
@@ -2141,18 +2122,40 @@ class WOMpanel extends JPanel {
                 i+=130;
             }
         }
+
+		if(!speaker.equals("")){
+			try {
+				Image new_image = ImageIO.read(new File(speaker+".png"));
+				g.drawImage(new_image, 450, 60, 90, 100, this);
+				g.drawString(speaker, 450,50);
+			}
+			catch(IOException e) {
+				System.out.println("File not found");
+				e.printStackTrace();
+			}
+		}
     }
 
-    public void updateItems(ArrayList <String> inventory){
+    public void updateItems(JFrame frame, ArrayList <String> inventory){
         this.items = inventory;
+		frame.repaint(0);
+        frame.setVisible(true);
     }
 
-    public void updatePeople(ArrayList <PartyMember> party){
+    public void updatePeople(JFrame frame, ArrayList <PartyMember> party){
         this.people = new ArrayList<>();
         for(PartyMember m:party){
             people.add(m.getName());
         }
+		frame.repaint(0);
+        frame.setVisible(true);
     }
+
+	public void updateSpeaker(JFrame frame, String s){
+		speaker = s;
+		frame.repaint(0);
+        frame.setVisible(true);
+	}
 }//WOMpanel class
 
 class WOMfilereader {	// class header
