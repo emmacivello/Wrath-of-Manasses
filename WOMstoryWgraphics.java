@@ -2008,6 +2008,7 @@ public class WOMstoryWgraphics {	// class header
 		partyMembers.add(new PartyMember("Karalius"));
 		partyMembers.add(new PartyMember("Turin"));
 		partyMembers.add(new PartyMember("Manasses"));
+		new_panel.updatePeople(partyMembers);
 	}
 	
 	private void pauseText(int dur) {	// pause time for a specified period
