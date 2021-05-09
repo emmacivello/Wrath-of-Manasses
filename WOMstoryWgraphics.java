@@ -7,7 +7,7 @@
  * note to self: copy of github's but without button and with the continue/finish later option
  */
 
-package wrathOfManasses;
+//package wrathOfManasses;
 import javax.swing.*;
 
 import java.awt.*;
@@ -637,6 +637,8 @@ public class WOMstoryWgraphics {	// class header
                 frame.setVisible(true);
 
 				money = Integer.toString(Integer.parseInt(money) - prices[op-1]);
+				Collections.sort(inventory);
+                new_panel.updateItems(inventory);
 				System.out.println("Monetary balance: $"+money+"\n");
 			}
 			else if(op != 4){
@@ -737,6 +739,8 @@ public class WOMstoryWgraphics {	// class header
                     frame.repaint(0);
                     frame.setVisible(true);
 					money = Integer.toString(Integer.parseInt(money) - armor_prices[0]);
+					Collections.sort(inventory);
+                	new_panel.updateItems(inventory);
 					System.out.println("Monetary balance: $"+money+"\n");
 					go = true;
 				}
@@ -753,6 +757,8 @@ public class WOMstoryWgraphics {	// class header
                     frame.repaint(0);
                     frame.setVisible(true);
 					money = Integer.toString(Integer.parseInt(money) - armor_prices[1]);
+					Collections.sort(inventory);
+                	new_panel.updateItems(inventory);
 					System.out.println("Monetary balance: $"+money+"\n");
 					go = true;
 				}
@@ -769,6 +775,8 @@ public class WOMstoryWgraphics {	// class header
                     frame.repaint(0);
                     frame.setVisible(true);
 					money = Integer.toString(Integer.parseInt(money) - armor_prices[2]);
+					Collections.sort(inventory);
+                	new_panel.updateItems(inventory);
 					System.out.println("Monetary balance: $"+money+"\n");
 					go = true;
 				}
@@ -1938,7 +1946,7 @@ public class WOMstoryWgraphics {	// class header
 			op = carl.nextLine();
 		}while(!(op.equalsIgnoreCase("Y") || op.equalsIgnoreCase("N")));
 		if(op.equalsIgnoreCase("Y")){
-			String filename = charName+"Savefile.txt";
+			String filename = charName.toUpperCase()+"Savefile.txt";
 			PrintWriter fout = null;
 			try{fout = new PrintWriter(new File(filename));}
 			catch(IOException ex){System.out.print(ex);}
@@ -1955,6 +1963,7 @@ public class WOMstoryWgraphics {	// class header
 			fout.write(savepoint+"\n\n");
 			fout.close();
 		}
+		frame.dispose();
 		menu(); //return to menu
 	}//leaveGame
 
@@ -2054,7 +2063,7 @@ class PartyMember{
 class WOMpanel extends JPanel {
     Image image = null;
     ArrayList <String> items = new ArrayList<>();
-    ArrayList <String> people = new ArrayList<>(); //ArrayList list of png file names
+    ArrayList <String> people = new ArrayList<>(); 
     public WOMpanel(ArrayList <String> inventory, ArrayList <PartyMember> party) {
         setBackground(Color.WHITE);
         items = inventory;
