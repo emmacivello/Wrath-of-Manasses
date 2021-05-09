@@ -212,9 +212,10 @@ public class WOMstoryWgraphics {	// class header
 	}
 	
 	private void castleScene() {	// castle scene
+		
 		String ucname = charName.toUpperCase();	// for ease of formatting
 		
-		if(charName.equals("MERCURION")) {
+		if(charName.equals("Mercurion")) {
 			System.out.println("MERCURION: *laughs* The fact that we share the same name will never fail to amuse me. \n");
 			pauseText(2);
 			new_panel.updateSpeaker(frame, user_speaker);
@@ -223,6 +224,7 @@ public class WOMstoryWgraphics {	// class header
 		else {
 			System.out.print(ucname + ": It's no problem, Mercurion. ");
 		}
+		
 		new_panel.updateSpeaker(frame, user_speaker);
 		System.out.println("What task do you want me to do today? \n");
 		pauseText(2);
@@ -293,9 +295,23 @@ public class WOMstoryWgraphics {	// class header
 								 + "shaky voice, he shouts out the window to you. \n");
 				pauseText(3);
 				new_panel.updateSpeaker(frame, "Mercurion");
-				System.out.println("MERCURION: This- this is Manasses's doing. " + charName + ", go to the University of \n"
+				
+				if(charName.equals("Manasses"))
+					System.out.println("MERCURION: This- this is Manasses's doing. " + charName + ", go to the University of \n"
 								 + "Meyerstern and find- \n");
+				else {
+					System.out.println("MERCURION: This- this is Manasses's doing. " + charName + ". ");
+					new_panel.updateSpeaker(frame, user_speaker);
+					pauseText(2);
+					System.out.println(ucname + ": That wasn't me! I didn't do anything! ");
+					new_panel.updateSpeaker(frame, "Mercurion");
+					pauseText(2);
+					System.out.println("MERCURION: No, not you! Another Manasses. Manasses... go to the University of \n"
+									 + "Meyerstern and find- \n");
+					
+				}
 				pauseText(2);
+				
 				System.out.println("There is a great pause. The man in the window seems to be fighting off a force- one \n"
 								 + "that is invisible, but no less powerful than something that can be seen. \n");
 				pauseText(3);
@@ -426,10 +442,26 @@ public class WOMstoryWgraphics {	// class header
 										 + "forcefield of sorts takes form around you. \n");
 						pauseText(3);
 						new_panel.updateSpeaker(frame, "Mercurion");
-						System.out.println("MERCURION: Many eons ago, there was a great battle between the alchemists Turin \n"
-										 + "and Manasses, the founders of Adalos. Together, they fought to free this land \n"
-										 + "from the control of an enemy lord, and were eventually successful. ");
+						
+						if(charName.equals("Turin")) {
+							System.out.println("MERCURION: Many eons ago, there was a great battle between the alchemists Turin \n"
+											 + "and Manasses, the founders of Adalos. Yes Turin, he has the same name as you. Your parents \n"
+											 + "probably named you after him. Together, they fought to free this land from the control of \n"
+											 + "an enemy lord, and were eventually successful. ");
+						}
+						else if(charName.equals("Manasses")) {
+							System.out.println("MERCURION: Many eons ago, there was a great battle between the alchemists Turin \n"
+									 		 + "and Manasses, the founders of Adalos. To be frank, I have no idea why your parents named \n"
+									 		 + "you after that man. Together, they fought to free this land from the control of an enemy \n"
+									 		 + "lord, and were eventually successful. ");
+						}
+						else {
+							System.out.println("MERCURION: Many eons ago, there was a great battle between the alchemists Turin \n"
+									 + "and Manasses, the founders of Adalos. Together, they fought to free this land \n"
+									 + "from the control of an enemy lord, and were eventually successful. ");
+						}
 						pauseText(4);
+						
 						System.out.println("However, as history has proven time and time again, men are easily corrupted by \n"
 										 + "power. Such was the fate of Manasses, who became obsessed with spreading their \n"
 										 + "revolutionary ideals to neighboring lands by any means necessary. Countless \n"
