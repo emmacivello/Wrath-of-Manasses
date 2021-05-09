@@ -2357,8 +2357,9 @@ class WOMpanel extends JPanel {
 		if(!speaker.equals("")){
 			try {
 				Image new_image = ImageIO.read(new File(speaker+".png"));
-				g.drawImage(new_image, 450, 60, 90, 100, this);
-				g.drawString(speaker, 450,50);
+				g.drawImage(new_image, 450, 50, 90, 100, this);
+				//g.drawImage(new_image, 450, 60, 90, 100, this);
+				// g.drawString(speaker, 450,50);
 			}
 			catch(IOException e) {
 				System.out.println("File not found");
