@@ -4,14 +4,13 @@
  * Description: The text-based portion of Wrath of Manasses
  * 
  * 
- * note to self: copy of github's but without button and with the continue/finish later option
+ * original one I pushed
  */
 
 // package wrathOfManasses;
 import javax.swing.*;
 
 import java.awt.*;
-import java.awt.event.*;
 
 import java.io.*;
 import javax.imageio.ImageIO;
@@ -23,40 +22,32 @@ public class WOMstoryWgraphics {	// class header
 	private Scanner carl;
 	private String charName;	// the name the character chooses
 	private String gender;	// gender the character chooses
-	private String money;
+	private int money;
 	private ArrayList<String> inventory;
 	private ArrayList<PartyMember> partyMembers;	// possibly change to a custom object (Character)
 	private JFrame frame;
     private WOMpanel new_panel;
-	private String savepoint;
     // add sprite image name later
 	
 	public WOMstoryWgraphics() {	// constructor
 		carl = new Scanner(System.in);
 		charName = "";
 		gender = "";
-		money = "20";
+		money = 20;
 		inventory = new ArrayList<>();
-		inventory.add(money);
 		partyMembers = new ArrayList<>();
         frame = new JFrame();
         new_panel = new WOMpanel(inventory, partyMembers);
-		savepoint = "";
 	}
 	
 	public static void main(String[] args) {	// main method header
 		WOMstoryWgraphics wom = new WOMstoryWgraphics();	// class instance
-		wom.menu();
-		
-	}
-
-	private void menu(){
 		int op;
 		do{
             System.out.print("Menu\n1. Play\n2. Instructions\n3. Authors\n0. Exit\nOption? ");
-            op = carl.nextInt(); carl.nextLine();
+            op = wom.carl.nextInt(); wom.carl.nextLine();
             switch(op){
-                case 1: run(); break;
+                case 1: wom.run(); break;
                 case 2: break;
                 case 3: break;
                 case 0: System.out.println("Goodbye"); break;
@@ -66,39 +57,21 @@ public class WOMstoryWgraphics {	// class header
 	}
 
 	private void run() {	// either runs game from the beginning or opens up a previous save file
-
+		
         frame.setSize(600, 400);                
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
         frame.setLocation(50, 100);
         frame.setResizable(false);
-		new_panel.setLayout(null); //allows use of coordinates (rather than grid)
-									//discovered at: https://stackoverflow.com/questions/3195666/how-to-place-a-jbutton-at-a-desired-location-in-a-jframe-using-java
-		
-		// JButton b = new JButton("Leave Game");
-		// Font font = new Font("Times New Roman", Font.PLAIN, 12);
-		// b.setFont(font);
-		// b.setBounds(20, 320, 100, 30);
-		// // b.setVerticalAlignment(SwingConstants.CENTER);
-		// // b.setHorizontalAlignment(SwingConstants.BOTTOM);
-		
-		// new_panel.add(b);
-
-		// ActionListener actionListener = new ActionListener(){
-        //     public void actionPerformed(ActionEvent actionEvent){
-        //         //if action detected, set up next panel and button
-		// 		leaveGame();
-        //     }
-        // };
-		// b.addActionListener(actionListener);
 
         frame.add(new_panel);
         frame.setVisible(true);
 
 		WOMfilereader fr = new WOMfilereader();
-		ArrayList<String> data = fr.read();
+		ArrayList<Object> data = fr.read();
 		
 		if(data.isEmpty()) {
 			charSelection();
+			castleScene();
 		}
 		
 		else {
@@ -106,27 +79,18 @@ public class WOMstoryWgraphics {	// class header
 			charName = (String)(data.get(0));
 			gender = (String)(data.get(1));
 			
-			if(!data.get(2).equals("")){ //if there are party members (if there aren't and this if weren't here,
-										//the program tries to create one w/blank name)
-				ArrayList<String> temp2 = new ArrayList<String>(Arrays.asList(data.get(2).split(",")));
-				for(int i=0; i<temp2.size(); i++) {
+			ArrayList<String> temp2 = (ArrayList<String>)(data.get(2));
+			
+			for(int i=0; i<temp2.size(); i++) {
 				
-					String currMem = temp2.get(i);
-					partyMembers.add(new PartyMember(currMem));
+				String currMem = temp2.get(i);
+				partyMembers.add(new PartyMember(currMem));
 				
-				}
 			}
 			
-			if(!data.get(3).equals("")){
-				inventory = new ArrayList<String>(Arrays.asList(data.get(3).split(",")));
-			}
+			inventory = (ArrayList<String>)(data.get(3));
 			
-			savepoint = (String)(data.get(4));
-
-			new_panel.updateItems(inventory);
-			new_panel.updatePeople(partyMembers);
-        	frame.repaint(0);
-        	frame.setVisible(true);
+			String savepoint = (String)(data.get(4));
 			
 			switch(savepoint) {
 			case "castleScene":
@@ -187,12 +151,11 @@ public class WOMstoryWgraphics {	// class header
 		
 		//charName = "Rick Astley";
 		//gender = "boy";
-
-		castleScene();
 		
 	}
 	
 	private void castleScene() {	// castle scene
+		
 		String ucname = charName.toUpperCase();	// for ease of formatting
 		
 		if(charName.equals("MERCURION")) {
@@ -311,33 +274,11 @@ public class WOMstoryWgraphics {	// class header
 					System.out.println();
 					switch(choice) {
 					case 1:
-						System.out.println("\nYou've reached a checkpoint! Continue to next scene or finish later?\n"
-										+"Type 'c' to continue or 'f' to finish later.");
-						char op;
-						do{
-							op = Character.toLowerCase(carl.nextLine().charAt(0));
-						}while(!(op=='c' || op=='f'));
-						if(op=='c'){
-							townScene();
-						}
-						else{
-							savepoint = "townScene";
-							leaveGame();
-						}
+						townScene();	// method for town scene
 						break;
 						
 					case 2:
-						System.out.println("\nYou've reached a checkpoint! Continue to next scene or finish later?\n"
-										+"Type 'c' to continue or 'f' to finish later.");
-						do{
-							op = Character.toLowerCase(carl.nextLine().charAt(0));
-						}while(!(op=='c' || op=='f'));
-						if(op=='c')
-							universityScene();	// method for university scene
-						else{
-							savepoint = "universityScene";
-							leaveGame();
-						}
+						universityScene();	// method for university scene
 						break;
 					}
 					
@@ -524,35 +465,15 @@ public class WOMstoryWgraphics {	// class header
 											System.out.println();
 											switch(choice) {
 											case 1:
-												System.out.println("\nYou've reached a checkpoint! Continue to next scene or finish later?\n"
-																+"Type 'c' to continue or 'f' to finish later.");
-												char op;
-												do{
-													op = Character.toLowerCase(carl.nextLine().charAt(0));
-												}while(!(op=='c' || op=='f'));
-												if(op=='c'){
-													townScene();
-												}
-												else{
-													savepoint = "townScene";
-													leaveGame();
-												}
+												townScene();	// method for town scene
 												break;
+												
 											case 2:
-												System.out.println("\nYou've reached a checkpoint! Continue to next scene or finish later?\n"
-																+"Type 'c' to continue or 'f' to finish later.");
-												do{
-													op = Character.toLowerCase(carl.nextLine().charAt(0));
-												}while(!(op=='c' || op=='f'));
-												if(op=='c')
-													universityScene();	// method for university scene
-												else{
-													savepoint = "universityScene";
-													leaveGame();
-												}
-												break;	
+												universityScene();	// method for university scene
+												break;
 											}
 											
+
 											if(choice != 1 && choice != 2)
 												System.out.println("Please choose a valid answer. \n");
 											
@@ -600,7 +521,7 @@ public class WOMstoryWgraphics {	// class header
 				System.out.println("Please choose a valid answer. \n");
 			
 		}
-
+		
 	}
 
 	private void townScene() {	// town scene
@@ -635,8 +556,7 @@ public class WOMstoryWgraphics {	// class header
                 new_panel.updateItems(inventory);
                 frame.repaint(0);
                 frame.setVisible(true);
-
-				money = Integer.toString(Integer.parseInt(money) - prices[op-1]);
+				money = money - prices[op-1];
 				System.out.println("Monetary balance: $"+money+"\n");
 			}
 			else if(op != 4){
@@ -729,14 +649,14 @@ public class WOMstoryWgraphics {	// class header
 		do{
 			op = carl.nextInt(); carl.nextLine();
 			if(op==1){
-				if(Integer.parseInt(money)>=armor_prices[0]){
+				if(money>=armor_prices[0]){
 					inventory.add(armor[0]);
 					System.out.println("\nITEM GET! "+armor[0]+" x1 has been added to your inventory. \n");
                     Collections.sort(inventory);
                     new_panel.updateItems(inventory);
                     frame.repaint(0);
                     frame.setVisible(true);
-					money = Integer.toString(Integer.parseInt(money) - armor_prices[0]);
+					money = money - armor_prices[0];
 					System.out.println("Monetary balance: $"+money+"\n");
 					go = true;
 				}
@@ -745,14 +665,14 @@ public class WOMstoryWgraphics {	// class header
 				}
 			}
 			else if(op==2){
-				if(Integer.parseInt(money)>=armor_prices[1]){
+				if(money>=armor_prices[1]){
 					inventory.add(armor[1]);
 					System.out.println("\nITEM GET! "+armor[1]+" x1 has been added to your inventory. \n");
                     Collections.sort(inventory);
                     new_panel.updateItems(inventory);
                     frame.repaint(0);
                     frame.setVisible(true);
-					money = Integer.toString(Integer.parseInt(money) - armor_prices[1]);
+					money = money - armor_prices[1];
 					System.out.println("Monetary balance: $"+money+"\n");
 					go = true;
 				}
@@ -761,14 +681,14 @@ public class WOMstoryWgraphics {	// class header
 				}
 			}
 			else if(op==3){
-				if(Integer.parseInt(money)>=armor_prices[2]){
+				if(money>=armor_prices[2]){
 					inventory.add(armor[2]);
 					System.out.println("\nITEM GET! "+armor[2]+" x1 has been added to your inventory. \n");
                     Collections.sort(inventory);
                     new_panel.updateItems(inventory);
                     frame.repaint(0);
                     frame.setVisible(true);
-					money = Integer.toString(Integer.parseInt(money) - armor_prices[2]);
+					money = money - armor_prices[2];
 					System.out.println("Monetary balance: $"+money+"\n");
 					go = true;
 				}
@@ -784,22 +704,12 @@ public class WOMstoryWgraphics {	// class header
 			}
 		}while(go==false);
 		System.out.println("Now, equipped for your journey, you head toward the University of Meyerstern.");
-		System.out.println("\nYou've reached a checkpoint! Continue to next scene or finish later?\n"
-						+"Type 'c' to continue or 'f' to finish later.");
-		do{
-			op = Character.toLowerCase(carl.nextLine().charAt(0));
-		}while(!(op=='c' || op=='f'));
-		if(op=='c')
-			universityScene();	// method for university scene
-		else{
-			savepoint = "universityScene";
-			leaveGame();
-		}
-			
+		universityScene();
+		//call to At the University method
 	}//TownScene
 	
 	private void universityScene() {	// university scene
-
+		
 		System.out.println("After a long journey, you finally end up at the gates of the University of Meyerstern. ");
 		pauseText(2);
 		
@@ -867,7 +777,7 @@ public class WOMstoryWgraphics {	// class header
 		pauseText(3);
 		System.out.println("RUTHARD: If it is as you say, and Manasses has returned, we are all in danger. ");
 		pauseText(2);
-		//System.out.println(charName.toUpperCase() + "\n");
+		System.out.println(charName.toUpperCase() + "\n");
 		pauseText(2);
 		System.out.println("Ruthard briskly walks over to a bookshelf. He pulls out a chair and stands on it to reach the top shelf, which has lots \n"
 						 + "of scrolls stacked on it. After finding the one he wants, he returns to the desk and places it on the table. It appears \n"
@@ -1009,21 +919,8 @@ public class WOMstoryWgraphics {	// class header
 		}
 		
 		System.out.println("RUTHARD: Very well. Good luck on your journey. I look forward to your return. \n"); //I took out the 'you two' part because it was reading even if Vertaine didn't join
-		System.out.println("Now, equipped for your journey, you head toward the University of Meyerstern.");
-		System.out.println("\nYou've reached a checkpoint! Continue to next scene or finish later?\n"
-						+"Type 'c' to continue or 'f' to finish later.");
-		char op;
-		do{
-			op = Character.toLowerCase(carl.nextLine().charAt(0));
-		}while(!(op=='c' || op=='f'));
-		if(op=='c'){
-			goblinFight();
-		}
-		else{
-			savepoint = "goblinFight";
-			leaveGame();
-		}
-
+		goblinFight();
+		
 	}
 
 	private void goblinFight() {	// goblin fight
@@ -1049,18 +946,7 @@ public class WOMstoryWgraphics {	// class header
                 System.out.println("You feel terrible about leaving the man on the ground, but you\n"
                                 +"tell yourself that you will save lives by going on towards the trees.\n"
                                 +"You focus on that above the guilt.");
-				System.out.println("\nYou've reached a checkpoint! Continue to next scene or finish later?\n"
-								+"Type 'c' to continue or 'f' to finish later.");
-				do{
-					op = Character.toLowerCase(carl.nextLine().charAt(0));
-				}while(!(op=='c' || op=='f'));
-				if(op=='c'){
-					burningTrees(); //method call to trees scene
-				}
-				else{
-					savepoint = "burningTrees";
-					leaveGame();
-				}
+				burningTrees(); //method call to trees scene
             }
             else if(op!=1){
                 System.out.println("Please choose a valid answer.");
@@ -1204,21 +1090,7 @@ public class WOMstoryWgraphics {	// class header
                                 +"you yourself would have perished.");
                 pauseText(2);
                 System.out.println("'I will save lives by going to the trees,' you tell yourself. You focus on that above the guilt.");
-				System.out.println("You feel terrible about leaving the man on the ground, but you\n"
-                                +"tell yourself that you will save lives by going on towards the trees.\n"
-                                +"You focus on that above the guilt.");
-				System.out.println("\nYou've reached a checkpoint! Continue to next scene or finish later?\n"
-								+"Type 'c' to continue or 'f' to finish later.");
-				do{
-					op = Character.toLowerCase(carl.nextLine().charAt(0));
-				}while(!(op=='c' || op=='f'));
-				if(op=='c'){
-					burningTrees(); //method call to trees scene
-				}
-				else{
-					savepoint = "burningTrees";
-					leaveGame();
-				}
+                burningTrees(); //call to trees scene
             }
             else{
                 System.out.println("Please choose a valid option.");
@@ -1248,34 +1120,12 @@ public class WOMstoryWgraphics {	// class header
             do{
                 op = carl.nextInt(); carl.nextLine();
                 if(op==1){
-					System.out.println("\nYou've reached a checkpoint! Continue to next scene or finish later?\n"
-										+"Type 'c' to continue or 'f' to finish later.");
-					do{
-						op = Character.toLowerCase(carl.nextLine().charAt(0));
-					}while(!(op=='c' || op=='f'));
-					if(op=='c'){
-						atMihailsTower(); //method call to trees scene
-					}
-					else{
-						savepoint = "atMihailsTower";
-						leaveGame();
-					}
+                    atMihailsTower();
                 }
                 else if(op==2){
                     System.out.println("MIHAIL: Very well, I will not hold up your progress any more than I have.\n"
                                     +"But, may the angels of the Tamali faith guide your quest.\n");
-					System.out.println("\nYou've reached a checkpoint! Continue to next scene or finish later?\n"
-									+"Type 'c' to continue or 'f' to finish later.");
-					do{
-						op = Character.toLowerCase(carl.nextLine().charAt(0));
-					}while(!(op=='c' || op=='f'));
-					if(op=='c'){
-						burningTrees(); //call to trees scene
-					}
-					else{
-						savepoint = "burningTrees";
-						leaveGame();
-					}
+					burningTrees(); //call to trees scene
                 }
             }while(!(op==1 || op==2));
         }
@@ -1354,33 +1204,10 @@ public class WOMstoryWgraphics {	// class header
                 new_panel.updatePeople(partyMembers);
                 frame.repaint(0);
                 frame.setVisible(true);
-				System.out.println("\nYou've reached a checkpoint! Continue to next scene or finish later?\n"
-									+"Type 'c' to continue or 'f' to finish later.");
-				do{
-					op = Character.toLowerCase(carl.nextLine().charAt(0));
-				}while(!(op=='c' || op=='f'));
-				if(op=='c'){
-					backAtCastle(); //call to back at the castle method
-				}
-				else{
-					savepoint = "backAtCastle";
-					leaveGame();
-				}
-				
+				backAtCastle(); //call to back at the castle method
             }
             else if(op==2){
-				System.out.println("\nYou've reached a checkpoint! Continue to next scene or finish later?\n"
-									+"Type 'c' to continue or 'f' to finish later.");
-				do{
-					op = Character.toLowerCase(carl.nextLine().charAt(0));
-				}while(!(op=='c' || op=='f'));
-				if(op=='c'){
-					burningTrees(); //call to trees scene
-				}
-				else{
-					savepoint = "burningTrees";
-					leaveGame();
-				}
+				burningTrees(); //call to trees method
             }
             else{
                 System.out.println("Please choose a valid option.");
@@ -1601,18 +1428,7 @@ public class WOMstoryWgraphics {	// class header
 											+"You watch him turn his hands over, attempting to cast a spell--probably one for protection.\n"
 											+"Manasses seems at first confused and then terrified when it does not work.\n");
 							pauseText(4);
-							System.out.println("\nYou've reached a checkpoint! Continue to next scene or finish later?\n"
-											+"Type 'c' to continue or 'f' to finish later.");
-							do{
-								op = Character.toLowerCase(carl.nextLine().charAt(0));
-							}while(!(op=='c' || op=='f'));
-							if(op=='c'){
-								bindingManasses();
-							}
-							else{
-								savepoint = "bindingManasses";
-								leaveGame();
-							}
+							bindingManasses();
 						}
 						else if(op==2){
 							System.out.println("He speaks first.\n");
@@ -1683,18 +1499,7 @@ public class WOMstoryWgraphics {	// class header
 									System.out.println("-=~[THE END]~=-");
 								}//if
 								else if(op==2){
-									System.out.println("\nYou've reached a checkpoint! Continue to next scene or finish later?\n"
-											+"Type 'c' to continue or 'f' to finish later.");
-									do{
-										op = Character.toLowerCase(carl.nextLine().charAt(0));
-									}while(!(op=='c' || op=='f'));
-									if(op=='c'){
-										bindingManasses();
-									}
-									else{
-										savepoint = "bindingManasses";
-										leaveGame();
-									}
+									bindingManasses();
 								}//else if
 								else{
 									System.out.println("Please choose a valid option.");
@@ -1730,6 +1535,7 @@ public class WOMstoryWgraphics {	// class header
 	}
 	
 	private void bindingManasses() {	// binding Manasses with the String of Morcom
+		
 		String ucname = charName.toUpperCase();
 		
 		System.out.println("It takes a final, brief command to bind the man - his body zooms \n"
@@ -1928,36 +1734,7 @@ public class WOMstoryWgraphics {	// class header
         pauseText(2);
         System.out.println("\n-=~[YOU WIN]~=-");
     }
-
-	private void leaveGame(){
-		System.out.println("The game can save your progress in a folder called: "+charName.toUpperCase()+"Savefile.txt\n"
-							+"If a file with this name already exists, it will be overwritten.\n"
-							+"Would you like to save your progress (y/n)?");
-		String op;
-		do{
-			op = carl.nextLine();
-		}while(!(op.equalsIgnoreCase("Y") || op.equalsIgnoreCase("N")));
-		if(op.equalsIgnoreCase("Y")){
-			String filename = charName.toUpperCase()+"Savefile.txt";
-			PrintWriter fout = null;
-			try{fout = new PrintWriter(new File(filename));}
-			catch(IOException ex){System.out.print(ex);}
-			fout.write(charName+"\n\n");
-			fout.write(gender+"\n\n");
-			for(PartyMember member:partyMembers){
-				fout.write(member+",");
-			}
-			fout.write("\n\n");
-			for(String item:inventory){
-				fout.write(item+",");
-			}
-			fout.write("\n\n");
-			fout.write(savepoint+"\n\n");
-			fout.close();
-		}
-		menu(); //return to menu
-	}//leaveGame
-
+	
 	private boolean checkMember(String nameIn) {	// check if you have a particular party member
 		for(PartyMember member: partyMembers) {
 			if(member != null && member.getName().equals(nameIn)) {
@@ -2079,10 +1856,8 @@ class WOMpanel extends JPanel {
             g.drawString("Empty", 20, i);
         }
         else{
-            for(int j=0; j<items.size(); j++){
-				if(j==0){g.drawString("$"+items.get(j), 20, i);} //dollars is always sorted first in inventory (since it's a number)
-																//add dollar sign when drawing for clarity of what the number is
-                else{g.drawString(items.get(j), 20, i);}
+            for(String item:items){
+                g.drawString(item, 20, i);
                 i+=20;
             }
         }
@@ -2135,11 +1910,11 @@ class WOMfilereader {	// class header
 		fr.read();
 	}*/
 	
-	public ArrayList<String> read() {	// reads savefile
+	public ArrayList<Object> read() {	// reads savefile
 		
 		Scanner carl = new Scanner(System.in);	// new Scanner object
 		Scanner fileReader = null;
-		ArrayList<String> fileData = new ArrayList<>();
+		ArrayList<Object> fileData = new ArrayList<>();
 		
 		String choice = "";
 		String username = "";
@@ -2165,8 +1940,8 @@ class WOMfilereader {	// class header
 				count++;
 			}
 			
-			// fileData.set(2, listSplitter((String)(fileData.get(2))));
-			// fileData.set(3, listSplitter((String)(fileData.get(3))));
+			fileData.set(2, listSplitter((String)(fileData.get(2))));
+			fileData.set(3, listSplitter((String)(fileData.get(3))));
 
 			//System.out.println(fileData);
 			
