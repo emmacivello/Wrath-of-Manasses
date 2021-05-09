@@ -199,6 +199,19 @@ public class WOMstoryWgraphics {	// class header
 		System.out.println("\nMERCURION: Thank you, " + charName + ". ");
 		pauseText(2);
 		
+		if(gender.toLowerCase().equals("girl")) {
+			partyMembers.add(new PartyMemberG("Reyna"));
+	        new_panel.updatePeople(partyMembers);
+	        frame.repaint(0);
+	        frame.setVisible(true);
+		}
+		else if(gender.toLowerCase().equals("boy")) {
+			partyMembers.add(new PartyMemberG("Reinhardt"));
+	        new_panel.updatePeople(partyMembers);
+	        frame.repaint(0);
+	        frame.setVisible(true);
+		}
+		
 		//charName = "Rick Astley";
 		//gender = "boy";
 
