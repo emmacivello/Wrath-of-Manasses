@@ -23,7 +23,7 @@ public class WOMstoryWgraphics {	// class header
 	private Scanner carl;
 	private String charName;	// the name the character chooses
 	private String gender;	// gender the character chooses
-	private String money;
+	private int money;
 	private ArrayList<String> inventory;
 	private ArrayList<PartyMember> partyMembers;	// possibly change to a custom object (Character)
 	private JFrame frame;
@@ -35,9 +35,9 @@ public class WOMstoryWgraphics {	// class header
 		carl = new Scanner(System.in);
 		charName = "";
 		gender = "";
-		money = "20";
+		money = 20;
 		inventory = new ArrayList<>();
-		inventory.add(money);
+		inventory.add(Integer.toString(money));
 		partyMembers = new ArrayList<>();
         frame = new JFrame();
         new_panel = new WOMpanel(inventory, partyMembers);
@@ -644,7 +644,8 @@ public class WOMstoryWgraphics {	// class header
                 frame.repaint(0);
                 frame.setVisible(true);
 
-				money = Integer.toString(Integer.parseInt(money) - prices[op-1]);
+				money = money - prices[op-1];
+				inventory.set(0, Integer.toString(money));
 				Collections.sort(inventory);
                 new_panel.updateItems(inventory);
 				System.out.println("Monetary balance: $"+money+"\n");
@@ -739,14 +740,15 @@ public class WOMstoryWgraphics {	// class header
 		do{
 			op = carl.nextInt(); carl.nextLine();
 			if(op==1){
-				if(Integer.parseInt(money)>=armor_prices[0]){
+				if(money>=armor_prices[0]){
 					inventory.add(armor[0]);
 					System.out.println("\nITEM GET! "+armor[0]+" x1 has been added to your inventory. \n");
                     Collections.sort(inventory);
                     new_panel.updateItems(inventory);
                     frame.repaint(0);
                     frame.setVisible(true);
-					money = Integer.toString(Integer.parseInt(money) - armor_prices[0]);
+					money = money - armor_prices[0];
+					inventory.set(0, Integer.toString(money));
 					Collections.sort(inventory);
                 	new_panel.updateItems(inventory);
 					System.out.println("Monetary balance: $"+money+"\n");
@@ -757,14 +759,15 @@ public class WOMstoryWgraphics {	// class header
 				}
 			}
 			else if(op==2){
-				if(Integer.parseInt(money)>=armor_prices[1]){
+				if(money>=armor_prices[1]){
 					inventory.add(armor[1]);
 					System.out.println("\nITEM GET! "+armor[1]+" x1 has been added to your inventory. \n");
                     Collections.sort(inventory);
                     new_panel.updateItems(inventory);
                     frame.repaint(0);
                     frame.setVisible(true);
-					money = Integer.toString(Integer.parseInt(money) - armor_prices[1]);
+					money = money - armor_prices[1];
+					inventory.set(0, Integer.toString(money));
 					Collections.sort(inventory);
                 	new_panel.updateItems(inventory);
 					System.out.println("Monetary balance: $"+money+"\n");
@@ -775,14 +778,15 @@ public class WOMstoryWgraphics {	// class header
 				}
 			}
 			else if(op==3){
-				if(Integer.parseInt(money)>=armor_prices[2]){
+				if(money>=armor_prices[2]){
 					inventory.add(armor[2]);
 					System.out.println("\nITEM GET! "+armor[2]+" x1 has been added to your inventory. \n");
                     Collections.sort(inventory);
                     new_panel.updateItems(inventory);
                     frame.repaint(0);
                     frame.setVisible(true);
-					money = Integer.toString(Integer.parseInt(money) - armor_prices[2]);
+					money = money - armor_prices[2];
+					inventory.set(0, Integer.toString(money));
 					Collections.sort(inventory);
                 	new_panel.updateItems(inventory);
 					System.out.println("Monetary balance: $"+money+"\n");
@@ -1961,7 +1965,7 @@ public class WOMstoryWgraphics {	// class header
 			fout.write(charName+"\n\n");
 			fout.write(gender+"\n\n");
 			for(PartyMember member:partyMembers){
-				fout.write(member+",");
+				fout.write(member.getName()+",");
 			}
 			fout.write("\n\n");
 			for(String item:inventory){
