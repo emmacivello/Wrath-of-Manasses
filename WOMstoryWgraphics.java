@@ -23,7 +23,6 @@ public class WOMstoryWgraphics {	// class header
 	private Scanner carl;
 	private String charName;	// the name the character chooses
 	private String gender;	// gender the character chooses
-	private String user_speaker; //name of png representing speaker (depends on gender)
 	private int money;
 	private ArrayList<String> inventory;
 	private ArrayList<PartyMember> partyMembers;	// possibly change to a custom object (Character)
@@ -199,19 +198,6 @@ public class WOMstoryWgraphics {	// class header
 		System.out.println("\nMERCURION: Thank you, " + charName + ". ");
 		pauseText(2);
 		
-		/*if(gender.toLowerCase().equals("girl")) {
-			partyMembers.add(new PartyMember("Reyna"));
-	        new_panel.updatePeople(partyMembers);
-	        frame.repaint(0);
-	        frame.setVisible(true);
-		}
-		else if(gender.toLowerCase().equals("boy")) {
-			partyMembers.add(new PartyMember("Reinhardt"));
-	        new_panel.updatePeople(partyMembers);
-	        frame.repaint(0);
-	        frame.setVisible(true);
-		}*/s
-		
 		//charName = "Rick Astley";
 		//gender = "boy";
 
@@ -284,6 +270,7 @@ public class WOMstoryWgraphics {	// class header
 				new_panel.updateSpeaker(frame, user_speaker);
 				System.out.println(ucname + ": Oh no- I should probably go check on everyone. \n");
 				pauseText(2);
+				new_panel.updateSpeaker(frame, "");
 				System.out.println("As you approach the castle, you can see that the whole structure is shaking. A wave of \n"
 								 + "gray seems to be spreading - seeping up the oaken front doors and across the water of \n"
 								 + "the moat. \n");
@@ -291,12 +278,14 @@ public class WOMstoryWgraphics {	// class header
 				new_panel.updateSpeaker(frame, "Mercurion");
 				System.out.println("MERCURION: " + charName + "! Up here!");
 				pauseText(2);
+				new_panel.updateSpeaker(frame, user_speaker);
 				System.out.println(ucname + ": Mercurion! What's going on? I don't understand- \n");
 				pauseText(2);
 				System.out.println("Mercurion's entire body shudders. The old man is trying his best to steady himself, \n"
 								 + "but it seems to be getting harder for him to do so with each passing second. With a \n"
 								 + "shaky voice, he shouts out the window to you. \n");
 				pauseText(3);
+				new_panel.updateSpeaker(frame, "Mercurion");
 				System.out.println("MERCURION: This- this is Manasses's doing. " + charName + ", go to the University of \n"
 								 + "Meyerstern and find- \n");
 				pauseText(2);
@@ -317,6 +306,7 @@ public class WOMstoryWgraphics {	// class header
 				new_panel.updateSpeaker(frame, user_speaker);
 				System.out.println(ucname + ": I will. \n");
 				pauseText(2);
+				new_panel.updateSpeaker(frame, "");
 				System.out.println("You turn around and run away from the gray boundary. You glance backwards, and see a \n"
 								 + "perfect stone replica of Mercurion standing near the window where he once was. Thankfully, \n"
 								 + "as you reach the edge of the castle grounds, the spell stops spreading. This wicked curse \n"
@@ -381,6 +371,7 @@ public class WOMstoryWgraphics {	// class header
 				break;
 				
 			case 2:	// staying in the castle
+				new_panel.updateSpeaker(frame, "Mercurion");
 				System.out.println("MERCURION: Remember that not all magic is waving wands and casting spells. You need \n"
 						 		 + "to put in the hard work, and that involves some manual labor. Because you did well \n"
 						 		 + "with potion-making yesterday, I will assign you something more \"interesting\" today, \n"
@@ -406,6 +397,7 @@ public class WOMstoryWgraphics {	// class header
 					System.out.println();
 					switch(choice) {
 					case 1:	// flee
+						new_panel.updateSpeaker(frame, "");
 						System.out.println("Your leather boots pound loudly on stone as you crash towards the hallway. \n"
 										 + "From everywhere yet nowhere, a crashing, harsh voice sounds one word with \n"
 										 + "dreadfully happy glee: \"Free. Free. Free.\" The floor seems to tilt and the \n"
@@ -426,6 +418,7 @@ public class WOMstoryWgraphics {	// class header
 						System.out.println("Mercurion begins, while simultaneously moving his hands in the air so that a \n"
 										 + "forcefield of sorts takes form around you. \n");
 						pauseText(3);
+						new_panel.updateSpeaker(frame, "Mercurion");
 						System.out.println("MERCURION: Many eons ago, there was a great battle between the alchemists Turin \n"
 										 + "and Manasses, the founders of Adalos. Together, they fought to free this land \n"
 										 + "from the control of an enemy lord, and were eventually successful. ");
@@ -444,6 +437,7 @@ public class WOMstoryWgraphics {	// class header
 						
 						choice = -1;
 						while(choice != 1 && choice != 2) {
+							new_panel.updateSpeaker(frame, user_speaker);
 							System.out.print("Choose something to say. \n"
 									 + "\t1) How do you know that this curse is Manasses's doing? \n"
 									 + "\t2) Will we be safe? \n"
@@ -454,6 +448,7 @@ public class WOMstoryWgraphics {	// class header
 							case 1:	// it is manasses because
 								System.out.println("Mercurion glances towards you with a dreadful certainty. \n");
 								pauseText(3);
+								new_panel.updateSpeaker(frame, "Mercurion");
 								System.out.println("MERCURION: Very few alchemists have the power to shake this castle's foundations. \n"
 												 + "I am one of them, which makes the other options even fewer. \n");
 								pauseText(2);
@@ -481,6 +476,7 @@ public class WOMstoryWgraphics {	// class header
 								break;
 								
 							case 2:	// "Heck no boi, we screwed." - Mercurion, 2021 :D
+								new_panel.updateSpeaker(frame, "Mercurion");
 								System.out.println("Mercurion glances towards you with great sadness. \n");
 								pauseText(2);
 								System.out.println("MERCURION: This particular protection spell is the strongest, but against the strongest \n"
@@ -496,6 +492,7 @@ public class WOMstoryWgraphics {	// class header
 								
 								choice = -1;
 								while(choice != 1 && choice != 2) {
+									new_panel.updateSpeaker(frame, user_speaker);
 									System.out.print("Choose an action. \n"
 											 + "\t1) Ask Mercurion if there's anything that you can do. \n"
 											 + "\t2) Allow the hopelessness of the situation to overtake you. \n"
@@ -1168,7 +1165,7 @@ public class WOMstoryWgraphics {	// class header
                                     +"\t2) Yell loudly\n"
                                     +"\t3) Use basic attack/defense spell\n"
                                     + "Your choice? ");
-                    op = carl.nextInt(); carl.nextLine();
+                    carl.nextLine(); //wait for user input
                     System.out.println("Your action successfully distracts the goblins, and together, you and this stranger\n"
                                 +"fight them back into the woods.");
                 }
@@ -1210,7 +1207,7 @@ public class WOMstoryWgraphics {	// class header
                                     +"\t2) Yell loudly\n"
                                     +"\t3) Use basic attack/defense spell\n"
                                     + "Your choice? ");
-                    op = carl.nextInt(); carl.nextLine();
+					carl.nextLine();
                     System.out.println("Your action successfully distracts the goblins, and together, you and this stranger\n"
                                 +"fight them back into the woods.");
                 }
@@ -2002,7 +1999,6 @@ public class WOMstoryWgraphics {	// class header
 	}
 	
 	private void fullHouse() {	// for debugging purposes, adds every possible party member to the party (as well as a few others)
-		
 		if(gender.equals("boy"))
 			partyMembers.add(new PartyMember("Reyna"));
 		else if(gender.equals("girl"))
@@ -2017,11 +2013,7 @@ public class WOMstoryWgraphics {	// class header
 		partyMembers.add(new PartyMember("Karalius"));
 		partyMembers.add(new PartyMember("Turin"));
 		partyMembers.add(new PartyMember("Manasses"));
-		
 		new_panel.updatePeople(frame, partyMembers);
-		frame.repaint(0);
-        frame.setVisible(true);
-
 	}
 	
 	private void pauseText(int dur) {	// pause time for a specified period
@@ -2101,7 +2093,7 @@ class WOMpanel extends JPanel {
         items = inventory;
         for(PartyMember m:party){
             people.add(m.getName());
-        }
+        };
     }
 
     public void paint(Graphics g) { //called automatically when frame becomes visible (either in setVisible(true) or in repaint(0))
@@ -2139,7 +2131,7 @@ class WOMpanel extends JPanel {
             for(String person:people){
                 try {
                     new_image = ImageIO.read(new File(person+".png"));
-                    g.drawImage(new_image, 450, i, 90, 100, this);
+                    g.drawImage(new_image, 200, i, 90, 100, this);
                     i+=130;
                 }
                 catch(IOException e) {
