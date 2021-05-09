@@ -199,7 +199,7 @@ public class WOMstoryWgraphics {	// class header
 		System.out.println("\nMERCURION: Thank you, " + charName + ". ");
 		pauseText(2);
 		
-		if(gender.toLowerCase().equals("girl")) {
+		/*if(gender.toLowerCase().equals("girl")) {
 			partyMembers.add(new PartyMember("Reyna"));
 	        new_panel.updatePeople(partyMembers);
 	        frame.repaint(0);
@@ -210,7 +210,7 @@ public class WOMstoryWgraphics {	// class header
 	        new_panel.updatePeople(partyMembers);
 	        frame.repaint(0);
 	        frame.setVisible(true);
-		}
+		}*/s
 		
 		//charName = "Rick Astley";
 		//gender = "boy";
