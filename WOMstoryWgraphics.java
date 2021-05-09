@@ -2042,7 +2042,7 @@ public class WOMstoryWgraphics {	// class header
 			fout.close();
 		}
 		frame.dispose();
-		menu(); //return to menu
+		return; //return to menu
 	}//leaveGame
 
 	private boolean checkMember(String nameIn) {	// check if you have a particular party member
