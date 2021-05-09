@@ -835,7 +835,6 @@ public class WOMstoryWgraphics {	// class header
 					go = true;
 				}
 				else{
-					new_panel.updateSpeaker(frame, "Armorer");
 					System.out.println("ARMORER: *irritated* You do not have enough to buy "+armor[0]);
 				}
 			}
@@ -856,7 +855,6 @@ public class WOMstoryWgraphics {	// class header
 					go = true;
 				}
 				else{
-					new_panel.updateSpeaker(frame, "Armorer");
 					System.out.println("ARMORER: *irritated* You do not have enough to buy "+armor[1]);
 				}
 			}
@@ -877,7 +875,6 @@ public class WOMstoryWgraphics {	// class header
 					go = true;
 				}
 				else{
-					new_panel.updateSpeaker(frame, "Armorer");
 					System.out.println("ARMORER: *irritated* You do not have enough to buy "+armor[2]);
 				}
 			}
@@ -888,6 +885,7 @@ public class WOMstoryWgraphics {	// class header
 				System.out.println("Please choose a valid answer.");
 			}
 		}while(go==false);
+		new_panel.updateSpeaker(frame, "");
 		System.out.println("Now, equipped for your journey, you head toward the University of Meyerstern.");
 		new_panel.updateSpeaker(frame, "");
 		System.out.println("\nYou've reached a checkpoint! Continue to next scene or finish later?\n"
