@@ -26,6 +26,7 @@ public class WOMstoryWgraphics {	// class header
 	private int money;
 	private ArrayList<String> inventory;
 	private ArrayList<PartyMember> partyMembers;	// possibly change to a custom object (Character)
+	private String user_speaker;
 	private JFrame frame;
     private WOMpanel new_panel;
 	private String savepoint;
