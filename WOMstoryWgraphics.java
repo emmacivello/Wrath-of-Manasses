@@ -1425,41 +1425,54 @@ public class WOMstoryWgraphics {	// class header
 
         System.out.println("Your party soon arrives at a decrepit tower.\n");
         pauseText(2);
+		new_panel.updateSpeaker(frame, "Mihail");
         System.out.println("MIHAIL: Denise! Where are you?\n");
         pauseText(2);
-        System.out.println("A lady opens the tower door.\n");
+		new_panel.updateSpeaker(frame, "");
+        System.out.println("A woman opens the tower door.\n");
         pauseText(2);
+		new_panel.updateSpeaker(frame, "Denise");
         System.out.println("DENISE: Here, Soothsayer.\n");
         pauseText(2);
 		if(ucname.equals("DENISE")){
+			new_panel.updateSpeaker(frame, "Mihail");
 			System.out.println("MIHAIL: Denise, you won't believe this. I got saved from a pack of goblins by\n"
 								+"another person named Denise!\n");
 		}
+		new_panel.updateSpeaker(frame, "");
         System.out.println("Mihail gives introductions. Denise, you learn, is his scribe.");
         pauseText(2);
         System.out.println("Then, they feed you. He and Denise are gracious hosts.\n"
                         +"After you have finished the thick soup and tough bread, conversation starts.\n");
         pauseText(2);
+		new_panel.updateSpeaker(frame, "Mihail");
         System.out.println("MIHAIL: So, where were you off to when you came upon me?");
+		new_panel.updateSpeaker(frame, user_speaker);
         System.out.println(ucname+": We are on our way to destroy the Binary Trees of Utilio. We need their\n"
                         +"power to defeat Manasses--he has come back from banishment and taken siege of the castle.");
         pauseText(3);
+		new_panel.updateSpeaker(frame, "Mihail");
         System.out.println("MIHAIL: *aghast* You are going to cut down the trees? Do you even know the tales\n"
                         +"of them? They are the source of magic for all the land. Cutting them down will stop\n"
                         +"Manasses, surely, but it will also rob everyone of their powers. Why would you make\n"
                         +"that decision?");
         pauseText(3);
+		new_panel.updateSpeaker(frame, user_speaker);
         System.out.println(ucname+": Professor Ruthard at the University of Meyerstern told me to.");
         pauseText(2);
+		new_panel.updateSpeaker(frame, "Mihail");
         System.out.println("MIHAIL: That place, no no no. Have you not heard the rumors? There is blackmailing \n"
                         +"business afoot. Ruthard is at the center of it. He and the lady of the sea, Melynas.\n"
                         +"Something is not right with them. I have seen it in my visions.");
         pauseText(4);
+		new_panel.updateSpeaker(frame, user_speaker);
         System.out.println(ucname+": What should I do then?\n");
         pauseText(2);
+		new_panel.updateSpeaker(frame, "");
         System.out.println("Mihail stands up and begins to pace. After a long while, his eyes alight on a book\n"
                         +"on the desk.\n");
         pauseText(2);
+		new_panel.updateSpeaker(frame, "Mihail");
         System.out.println("MIHAIL: I found this book not long ago in an abandoned castle. The spirits\n"
                         +"there told me to take it. They told me that it may be of some use in the future.\n"
                         +"I think that you should take it now. Return to the castle with it. I have a feeling\n"
@@ -1469,8 +1482,10 @@ public class WOMstoryWgraphics {	// class header
                         +"bring Denise. If nothing else, we know some spells to try against Manasses. Just please,\n"
                         +"please do not attack those sacred Binary Trees.");
         pauseText(3);
+		new_panel.updateSpeaker(frame, user_speaker);
         System.out.println(ucname+": Can I look at the book?\n");
         pauseText(2);
+		new_panel.updateSpeaker(frame, "");
         System.out.println("Mihail seems suddenly hesitant to say yes. There is a possessive glint in his eye and\n"
                         +"a tremor in his hand.");
         pauseText(4);
@@ -1533,6 +1548,7 @@ public class WOMstoryWgraphics {	// class header
     }
 
 	private void burningTrees() {	// burning dem trees
+		
 		String ucname = charName.toUpperCase();
 		
 		System.out.println("A day passes. It is nearly nightfall before you notice that the trees \n"
@@ -1696,20 +1712,25 @@ public class WOMstoryWgraphics {	// class header
 						System.out.println("Your companions are very impressed. \n");
 					
 					if(checkMember("Ahkal")) {
+						new_panel.updateSpeaker(frame, "Ahkal");
 						System.out.println("AHKAL: *whistles* Now that's what I'm talking about. ");
 						pauseText(2);
 					}
 					if(checkMember("Mihail") && checkMember("Denise")) {
+						new_panel.updateSpeaker(frame, "Mihail");
 						System.out.println("MIHAIL: *claps* Nice! Very nice. ");
 						pauseText(2);
+						new_panel.updateSpeaker(frame, "Denise");
 						System.out.println("DENISE: I agree with Mihail. ");
 						pauseText(2);
 					}
 					if(checkMember("Vertaine")) {
+						new_panel.updateSpeaker(frame, "Vertaine");
 						System.out.println("VERTAINE: That is COOL. ");
 						pauseText(2);
 					}
 					System.out.println();
+					new_panel.updateSpeaker(frame, "");
 						
 					if(partyMembers.size() > 1) {
 						System.out.println("It seems like you've all absorbed a little bit of the magical essence, for \n"
@@ -1761,13 +1782,17 @@ public class WOMstoryWgraphics {	// class header
 						else if(op==2){
 							System.out.println("He speaks first.\n");
 							pauseText(1);
+							new_panel.updateSpeaker(frame, "Manasses");
 							System.out.println("MANASSES: So you are the one who killed the trees. Never thought it'd be a student."
 											+"Always thought it'd be myself. Opportunity lost I suppose, but nicely done.");
 							pauseText(3);
+							new_panel.updateSpeaker(frame, "");
 							System.out.println("Being praised by such an evil being makes you feel queasy and so you turn the conversation.\n");
 							pauseText(3);
+							new_panel.updateSpeaker(frame, user_speaker);
 							System.out.println(ucname+": How did you escape your banishment?");
 							pauseText(2);
+							new_panel.updateSpeaker(frame, "Manasses");
 							System.out.println("MANASSES: Maybe because Turin, my dear old friend, trapped me in this dollar store trinket.\n");
 							pauseText(2);
 							System.out.println("He holds out a strand of plastic beads.\n");
@@ -1776,15 +1801,19 @@ public class WOMstoryWgraphics {	// class header
 											+"fine friendship, but because it's hard to break out of as banishment curses go. I thought he would\n"
 											+"have known this.\n");
 							pauseText(4);
+							new_panel.updateSpeaker(frame, "");
 							System.out.println("As Manasses continues to describe the properties of metals, it strikes you that this accomplished\n"
 											+"sorcerer may know a way to replant the trees. You feel immense guilt for what you did, and so you\n"
 											+"decide to ask when he pauses for breath.\n");
 							pauseText(3);
+							new_panel.updateSpeaker(frame, user_speaker);
 							System.out.println(ucname+": Is there a way to restore the trees?");
 							pauseText(2);
+							new_panel.updateSpeaker(frame, "Manasses");
 							System.out.println("MANASSES: I know of one, but if I tell you, you must agree to a bargain. You cannot banish me,\n"
 											+"and you must promise to restore the trees--to restore magic to the people of this world.");
 							pauseText(2);
+							new_panel.updateSpeaker(frame, "");
 							System.out.println("'To yourself, you mean,' you add in your head.\n");
 							pauseText(2);
 							System.out.println("Option: Do you accept these terms?\n"
@@ -1799,6 +1828,7 @@ public class WOMstoryWgraphics {	// class header
 													+"not yet--but you realize that you no longer have the trees' power. It also becomes evident that Manasses\n"
 													+"does . . . how?\n");
 									pauseText(4);
+									new_panel.updateSpeaker(frame, "Manasses");
 									System.out.println("MANASSES: *as though reading your mind* Ha! Skin-to-skin contact. Specifically, palm-to-palm.\n"
 													+"The easiest way to transfer a power if you know how.");
 									pauseText(3);
@@ -1813,6 +1843,7 @@ public class WOMstoryWgraphics {	// class header
 													+"future, about how I will rescue countries beyond Adalos's borders, about how I will expand the boundaries of\n"
 													+"what is possible with magic. Would you like to listen?\n");
 									pauseText(4);
+									new_panel.updateSpeaker(frame, "");
 									System.out.println("It is a question, but you no longer have a choice of answers.");
 									pauseText(2);
 									System.out.println("Your fate--and the world's--is now out of your hands, and so you follow Manasses into the castle.");
