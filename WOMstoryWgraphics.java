@@ -187,22 +187,23 @@ public class WOMstoryWgraphics {	// class header
 		pauseText(2);
 		System.out.println("Mercurion walks over to his desk and picks up a stack of paper. \n");
 		pauseText(2);
-		if(gender.toLowerCase().equals("girl")) {
-			partyMembers.add(new PartyMember("Reyna"));
-			user_speaker = "Reyna";
-	        new_panel.updatePeople(frame, partyMembers);
-		}
-		else if(gender.toLowerCase().equals("boy")) {
-			partyMembers.add(new PartyMember("Reinhardt"));
-			user_speaker = "Reinhardt";
-	        new_panel.updatePeople(frame, partyMembers);
-		}
 		System.out.println("MERCURION: You forgot to sign the report you gave me yesterday. Mind doing it now? \n");
 		pauseText(2);
 		System.out.print("What is your name? ");
 		charName = carl.nextLine();
 		System.out.println("\nMERCURION: Thank you, " + charName + ". ");
 		pauseText(2);
+		
+		if(gender.toLowerCase().equals("girl")) {
+			partyMembers.add(new PartyMember("Reyna", charName));
+			user_speaker = "Reyna";
+	        new_panel.updatePeople(frame, partyMembers);
+		}
+		else if(gender.toLowerCase().equals("boy")) {
+			partyMembers.add(new PartyMember("Reinhardt", charName));
+			user_speaker = "Reinhardt";
+	        new_panel.updatePeople(frame, partyMembers);
+		}
 		
 		//charName = "Rick Astley";
 		//gender = "boy";
@@ -2237,16 +2238,25 @@ public class WOMstoryWgraphics {	// class header
 
 class PartyMember{
 	
-	private String name;
+	private String name, username;
 	private int health; //also add power?
 	private int powerLevel;
 	
 	public PartyMember(String name){
 		this.name = name;
+		this.username = name;
 		health = 20; //randomize this?
+	}
+	public PartyMember(String name, String username){
+		this.name = name;
+		this.username = username;
+		health = 20;
 	}
 	public String getName(){	// return name of party member
 		return name;
+	}
+	public String getUsername() {
+		return username;
 	}
     public static Comparator <PartyMember> nameComp = new Comparator <PartyMember> (){ //for Collections.sort()
         public int compare(PartyMember p1, PartyMember p2){
@@ -2258,16 +2268,20 @@ class PartyMember{
 }
 
 class WOMpanel extends JPanel {
-    Image image = null;
+    Image image = null;	// field variables
 	String speaker = "";
     ArrayList <String> items = new ArrayList<>();
-    ArrayList <String> people = new ArrayList<>(); 
+    ArrayList <String> people = new ArrayList<>(); 	// contains names
+    ArrayList <String> people2 = new ArrayList<>();	// contains usernames
     public WOMpanel(ArrayList <String> inventory, ArrayList <PartyMember> party) {
         setBackground(Color.WHITE);
         items = inventory;
         for(PartyMember m:party){
             people.add(m.getName());
-        };
+        }
+        for(PartyMember m:party){
+            people2.add(m.getUsername());
+        }
     }
 
     public void paint(Graphics g) { //called automatically when frame becomes visible (either in setVisible(true) or in repaint(0))
@@ -2329,12 +2343,12 @@ class WOMpanel extends JPanel {
 			for(int p=0; p<people.size(); p++){
 				if(p%2==1){
 					horizontal += 100;
-					g.drawString(people.get(p), horizontal, i);
+					g.drawString(people2.get(p), horizontal, i);
 					horizontal -= 100;
 					i+=130;
 				}
                 else{
-					g.drawString(people.get(p), horizontal, i);
+					g.drawString(people2.get(p), horizontal, i);
 				}
 			}
         }
@@ -2360,8 +2374,10 @@ class WOMpanel extends JPanel {
 
     public void updatePeople(JFrame frame, ArrayList <PartyMember> party){
         this.people = new ArrayList<>();
+        this.people2 = new ArrayList<>();
         for(PartyMember m:party){
             people.add(m.getName());
+            people2.add(m.getUsername());
         }
 		frame.repaint(0);
         frame.setVisible(true);
