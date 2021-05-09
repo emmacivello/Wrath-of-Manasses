@@ -795,7 +795,7 @@ public class WOMstoryWgraphics {	// class header
 			}
 		}while(!(op==1 || op==2));
 		pauseText(3);
-		System.out.println("Finally, you visit the armory. The head armorer is just looking the doors when you arrive.\n");
+		System.out.println("Finally, you visit the armory. The head armorer is just locking the doors when you arrive.\n");
 		pauseText(2);
 		new_panel.updateSpeaker(frame, user_speaker);
 		System.out.println(charName.toUpperCase()+": Please, sir, can I purchase some armor? It is urgent, and I will be quick.\n");
