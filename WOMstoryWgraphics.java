@@ -204,6 +204,7 @@ public class WOMstoryWgraphics {	// class header
 			user_speaker = "Reinhardt";
 	        new_panel.updatePeople(frame, partyMembers);
 		}
+		inventory.add("Steel Dagger");
 		
 		//charName = "Rick Astley";
 		//gender = "boy";
@@ -966,6 +967,8 @@ public class WOMstoryWgraphics {	// class header
 		System.out.println("RUTHARD: Greetings, it's a pleasure to meet you! I apologize for the mess. Please, take a seat! What may I help you with? \n");
 		if(charName.equals("Ruthard"))
 			System.out.println("Melynas told me we share a name- how exciting! It's always a pleasure, meeting another Ruthard. \n");
+		else if(charName.equals("Mercurion"))
+			System.out.println("You know, it's quite funny, how you and Mercurion share a name. \n");
 		System.out.println();
 		
 		pauseText(2);
@@ -1835,10 +1838,14 @@ public class WOMstoryWgraphics {	// class header
 									System.out.println("Of course, Spell-Sharing was a bit experimental in my day, but it's a good thing I broke the law to\n"
 													+"study it. Thank you for the powers ... what is your name?\n");
 									pauseText(4);
-									System.out.println("He pulls it out of your mind before you can answer. "+ucname+". Thank you, "+ucname+". You know, I was\n"
-													+"really hoping my colleague Professor Ruthard of Meyerstern was going to help me himself, but it seems that\n"
-													+"you are a good proxy.\n");
+									
+									if(charName.equals("Manasses"))
+										secretEnding();
+									else
+										System.out.println("MANASSES: Thank you, "+ucname+". You know, I was really hoping my colleague Professor Ruthard of \n"
+												 + "Meyerstern was going to help me himself, but it seems that you are a good proxy.\n");
 									pauseText(4);
+
 									System.out.println("Come into the castle. I won't turn you to stone, don't worry! I want to tell you about my plans for the\n"
 													+"future, about how I will rescue countries beyond Adalos's borders, about how I will expand the boundaries of\n"
 													+"what is possible with magic. Would you like to listen?\n");
@@ -1933,7 +1940,7 @@ public class WOMstoryWgraphics {	// class header
 						 + "events that have just transpired, and we will send you a copy of the \n"
 						 + "record. Thank you again for you service. \n");
 		pauseText(4);
-		System.out.println("\n-=~[THE END]~=-");
+		System.out.println("\n-=~[THE END]~=-\n");
 		
 	}
 
@@ -2007,6 +2014,7 @@ public class WOMstoryWgraphics {	// class header
             }
             else if(op==3){
                 System.out.println("As the book sails toward his chest, Manasses is forced to dodge.");
+                inventory.remove("Tome of Turin");
             }
             else{
                 System.out.println("Please choose a valid option.");
@@ -2024,6 +2032,7 @@ public class WOMstoryWgraphics {	// class header
             op = carl.nextInt(); carl.nextLine();
             if(op==1){
                 System.out.println("The dagger misses Manasses but still succeeds in distracting him.\n");
+                inventory.remove("Steel Dagger");
             }
             else if(op==2){
                 System.out.println("Despite the tense situation, Manasses seems almost ready to laugh when\n"
@@ -2130,9 +2139,63 @@ public class WOMstoryWgraphics {	// class header
         pauseText(2);
         System.out.println("Congratulations!");
         pauseText(2);
-        System.out.println("\n-=~[YOU WIN]~=-");
+        System.out.println("\n-=~[YOU WIN]~=-\n");
     }
 
+	private void secretEnding() {	// if you and Manasses share a name
+		
+		String ucname = charName.toUpperCase();
+
+		new_panel.updateSpeaker(frame, "Manasses");
+		System.out.println("Manasses's face brightens. \n");
+		pauseText(2);
+		System.out.println("MANASSES: Someone... named their child after me? That... that really does means a lot. \n");
+		pauseText(2);
+		System.out.println("You shrug. \n");
+		pauseText(2);
+		new_panel.updateSpeaker(frame, user_speaker);
+		System.out.println(ucname + ": Uh... yeah. ");
+		pauseText(2);
+		new_panel.updateSpeaker(frame, "Manasses");
+		
+		if(gender.toLowerCase().equals("boy"))
+			System.out.println("MANASSES: Your parents are sensible people. I'd hate to rid them of their son. \n");
+		else if(gender.toLowerCase().equals("girl"))
+			System.out.println("MANASSES: Your parents are sensible people. I'd hate to rid them of their daughter. \n");
+		pauseText(2);
+		
+		new_panel.updateSpeaker(frame, "");
+		System.out.println("In amazement, you feel the stiffness from your hands disappear. You are able to move your fingers again. \n");
+		pauseText(2);
+		new_panel.updateSpeaker(frame, "Manasses");
+		System.out.println("MANASSES: Now go. Return home before I change my mind. ");
+		pauseText(2);
+		new_panel.updateSpeaker(frame, user_speaker);
+		System.out.println(ucname + ": No. ");
+		pauseText(2);
+		new_panel.updateSpeaker(frame, "Manasses");
+		System.out.println("MANASSES: Excuse me? ");
+		pauseText(2);
+		new_panel.updateSpeaker(frame, user_speaker);
+		System.out.println(ucname + ": I'm not going. ");
+		pauseText(2);
+		new_panel.updateSpeaker(frame, "Manasses");
+		System.out.println("MANASSES: Listen to me, please. You'll get hurt. ");
+		pauseText(2);
+		new_panel.updateSpeaker(frame, user_speaker);
+		System.out.println(ucname + ": No. I've finally found someone who shares my stu- my strange name, and I'm not \n"
+						 + "going to leave you behind. ");
+		pauseText(2);
+		new_panel.updateSpeaker(frame, "Manasses");
+		System.out.println("MANASSES: *smiles* You're intriguing. Has anyone told you that? \n");
+		pauseText(2);
+		new_panel.updateSpeaker(frame, "");
+		System.out.println("Manasses walks over to you and takes your hand in his. Together, you will create a beautiful new world together. ");	// Turin is probably questioning your choices right now
+		pauseText(2);
+        System.out.println("\n-=~[YOU WIN?]~=-\n");
+		
+	}
+	
 	private void leaveGame(){
 		System.out.println("The game can save your progress in a folder called: "+charName.replace(" ", "")+"Savefile.txt\n"
 							+"If a file with this name already exists, it will be overwritten.\n"
