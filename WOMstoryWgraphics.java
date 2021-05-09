@@ -112,11 +112,13 @@ public class WOMstoryWgraphics {	// class header
 				for(int i=0; i<temp2.size(); i++) {
 				
 					String currMem = temp2.get(i);
-					partyMembers.add(new PartyMember(currMem));
+					//if(!currMem.equals("")) //don't add blanks to party
+						partyMembers.add(new PartyMember(currMem));
 				
 				}
 			}
 			
+			System.out.println("SIZE:"+partyMembers.size());
 			if(!data.get(3).equals("")){
 				inventory = new ArrayList<String>(Arrays.asList(data.get(3).split(",")));
 			}
@@ -1946,7 +1948,7 @@ public class WOMstoryWgraphics {	// class header
 			op = carl.nextLine();
 		}while(!(op.equalsIgnoreCase("Y") || op.equalsIgnoreCase("N")));
 		if(op.equalsIgnoreCase("Y")){
-			String filename = charName.toUpperCase()+"Savefile.txt";
+			String filename = charName+"Savefile.txt";
 			PrintWriter fout = null;
 			try{fout = new PrintWriter(new File(filename));}
 			catch(IOException ex){System.out.print(ex);}
