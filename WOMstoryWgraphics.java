@@ -113,6 +113,11 @@ public class WOMstoryWgraphics {	// class header
 			
 			charName = (String)(data.get(0));
 			gender = (String)(data.get(1));
+
+			if(gender.toLowerCase().equals("girl"))
+				partyMembers.add(new PartyMember("Reyna", charName));
+			if(gender.toLowerCase().equals("boy"))
+				partyMembers.add(new PartyMember("Reinhardt", charName));
 			
 			if(!data.get(2).equals("")){ //if there are party members (if there aren't and this if weren't here,
 										//the program tries to create one w/blank name)
@@ -120,7 +125,7 @@ public class WOMstoryWgraphics {	// class header
 				for(int i=0; i<temp2.size(); i++) {
 				
 					String currMem = temp2.get(i);
-					//if(!currMem.equals("")) //don't add blanks to party
+					if(!currMem.equals("Reyna") && !currMem.equals("Reinhardt"))
 						partyMembers.add(new PartyMember(currMem));
 				
 				}
@@ -1219,7 +1224,7 @@ public class WOMstoryWgraphics {	// class header
             if(!(op==1 || op==2 || op==3))
                 System.out.println("Please choose a valid option.");
         }while(!(op==1 || op==2 || op==3));
-        System.out.println("\nYou successfully avoid the goblin’s first attack. However, he readies himself again.\n"
+        System.out.println("\nYou successfully avoid the goblin's first attack. However, he readies himself again.\n"
                         +"You must make another decision:\n"
                         +"\t1) Use dagger\n"
                         +"\t2) Use basic attack/defense spell\n"
@@ -1339,7 +1344,7 @@ public class WOMstoryWgraphics {	// class header
                 System.out.println("You feel terrible about leaving the man on the ground, but if you had stayed to fight,"
                                 +"you yourself would have perished.");
                 pauseText(2);
-                System.out.println("'I will save lives by going to the trees,' you tell yourself. You focus on that above the guilt.");
+                System.out.println("\"I will save lives by going to the trees,\" you tell yourself. You focus on that above the guilt.");
 				System.out.println("You feel terrible about leaving the man on the ground, but you\n"
                                 +"tell yourself that you will save lives by going on towards the trees.\n"
                                 +"You focus on that above the guilt.");
@@ -1367,7 +1372,7 @@ public class WOMstoryWgraphics {	// class header
             pauseText(3);
             System.out.println("As he walks over, you notice that his other eye has a triangular rune beneath it.");
             pauseText(2);
-            System.out.println("'Is he a soothsayer?' you wonder, knowing that practitioners of that magic\n"
+            System.out.println("\"Is he a soothsayer?\" you wonder, knowing that practitioners of that magic\n"
                             +"often identify themselves with such tattoos. He speaks just then, answering your\n"
                             +"unspoken question.\n");
             pauseText(4);
@@ -1481,7 +1486,7 @@ public class WOMstoryWgraphics {	// class header
                         +"I think that you should take it now. Return to the castle with it. I have a feeling\n"
                         +"that it will help.");
         pauseText(4);
-        System.out.println("MIHAIL: *after your silence* Please trust me. I will even come with you--and I’ll\n" 
+        System.out.println("MIHAIL: *after your silence* Please trust me. I will even come with you--and I'll\n" 
                         +"bring Denise. If nothing else, we know some spells to try against Manasses. Just please,\n"
                         +"please do not attack those sacred Binary Trees.");
         pauseText(3);
@@ -1761,6 +1766,8 @@ public class WOMstoryWgraphics {	// class header
 					System.out.println("What do you do next?\n"
 									+"\t1) Immediately bind him to the bracelet\n"
 									+"\t2) Bring him over to the edge of the stone so that you can talk.\n");
+					choice = carl.nextInt();
+					
 					int op;
 					do{
 						op = carl.nextInt(); carl.nextLine();
@@ -1786,8 +1793,8 @@ public class WOMstoryWgraphics {	// class header
 							System.out.println("He speaks first.\n");
 							pauseText(1);
 							new_panel.updateSpeaker(frame, "Manasses");
-							System.out.println("MANASSES: So you are the one who killed the trees. Never thought it'd be a student."
-											+"Always thought it'd be myself. Opportunity lost I suppose, but nicely done.");
+							System.out.println("MANASSES: So you are the one who killed the trees. Never thought it'd be a student. "
+											+"Always thought it'd be myself. Opportunity lost, I suppose, but nicely done.");
 							pauseText(3);
 							new_panel.updateSpeaker(frame, "");
 							System.out.println("Being praised by such an evil being makes you feel queasy and so you turn the conversation.\n");
@@ -1817,7 +1824,7 @@ public class WOMstoryWgraphics {	// class header
 											+"and you must promise to restore the trees--to restore magic to the people of this world.");
 							pauseText(2);
 							new_panel.updateSpeaker(frame, "");
-							System.out.println("'To yourself, you mean,' you add in your head.\n");
+							System.out.println("\"To yourself, you mean,\" you add in your head.\n");
 							pauseText(2);
 							System.out.println("Option: Do you accept these terms?\n"
 											+"\t1) Yes. Your guilt is overwhelming and besides, you figure that there will be a way to keep Manasses\n"
@@ -1825,7 +1832,9 @@ public class WOMstoryWgraphics {	// class header
 											+"\tin the past. It would be fitting. You shake his hand.\n"
 											+"\t2) No. If you did, you would be undoing all of your previous work, and besides someone else must know how to\n"
 											+"replant the trees. You decide to hold onto the guilt a while longer.\n");
+							op = -1;
 							do{
+								op = carl.nextInt(); carl.nextLine();
 								if(op==1){
 									System.out.println("As you shake his hand, you suddenly feel very heavy. You're not turning to rock--at least\n"
 													+"not yet--but you realize that you no longer have the trees' power. It also becomes evident that Manasses\n"
@@ -1839,8 +1848,10 @@ public class WOMstoryWgraphics {	// class header
 													+"study it. Thank you for the powers ... what is your name?\n");
 									pauseText(4);
 									
-									if(charName.equals("Manasses"))
+									if(charName.equals("Manasses")) {
 										secretEnding();
+										return;
+									}
 									else
 										System.out.println("MANASSES: Thank you, "+ucname+". You know, I was really hoping my colleague Professor Ruthard of \n"
 												 + "Meyerstern was going to help me himself, but it seems that you are a good proxy.\n");
