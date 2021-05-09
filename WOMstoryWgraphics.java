@@ -803,6 +803,7 @@ public class WOMstoryWgraphics {	// class header
 		new_panel.updateSpeaker(frame, "");
 		System.out.println("He looks like he is about to resist when he notices the castle's crest on your sash.\n");
 		pauseText(3);
+		new_panel.updateSpeaker(frame, "Armorer");
 		System.out.println("ARMORER: *gruffly* Fine. The prices--\n");
 		pauseText(2);
 		System.out.println("He points to a sheet of parchment hanging on the wall.\n");
@@ -834,6 +835,7 @@ public class WOMstoryWgraphics {	// class header
 					go = true;
 				}
 				else{
+					new_panel.updateSpeaker(frame, "Armorer");
 					System.out.println("ARMORER: *irritated* You do not have enough to buy "+armor[0]);
 				}
 			}
@@ -854,6 +856,7 @@ public class WOMstoryWgraphics {	// class header
 					go = true;
 				}
 				else{
+					new_panel.updateSpeaker(frame, "Armorer");
 					System.out.println("ARMORER: *irritated* You do not have enough to buy "+armor[1]);
 				}
 			}
@@ -874,6 +877,7 @@ public class WOMstoryWgraphics {	// class header
 					go = true;
 				}
 				else{
+					new_panel.updateSpeaker(frame, "Armorer");
 					System.out.println("ARMORER: *irritated* You do not have enough to buy "+armor[2]);
 				}
 			}
