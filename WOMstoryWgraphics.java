@@ -298,11 +298,11 @@ public class WOMstoryWgraphics {	// class header
 				
 				if(charName.equals("Manasses")) {
 					System.out.println("MERCURION: This- this is Manasses's doing. " + charName + ". ");
+					pauseText(2);
 					new_panel.updateSpeaker(frame, user_speaker);
-					pauseText(2);
 					System.out.println(ucname + ": That wasn't me! I didn't do anything! ");
-					new_panel.updateSpeaker(frame, "Mercurion");
 					pauseText(2);
+					new_panel.updateSpeaker(frame, "Mercurion");
 					System.out.println("MERCURION: No, not you! Another Manasses. Manasses... go to the University of \n"
 									 + "Meyerstern and find- \n");
 				}
