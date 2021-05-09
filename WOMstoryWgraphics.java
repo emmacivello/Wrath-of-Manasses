@@ -53,12 +53,18 @@ public class WOMstoryWgraphics {	// class header
 	private void menu(){
 		int op;
 		do{
-            System.out.print("Menu\n1. Play\n2. Instructions\n3. Authors\n0. Exit\nOption? ");
+			System.out.print("Menu\n1) Play\n2) Instructions\n3) Authors\n0) Exit\nOption? ");
             op = carl.nextInt(); carl.nextLine();
             switch(op){
                 case 1: run(); break;
-                case 2: break;
-                case 3: break;
+                case 2: 
+                	System.out.println("Wrath of Manasses is a choose your own adventure game. In order to perform \n"
+                					 + "actions, you must wait until you're presented with a list of options and then \n"
+                					 + "type in the number of the option you want. \n");
+                	break;
+                case 3:
+                	System.out.println("This game was coded by Emma Civello and Alicia Chen. \n");
+                	break;
                 case 0: System.out.println("Goodbye"); break;
                 default: System.out.println("Sorry, bad input.");
             }
