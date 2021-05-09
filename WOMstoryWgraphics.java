@@ -570,6 +570,7 @@ public class WOMstoryWgraphics {	// class header
 										pauseText(4);
 										System.out.println("MERCURION: Go find Ruthard, " + charName + ". Don't worry, it'll be alright. \n");
 										pauseText(2);
+										new_panel.updateSpeaker(frame, "");
 										System.out.println("With the last of his energy, he makes a grand gesture toward the hallway and the \n"
 														 + "golden sphere, with you inside, shoots out of his office, through the window, \n"
 														 + "and out of the castle. \n");
@@ -1161,7 +1162,10 @@ public class WOMstoryWgraphics {	// class header
                         +"by a number of goblin and ogre clans. Amidst the low grunts, however,\n"
                         +"is another voice, and as you look closer, you recognize that their prey is a human.\n");
         pauseText(3);
+		new_panel.updateSpeaker(frame, "Mihail");
         System.out.println("THE STRANGER: HELP!!\n");
+        pauseText(2);
+		new_panel.updateSpeaker(frame, "");
         System.out.println("At his cry, the goblins notice you, and the closest one bears its teeth.\n");
         pauseText(2);
         System.out.println("Do you rescue the man from the goblins?\n"
@@ -1364,14 +1368,17 @@ public class WOMstoryWgraphics {	// class header
                             +"often identify themselves with such tattoos. He speaks just then, answering your\n"
                             +"unspoken question.\n");
             pauseText(4);
+    		new_panel.updateSpeaker(frame, "Mihail");
             System.out.println("SOOTHSAYER?: Thank you one thousand times. My name is Mihail, Soothsayer of Sedes.\n"
                             +"You have just saved my life. Can I ask you to return to my tower with me?\n"
                             +"I can feed you and treat your wounds. Perhaps I can start to repay you.\n");
             pauseText(3);
 			if(ucname.equals("MIHAIL")){
+				new_panel.updateSpeaker(frame, user_speaker);
 				System.out.println(ucname+": No way, your name is Mihail? That's my name, too.");
+				new_panel.updateSpeaker(frame, "");
 			}
-            System.out.println("Would you like to go to Mihail’s tower?\n"
+            System.out.println("Would you like to go to Mihail's tower?\n"
                             +"\t1) Yes, I will accept your kind offer.\n"
                             +"\t2) Thank you, but I must continue along the road. We are on a quest."
                             + "Your choice? ");
@@ -1392,8 +1399,10 @@ public class WOMstoryWgraphics {	// class header
 					}
                 }
                 else if(op==2){
+            		new_panel.updateSpeaker(frame, "Mihail");
                     System.out.println("MIHAIL: Very well, I will not hold up your progress any more than I have.\n"
                                     +"But, may the angels of the Tamali faith guide your quest.\n");
+            		new_panel.updateSpeaker(frame, "");
 					System.out.println("\nYou've reached a checkpoint! Continue to next scene or finish later?\n"
 									+"Type 'c' to continue or 'f' to finish later.");
 					do{
