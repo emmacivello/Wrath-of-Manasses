@@ -23,6 +23,7 @@ public class WOMstoryWgraphics {	// class header
 	private Scanner carl;
 	private String charName;	// the name the character chooses
 	private String gender;	// gender the character chooses
+	private String user_speaker; //name of png representing speaker (depends on gender)
 	private int money;
 	private ArrayList<String> inventory;
 	private ArrayList<PartyMember> partyMembers;	// possibly change to a custom object (Character)
@@ -35,6 +36,7 @@ public class WOMstoryWgraphics {	// class header
 		carl = new Scanner(System.in);
 		charName = "";
 		gender = "";
+		user_speaker = "";
 		money = 20;
 		inventory = new ArrayList<>();
 		inventory.add(Integer.toString(money));
@@ -171,6 +173,10 @@ public class WOMstoryWgraphics {	// class header
 			
 			System.out.print("Would you like to look like a BOY or a GIRL? ");
 			gender = carl.nextLine();
+			if(gender.toLowerCase().equals("girl"))
+				user_speaker = "Reyna";
+			else if(gender.toLowerCase().equals("boy"))
+				user_speaker = "Reinhardt";
 			
 			if(!gender.toLowerCase().equals("girl") && !gender.toLowerCase().equals("boy")) {
 				System.out.println("Please choose one of the above choices. \n");
@@ -205,13 +211,16 @@ public class WOMstoryWgraphics {	// class header
 		if(charName.equals("MERCURION")) {
 			System.out.println("MERCURION: *laughs* The fact that we share the same name will never fail to amuse me. \n");
 			pauseText(2);
+			new_panel.updateSpeaker(frame, user_speaker);
 			System.out.print(ucname + ": It's definitely funny. ");
 		}
 		else {
 			System.out.print(ucname + ": It's no problem, Mercurion. ");
 		}
+		new_panel.updateSpeaker(frame, user_speaker);
 		System.out.println("What task do you want me to do today? \n");
 		pauseText(2);
+		new_panel.updateSpeaker(frame, "Mercurion");
 		System.out.println("MERCURION: Could you please gather some Rust Weed? We need it for the next potion. There's \n"
 						 + "a good patch of it near the Forest of Babbage. You know where that is- on the West edge of \n"
 						 + "the castle grounds. Take some of these leather satchels, and remember to only choose the weeds \n"
@@ -229,6 +238,7 @@ public class WOMstoryWgraphics {	// class header
 		
 		int choice = -1;
 		while(choice != 1 && choice != 2) {
+			new_panel.updateSpeaker(frame, user_speaker);
 			System.out.print("Choose something to say. \n"
 							 + "\t1) Yes, of course. I will return shortly. \n"
 							 + "\t2) Actually, I was planning on learning some spells today. \n"
@@ -238,9 +248,11 @@ public class WOMstoryWgraphics {	// class header
 			
 			switch(choice) {
 			case 1:	// collection path
+				new_panel.updateSpeaker(frame, "Mercurion");
 				System.out.println("MERCURION: Excellent. Do be careful in the forest, I hear that the poison ivy's gotten \n"
 								 + "out of control lately. \n");
 				pauseText(2);
+				new_panel.updateSpeaker(frame, "");
 				System.out.println("You leave the castle and head towards the Forest of Babbage, collecting all of the \n"
 								 + "rust weed that you can find. ");
 				
@@ -255,12 +267,14 @@ public class WOMstoryWgraphics {	// class header
 								 + "are suddenly thankful that you took this job. It might've been dull, but you are safe \n"
 								 + "out here. The same cannot be said for the people inside. \n");
 				pauseText(3);
+				new_panel.updateSpeaker(frame, user_speaker);
 				System.out.println(ucname + ": Oh no- I should probably go check on everyone. \n");
 				pauseText(2);
 				System.out.println("As you approach the castle, you can see that the whole structure is shaking. A wave of \n"
 								 + "gray seems to be spreading - seeping up the oaken front doors and across the water of \n"
 								 + "the moat. \n");
 				pauseText(3);
+				new_panel.updateSpeaker(frame, "Mercurion");
 				System.out.println("MERCURION: " + charName + "! Up here!");
 				pauseText(2);
 				System.out.println(ucname + ": Mercurion! What's going on? I don't understand- \n");
@@ -286,6 +300,7 @@ public class WOMstoryWgraphics {	// class header
 				pauseText(3);
 				System.out.println("MERCURION: Mey- Meyerstern. Ruthard. Go now. It'll be alright, " + charName + ". ");
 				pauseText(2);
+				new_panel.updateSpeaker(frame, user_speaker);
 				System.out.println(ucname + ": I will. \n");
 				pauseText(2);
 				System.out.println("You turn around and run away from the gray boundary. You glance backwards, and see a \n"
@@ -1153,14 +1168,14 @@ public class WOMstoryWgraphics {	// class header
 					if(inventory.contains("Bread and Strawberry Preserve")){
                         inventory.remove("Bread and Strawberry Preserve");
                         Collections.sort(inventory);
-                        new_panel.updateItems(inventory);
+                        new_panel.updateItems(frame, inventory);
                         frame.repaint(0);
                         frame.setVisible(true);
                     }
 					else if(inventory.contains("Venison")){
                         inventory.remove("Venison");
                         Collections.sort(inventory);
-                        new_panel.updateItems(inventory);
+                        new_panel.updateItems(frame, inventory);
                         frame.repaint(0);
                         frame.setVisible(true);
                     }
@@ -1168,7 +1183,7 @@ public class WOMstoryWgraphics {	// class header
 					else if(inventory.contains("Dragon Tenders")){
                         inventory.remove("Dragon Tenders");
                         Collections.sort(inventory);
-                        new_panel.updateItems(inventory);
+                        new_panel.updateItems(frame, inventory);
                         frame.repaint(0);
                         frame.setVisible(true);
                     }
