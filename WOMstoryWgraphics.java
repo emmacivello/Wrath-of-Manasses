@@ -199,6 +199,15 @@ public class WOMstoryWgraphics {	// class header
 		System.out.println("\nMERCURION: Thank you, " + charName + ". ");
 		pauseText(2);
 		
+		if(gender.toLowerCase().equals("girl")) {
+			partyMembers.add(new PartyMember("Reyna"));
+	        new_panel.updatePeople(frame, partyMembers);
+		}
+		else if(gender.toLowerCase().equals("boy")) {
+			partyMembers.add(new PartyMember("Reinhardt"));
+	        new_panel.updatePeople(frame, partyMembers);
+		}
+		
 		//charName = "Rick Astley";
 		//gender = "boy";
 
@@ -1961,7 +1970,7 @@ public class WOMstoryWgraphics {	// class header
     }
 
 	private void leaveGame(){
-		System.out.println("The game can save your progress in a folder called: "+charName+"Savefile.txt\n"
+		System.out.println("The game can save your progress in a folder called: "+charName.replace(" ", "")+"Savefile.txt\n"
 							+"If a file with this name already exists, it will be overwritten.\n"
 							+"Would you like to save your progress (y/n)?");
 		String op;
@@ -1969,7 +1978,7 @@ public class WOMstoryWgraphics {	// class header
 			op = carl.nextLine();
 		}while(!(op.equalsIgnoreCase("Y") || op.equalsIgnoreCase("N")));
 		if(op.equalsIgnoreCase("Y")){
-			String filename = charName+"Savefile.txt";
+			String filename = charName.replace(" ", "")+"Savefile.txt";
 			PrintWriter fout = null;
 			try{fout = new PrintWriter(new File(filename));}
 			catch(IOException ex){System.out.print(ex);}
