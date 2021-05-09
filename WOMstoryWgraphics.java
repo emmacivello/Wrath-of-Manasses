@@ -23,10 +23,10 @@ public class WOMstoryWgraphics {	// class header
 	private Scanner carl;
 	private String charName;	// the name the character chooses
 	private String gender;	// gender the character chooses
+	private String user_speaker; //name of png representing speaker (depends on gender), either Reyna or Reinhardt
 	private int money;
 	private ArrayList<String> inventory;
 	private ArrayList<PartyMember> partyMembers;	// possibly change to a custom object (Character)
-	private String user_speaker;
 	private JFrame frame;
     private WOMpanel new_panel;
 	private String savepoint;
@@ -172,12 +172,7 @@ public class WOMstoryWgraphics {	// class header
 		while(!gender.toLowerCase().equals("girl") && !gender.toLowerCase().equals("boy")) {
 			
 			System.out.print("Would you like to look like a BOY or a GIRL? ");
-			gender = carl.nextLine();
-			if(gender.toLowerCase().equals("girl"))
-				user_speaker = "Reyna";
-			else if(gender.toLowerCase().equals("boy"))
-				user_speaker = "Reinhardt";
-			
+			gender = carl.nextLine();	
 			if(!gender.toLowerCase().equals("girl") && !gender.toLowerCase().equals("boy")) {
 				System.out.println("Please choose one of the above choices. \n");
 			}
@@ -192,21 +187,22 @@ public class WOMstoryWgraphics {	// class header
 		pauseText(2);
 		System.out.println("Mercurion walks over to his desk and picks up a stack of paper. \n");
 		pauseText(2);
+		if(gender.toLowerCase().equals("girl")) {
+			partyMembers.add(new PartyMember("Reyna"));
+			user_speaker = "Reyna";
+	        new_panel.updatePeople(frame, partyMembers);
+		}
+		else if(gender.toLowerCase().equals("boy")) {
+			partyMembers.add(new PartyMember("Reinhardt"));
+			user_speaker = "Reinhardt";
+	        new_panel.updatePeople(frame, partyMembers);
+		}
 		System.out.println("MERCURION: You forgot to sign the report you gave me yesterday. Mind doing it now? \n");
 		pauseText(2);
 		System.out.print("What is your name? ");
 		charName = carl.nextLine();
 		System.out.println("\nMERCURION: Thank you, " + charName + ". ");
 		pauseText(2);
-		
-		if(gender.toLowerCase().equals("girl")) {
-			partyMembers.add(new PartyMember("Reyna"));
-	        new_panel.updatePeople(frame, partyMembers);
-		}
-		else if(gender.toLowerCase().equals("boy")) {
-			partyMembers.add(new PartyMember("Reinhardt"));
-	        new_panel.updatePeople(frame, partyMembers);
-		}
 		
 		//charName = "Rick Astley";
 		//gender = "boy";
@@ -2133,30 +2129,46 @@ class WOMpanel extends JPanel {
         
         //party images
         i=50; //reset i
+		int horizontal = 200;
         if(people.size()==0){
             g.drawString("Empty", 200, i);
         }
         else{
             Image new_image;
-            for(String person:people){
-                try {
-                    new_image = ImageIO.read(new File(person+".png"));
-                    g.drawImage(new_image, 200, i, 90, 100, this);
-                    i+=130;
+			for(int p=0; p<people.size(); p++){
+				try {
+                    new_image = ImageIO.read(new File(people.get(p)+".png"));
+					if(p%2==1){
+						horizontal += 100;
+						g.drawImage(new_image, horizontal, i, 90, 100, this);
+						horizontal -= 100;
+						i+=130;
+					}
+                    else{
+						g.drawImage(new_image, horizontal, i, 90, 100, this);
+					}
                 }
                 catch(IOException e) {
                     System.out.println("File not found");
                     e.printStackTrace();
                 }
-            }
+			}
         }
 
-        i=160;
+        horizontal=200;
+		i = 160;
         if(people.size()!=0){
-            for(String person:people){
-                g.drawString(person, 200, i);
-                i+=130;
-            }
+			for(int p=0; p<people.size(); p++){
+				if(p%2==1){
+					horizontal += 100;
+					g.drawString(people.get(p), horizontal, i);
+					horizontal -= 100;
+					i+=130;
+				}
+                else{
+					g.drawString(people.get(p), horizontal, i);
+				}
+			}
         }
 
 		if(!speaker.equals("")){
