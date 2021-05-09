@@ -1905,6 +1905,7 @@ public class WOMstoryWgraphics {	// class header
 	}
 	
 	private void bindingManasses() {	// binding Manasses with the String of Morcom
+		
 		String ucname = charName.toUpperCase();
 		
 		System.out.println("It takes a final, brief command to bind the man - his body zooms \n"
@@ -1914,8 +1915,10 @@ public class WOMstoryWgraphics {	// class header
 						 + "metal. After the process finishes, you take a glance at the bracelet. \n"
 						 + "It looks completely unchanged. \n");
 		pauseText(3);
+		new_panel.updateSpeaker(frame, user_speaker);
 		System.out.println(ucname + ": I think I'll call this... the String of Morcom. \n");
 		pauseText(2);
+		new_panel.updateSpeaker(frame, "");
 		System.out.println("You move towards the castle. With each step you take, a wave of color \n"
 						 + "spreads outward. The stone spell is retreating. \n");
 		pauseText(2);
@@ -1924,6 +1927,7 @@ public class WOMstoryWgraphics {	// class header
 		System.out.println("You can almost hear these questions in the king's mind as he shakes \n"
 						 + "your hand. Another woman in dark clothing stands next to him. \n");
 		pauseText(2);
+		new_panel.updateSpeaker(frame, "Karalius");
 		System.out.println("KARALIUS: This woman here is Denise. She is a scribe for Mihail, the \n"
 						 + "Soothsayer of Sedes. She is going to ask you some questions about the \n"
 						 + "events that have just transpired, and we will send you a copy of the \n"
@@ -1938,36 +1942,48 @@ public class WOMstoryWgraphics {	// class header
         System.out.println("The party arrives back at the castle many hours later. The stone spell has spread\n"
                         +"a little further, but thankfully not much.\n");
         pauseText(3);
+    	new_panel.updateSpeaker(frame, "Mihail");
         System.out.println("MIHAIL: You are going to go up to the perimeter, just there. Then, begin to read\n"
                         +"from this last page. I believe it is a banishing spell. It looks promising.\n");
         pauseText(3);
+    	new_panel.updateSpeaker(frame, user_speaker);
         System.out.println("You do as instructed. The Ancient Elvish words echo off the stone, and then suddenly,\n"
                         +"there is a harsh, booming voice. Manasses speaks furiously from the castle steps.\n");
         pauseText(3);
+    	new_panel.updateSpeaker(frame, "Manasses");
         System.out.println("MANASSES: You dared to trap me in this--this dollar store trinket?\n");
         pauseText(2);
+    	new_panel.updateSpeaker(frame, "");
         System.out.println("Out of the corner of your eye, you see him waving a string of plastic beads.\n"
                         +"You cannot stop to ponder what he means, however, for you must continue to read.\n"
                         +"You get through another paragraph when something happens that you cannot ignore.\n");
         pauseText(5);
+    	new_panel.updateSpeaker(frame, "Turin");
         System.out.println("NEW VOICE: It was all that I had on-hand. What did you expect? 24-karat gold?\n");
         pauseText(3);
+    	new_panel.updateSpeaker(frame, "");
         System.out.println("Mihail gasps from behind you, and you look into the air to see a ghost-like form.\n"
                         +"It is Turin himself.\n");
         pauseText(3);
+    	new_panel.updateSpeaker(frame, "Mihail");
         System.out.println("MIHAIL: So I guess that was not a banishing spell. Denise, make sure you're recording\n"
                         +"all of this.\n");
         pauseText(3);
+    	new_panel.updateSpeaker(frame, "");
         System.out.println("Turin flies toward Manasses.\n");
         pauseText(2);
+    	new_panel.updateSpeaker(frame, "Turin");
         System.out.println("TURIN: How did you escape?");
         pauseText(2);
+    	new_panel.updateSpeaker(frame, "Manasses");
         System.out.println("MANASSES: Maybe it was this cheap trinket. The plastic wasn't too hard to overcome.\n"
                         +"*leering* Are you happy to see me?");
         pauseText(3);
+    	new_panel.updateSpeaker(frame, "Turin");
         System.out.println("TURIN: Far from it. I was dining with some of Tamali's angels before I was summoned here--\n"
                         +"not that I blame YOU, of course.\n");
         pauseText(3);
+    	new_panel.updateSpeaker(frame, "");
         System.out.println("He turns to you for the first time. This brief pause gives Manasses the break he was\n"
                         +"looking for, and he swipes toward Turin with a massive hand. The ghostly figure trembles\n"
                         +"as Manasses's spell strikes.\n");
@@ -1983,8 +1999,11 @@ public class WOMstoryWgraphics {	// class header
                 System.out.println("As you draw out the hefty machine, Manasses looks over.");
             }
             else if(op==2){
-                System.out.println("As you flip through the Tome of Turin, Manasses looks over.\n\n"
-                                +"MANASSES: How dare you touch those pages!\n");
+                System.out.println("As you flip through the Tome of Turin, Manasses looks over.\n");
+                pauseText(2);
+            	new_panel.updateSpeaker(frame, "Manasses");
+                System.out.println("MANASSES: How dare you touch those pages!\n");
+            	new_panel.updateSpeaker(frame, "");
             }
             else if(op==3){
                 System.out.println("As the book sails toward his chest, Manasses is forced to dodge.");
@@ -2020,36 +2039,43 @@ public class WOMstoryWgraphics {	// class header
         }while(!(op==1 || op==2 || op==3));
         System.out.println("You have successfully distracted him a second time.\n");
         pauseText(2);
+    	new_panel.updateSpeaker(frame, "Turin");
         System.out.println("TURIN: Do you have a necklace? Bracelet?\n");
         pauseText(2);
         System.out.println("Denise hurries forward, offering a thin golden chain.\n");
         pauseText(1);
         System.out.println("TURIN: Perfect.\n");
         pauseText(2);
+    	new_panel.updateSpeaker(frame, "");
         System.out.println("He waves his hand one last time, and Manasses begins to shrink in size and to zoom forward.\n"
                         +"He has just enough time to yell \"STOP\" before his body melds into the gold of the bracelet.\n"
                         +"Turin drops it to the ground, and from this spot, a wave of color washes out toward the castle.\n"
                         +"The stone retracts until it is gone.\n");
         pauseText(4);
+    	new_panel.updateSpeaker(frame, "Turin");
         System.out.println("TURIN: We will call this the String of Morcom. It is to be returned to the vault where the\n"
                         +"plastic beads once lay. I trust that this will hold him for a few centuries longer. Now, I must\n"
                         +"go and finish my brunch.");
         pauseText(3);
+    	new_panel.updateSpeaker(frame, "");
         System.out.println("Before anyone has time to thank him or ask any questions, Turin disappears.\n");
         pauseText(2);
         System.out.println("The group enters the castle. Mercurion and King Karalius rush down the grand staircase\n"
                         +"as you enter. Mercurion can barely speak, but this time it is out of pure joy. The stone spells are gone.\n");
         pauseText(2);
+    	new_panel.updateSpeaker(frame, "Karalius");
         System.out.println("KARALIUS: Thank you, "+ucname+". You have saved this world. Thank you.\n");
         pauseText(2);
         System.out.println("Karalius strokes his beard thoughtfully.\n");
         pauseText(2);
         System.out.println("KARALUIS: I believe this calls for a feast.\n");
         pauseText(2);
+    	new_panel.updateSpeaker(frame, "");
         System.out.println("A few hours later, everyone gathers around a large oak table.");
         pauseText(2);
         System.out.println("Karalius repeats his appreciation again.\n");
         pauseText(1);
+    	new_panel.updateSpeaker(frame, "Karalius");
         System.out.println("KARALIUS: Thank you Mihail, Denise, ");
         if(checkMember("Ahkal"))
             System.out.print("Ahkal, ");
@@ -2059,6 +2085,7 @@ public class WOMstoryWgraphics {	// class header
                         +"Thank you all for returning the castle to safety and for ensuring that harm does not\n"
                         +"befall my dear kingdom Adalos.");
         pauseText(4);
+    	new_panel.updateSpeaker(frame, "");
         String[]foods = {"Hearty dragon soup", "Pumpkin bread with preserves", "Pomegranate and wild turkey"};
         System.out.println("King Karalius then offers you the first choice of the delicacies.\n"
                         +"What food do you choose?\n"
@@ -2094,9 +2121,11 @@ public class WOMstoryWgraphics {	// class header
         System.out.println("Finally, the conversation arrives at the matter of the Tome of Turin itself. Mihail agrees\n"
                         +"to leave it in the castle library.");
         pauseText(3);
+    	new_panel.updateSpeaker(frame, "Karalius");
         System.out.println("KARALIUS: Thank you, Mihail, Soothsayer of Sedes. Turin said that the String of Morcom should\n"
                         +"hold Manasses for another few centuries, but after that who knows? We may need the book again.\n");
         pauseText(2);
+    	new_panel.updateSpeaker(frame, "");
         System.out.println("The next few centuries are safe thanks to your bravery and intelligence.\n");
         pauseText(2);
         System.out.println("Congratulations!");
