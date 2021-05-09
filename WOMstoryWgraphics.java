@@ -193,6 +193,7 @@ public class WOMstoryWgraphics {	// class header
 		System.out.println("Mercurion walks over to his desk and picks up a stack of paper. \n");
 		pauseText(2);
 		System.out.println("MERCURION: You forgot to sign the report you gave me yesterday. Mind doing it now? \n");
+		pauseText(2);
 		System.out.print("What is your name? ");
 		charName = carl.nextLine();
 		System.out.println("\nMERCURION: Thank you, " + charName + ". ");
@@ -1988,6 +1989,7 @@ public class WOMstoryWgraphics {	// class header
 	}
 	
 	private void fullHouse() {	// for debugging purposes, adds every possible party member to the party (as well as a few others)
+		
 		if(gender.equals("boy"))
 			partyMembers.add(new PartyMember("Reyna"));
 		else if(gender.equals("girl"))
@@ -2002,7 +2004,11 @@ public class WOMstoryWgraphics {	// class header
 		partyMembers.add(new PartyMember("Karalius"));
 		partyMembers.add(new PartyMember("Turin"));
 		partyMembers.add(new PartyMember("Manasses"));
+		
 		new_panel.updatePeople(frame, partyMembers);
+		frame.repaint(0);
+        frame.setVisible(true);
+
 	}
 	
 	private void pauseText(int dur) {	// pause time for a specified period
