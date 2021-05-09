@@ -1136,7 +1136,7 @@ public class WOMstoryWgraphics {	// class header
 
 		new_panel.updateSpeaker(frame, "Ruthard");
 		System.out.println("RUTHARD: Very well. Good luck on your journey. I look forward to your return. \n"); //I took out the 'you two' part because it was reading even if Vertaine didn't join
-		System.out.println("Now, equipped for your journey, you head toward the University of Meyerstern.");
+		pauseText(2);
 		new_panel.updateSpeaker(frame, "");
 		System.out.println("\nYou've reached a checkpoint! Continue to next scene or finish later?\n"
 						+"Type 'c' to continue or 'f' to finish later.");
