@@ -7,7 +7,7 @@
  * note to self: copy of github's but without button and with the continue/finish later option
  */
 
-// package wrathOfManasses;
+package wrathOfManasses;
 import javax.swing.*;
 
 import java.awt.*;
