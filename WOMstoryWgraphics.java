@@ -234,8 +234,8 @@ public class WOMstoryWgraphics {	// class header
 						 + "one bag. Filling this should be enough. \n");
 		pauseText(4);
 		System.out.println("Mercurion hands you a satchel. \n");
-		pauseText(1);
 		
+		pauseText(1);
 		inventory.add("Leather satchel");	// add item to inventory ArrayList
 		System.out.println("ITEM GET! Leather satchel x1 has been added to your inventory. \n");	// maybe add an option later to check the inventory whenever
 		Collections.sort(inventory);
@@ -262,12 +262,13 @@ public class WOMstoryWgraphics {	// class header
 				System.out.println("You leave the castle and head towards the Forest of Babbage, collecting all of the \n"
 								 + "rust weed that you can find. ");
 				
+				pauseText(1);
                 System.out.println("\nITEM GET! Bundle of Rust Weed x1 has been added to your inventory.\n");
 				inventory.add("Bundle of Rust Weed");
                 //update graphics screen:
                 Collections.sort(inventory);
                 new_panel.updateItems(frame, inventory);
-				pauseText(2);
+				pauseText(1);
 				
 				System.out.println("All of a sudden, you hear the noise of a loud explosion coming from the castle. You \n"
 								 + "are suddenly thankful that you took this job. It might've been dull, but you are safe \n"
@@ -664,10 +665,12 @@ public class WOMstoryWgraphics {	// class header
 		do{
 			op = carl.nextInt(); carl.nextLine();
 			if(op==1 || op==2 || op==3){
+				pauseText(1);
 				inventory.add(foods[op-1]);
 				System.out.println("\nITEM GET! "+foods[op-1]+" x1 has been added to your inventory. \n");
                 Collections.sort(inventory);
                 new_panel.updateItems(frame, inventory);
+                pauseText(1);
 
 				money = money - prices[op-1];
 				inventory.set(0, Integer.toString(money));
@@ -764,10 +767,13 @@ public class WOMstoryWgraphics {	// class header
 			op = carl.nextInt(); carl.nextLine();
 			if(op==1){
 				if(money>=armor_prices[0]){
+					pauseText(1);
 					inventory.add(armor[0]);
 					System.out.println("\nITEM GET! "+armor[0]+" x1 has been added to your inventory. \n");
                     Collections.sort(inventory);
                     new_panel.updateItems(frame, inventory);
+                    pauseText(1);
+                    
 					money = money - armor_prices[0];
 					inventory.set(0, Integer.toString(money));
 					Collections.sort(inventory);
@@ -781,10 +787,13 @@ public class WOMstoryWgraphics {	// class header
 			}
 			else if(op==2){
 				if(money>=armor_prices[1]){
+					pauseText(1);
 					inventory.add(armor[1]);
 					System.out.println("\nITEM GET! "+armor[1]+" x1 has been added to your inventory. \n");
                     Collections.sort(inventory);
                     new_panel.updateItems(frame, inventory);
+                    pauseText(1);
+                    
 					money = money - armor_prices[1];
 					inventory.set(0, Integer.toString(money));
 					Collections.sort(inventory);
@@ -798,10 +807,13 @@ public class WOMstoryWgraphics {	// class header
 			}
 			else if(op==3){
 				if(money>=armor_prices[2]){
+					pauseText(1);
 					inventory.add(armor[2]);
 					System.out.println("\nITEM GET! "+armor[2]+" x1 has been added to your inventory. \n");
                     Collections.sort(inventory);
                     new_panel.updateItems(frame, inventory);
+                    pauseText(1);
+                    
 					money = money - armor_prices[2];
 					inventory.set(0, Integer.toString(money));
 					Collections.sort(inventory);
@@ -1374,7 +1386,14 @@ public class WOMstoryWgraphics {	// class header
                         +"a tremor in his hand.");
         pauseText(4);
         System.out.println("After a protracted silence, he hands it to you.");
+        
         pauseText(1);
+		inventory.add("Tome of Turin");
+		System.out.println("ITEM GET! Tome of Turin x1 has been added to your inventory. \n");
+		Collections.sort(inventory);
+        new_panel.updateItems(frame, inventory);
+        pauseText(1);
+        
         System.out.println("It takes you a moment to translate the Old Elvish on the cover, but once you do,\n"
                         +"you shiver. 'Tome of Turin,' it says.\n");
         System.out.println("What would you like to do?\n"
