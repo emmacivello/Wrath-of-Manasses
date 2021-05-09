@@ -243,6 +243,7 @@ public class WOMstoryWgraphics {	// class header
 		Collections.sort(inventory);
         new_panel.updateItems(frame, inventory);
         pauseText(1);
+		new_panel.updateSpeaker(frame, user_speaker);
 		
 		int choice = -1;
 		while(choice != 1 && choice != 2) {
@@ -290,6 +291,7 @@ public class WOMstoryWgraphics {	// class header
 				new_panel.updateSpeaker(frame, user_speaker);
 				System.out.println(ucname + ": Mercurion! What's going on? I don't understand- \n");
 				pauseText(2);
+				new_panel.updateSpeaker(frame, "Mercurion");
 				System.out.println("Mercurion's entire body shudders. The old man is trying his best to steady himself, \n"
 								 + "but it seems to be getting harder for him to do so with each passing second. With a \n"
 								 + "shaky voice, he shouts out the window to you. \n");
@@ -314,15 +316,18 @@ public class WOMstoryWgraphics {	// class header
 				System.out.println("There is a great pause. The man in the window seems to be fighting off a force- one \n"
 								 + "that is invisible, but no less powerful than something that can be seen. \n");
 				pauseText(3);
+				new_panel.updateSpeaker(frame, "Mercurion");
 				if(charName.equals("Ruthard"))
 					System.out.println("MERCURION: *gasps* Go to Meyerstern. Find my old friend, Ruthard. Yes, he has the \n"
 									 + "same name as you. No, I will not... be taking any more questions. \n");
 				else
 					System.out.println("MERCURION: *gasps* Go to Meyerstern. Find my old friend, Ruthard. \n");
 				pauseText(2);
+				new_panel.updateSpeaker(frame, "");
 				System.out.println("The gray wave makes its way towards you. You look down in horror as the nearby grass \n"
 								 + "begins to turn into stone. \n");
 				pauseText(3);
+				new_panel.updateSpeaker(frame, "Mercurion");
 				System.out.println("MERCURION: Mey- Meyerstern. Ruthard. Go now. It'll be alright, " + charName + ". ");
 				pauseText(2);
 				new_panel.updateSpeaker(frame, user_speaker);
@@ -399,6 +404,7 @@ public class WOMstoryWgraphics {	// class header
 						 		 + "with potion-making yesterday, I will assign you something more \"interesting\" today, \n"
 						 		 + "but in the future, I may not always let you off- \n");
 				pauseText(4);
+				new_panel.updateSpeaker(frame, "");
 				System.out.println("A sudden explosion interrupts his sentence. \n");
 				pauseText(3);
 				System.out.println("MERCURION: Get down! \n");
@@ -433,7 +439,7 @@ public class WOMstoryWgraphics {	// class header
 										 + "or for an eternity, watching the castle's lawn dissolve into chaos beyond the \n"
 										 + "hallway windows. Either way, events are no longer in your control. \n");
 						pauseText(4);
-						System.out.println("\n-=~[GAME OVER]~=-");
+						System.out.println("\n-=~[GAME OVER]~=-\n");
 						break;
 						
 					case 2:	// get closer to Mercurion
@@ -472,6 +478,7 @@ public class WOMstoryWgraphics {	// class header
 										 + "would eventually escape. However, these prophecies failed to mention that he would do \n"
 										 + "so today. \n");
 						pauseText(4);
+						new_panel.updateSpeaker(frame, user_speaker);
 						
 						choice = -1;
 						while(choice != 1 && choice != 2) {
@@ -510,7 +517,7 @@ public class WOMstoryWgraphics {	// class header
 												 + "You realize that you may be here for a few minutes or for an eternity, mulling over the \n"
 												 + "alchemist's last, grim lesson. Either way, it is no longer in your control. \n");
 								pauseText(4);
-								System.out.println("\n-=~[GAME OVER]~=-");
+								System.out.println("\n-=~[GAME OVER]~=-\n");
 								break;
 								
 							case 2:	// "Heck no boi, we screwed." - Mercurion, 2021 :D
@@ -527,6 +534,7 @@ public class WOMstoryWgraphics {	// class header
 												 + "study his powers. When I release this spell, I suspect we will both turn into stone. The \n"
 												 + "state may not be permanent, but that is out of our control. I am sorry. \n");
 								pauseText(4);
+								new_panel.updateSpeaker(frame, user_speaker);
 								
 								choice = -1;
 								while(choice != 1 && choice != 2) {
@@ -632,7 +640,7 @@ public class WOMstoryWgraphics {	// class header
 														 + "here for a few minutes or for an eternity, mulling over the alchemist's last, grim \n"
 														 + "lesson. Either way, events are no longer in your control. \n");
 										pauseText(4);
-										System.out.println("\n-=~[GAME OVER]~=-");
+										System.out.println("\n-=~[GAME OVER]~=-\n");
 										break;
 									}
 									
@@ -719,30 +727,38 @@ public class WOMstoryWgraphics {	// class header
 						+"You have come here once before, seeking his advice on an illness affecting\n"
 						+"the castle's steeds. He recognizes you now.\n");
 		pauseText(4);
+		new_panel.updateSpeaker(frame, "StableMaster");
 		System.out.println("STABLE MASTER: Hello, "+charName+". How can I help you today?");
 		pauseText(2);
+		new_panel.updateSpeaker(frame, user_speaker);
 		System.out.println(charName.toUpperCase()+": Stable Master, can you please lend me a horse?");
 		pauseText(2);
+		new_panel.updateSpeaker(frame, "StableMaster");
 		System.out.println("STABLE MASTER: For what purpose?\n");
 		pauseText(2);
+		new_panel.updateSpeaker(frame, "");
 		System.out.println("At that moment, bells begin to ring--not the church bells of the Tamali faith\n"
 						+"(which ring in beautiful melodies)--but a deeper gong. An urgent warning.");
 		pauseText(3);
 		System.out.println("The Stable Master's face pales.\n");
 		pauseText(1);
+		new_panel.updateSpeaker(frame, "StableMaster");
 		System.out.println("STABLE MASTER: *whispering* Oh no. Have you been at the castle recenly?\n"
 						+"Is something happening there? Please, please no . . . ");
 		pauseText(3);
-		System.out.println("STABLE MASTER: The bells ring in pairs. 'Trouble on the horizon, not yet arrived.'\n"
-						+"We are safe for the moment. Have you seen anything suspicious?");
+		System.out.println("The bells ring in pairs. \"Trouble on the horizon, not yet arrived.\" We are \n"
+						 + "safe for the moment. Have you seen anything suspicious?");
 		pauseText(3);
+		new_panel.updateSpeaker(frame, user_speaker);
 		System.out.println(charName.toUpperCase()+": Manasses. Mercurion says he has escaped his banishment,\n" 
 						+"and so Mercurion sent me here--well, technically to the University of Meyerstern,\n"
 						+"but I stopped off for supplies. Please, sir, I need a horse. I will return it,\n"
 						+"but I am supposed to meet Ruthard at the university.\n");
 		pauseText(4);
+		new_panel.updateSpeaker(frame, user_speaker);
 		System.out.println("The Stable Master's face is snowy white at this point, but he is also good under pressure.\n");
 		pauseText(2);
+		new_panel.updateSpeaker(frame, "StableMaster");
 		System.out.println("STABLE MASTER: Of course. A horse.\n");
 		pauseText(2);
 		System.out.println("The man disappears down the hallway and quickly returns, leading a gray steed.\n");
@@ -750,6 +766,7 @@ public class WOMstoryWgraphics {	// class header
 		System.out.println("STABLE MASTER: Go, make haste. Would you like my son to come with you? He is an\n"
 							+"accomplished stable hand--he can lead this horse quickly.\n");
 		pauseText(3);
+		new_panel.updateSpeaker(frame, user_speaker);
 		System.out.println("1) Yes, thank you for the offer. I could use his assistance.\n"
 							+"2) I appreciate your offer, but I will brave the journey alone.\n"
 							+"Your choice? ");
@@ -778,8 +795,10 @@ public class WOMstoryWgraphics {	// class header
 		pauseText(3);
 		System.out.println("Finally, you visit the armory. The head armorer is just looking the doors when you arrive.\n");
 		pauseText(2);
+		new_panel.updateSpeaker(frame, user_speaker);
 		System.out.println(charName.toUpperCase()+": Please, sir, can I purchase some armor? It is urgent, and I will be quick.\n");
 		pauseText(2);
+		new_panel.updateSpeaker(frame, "");
 		System.out.println("He looks like he is about to resist when he notices the castle's crest on your sash.\n");
 		pauseText(3);
 		System.out.println("ARMORER: *gruffly* Fine. The prices--\n");
