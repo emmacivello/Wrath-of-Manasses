@@ -67,7 +67,7 @@ public class WOMstoryWgraphics {	// class header
                 case 3:
                 	System.out.println("This game was coded by Emma Civello and Alicia Chen. \n");
                 	break;
-                case 0: System.out.println("Goodbye"); break;
+                case 0: System.out.println("Goodbye! "); break;
                 default: System.out.println("Sorry, bad input.");
             }
         }while(op!=0);
@@ -901,9 +901,6 @@ public class WOMstoryWgraphics {	// class header
 	}//TownScene
 	
 	private void universityScene() {	// university scene
-
-		System.out.println("After a long journey, you finally end up at the gates of the University of Meyerstern. ");
-		pauseText(2);
 		
 		System.out.println("After a long journey, you finally end up at the gates of the University of Meyerstern. ");
 		pauseText(2);
@@ -1115,7 +1112,7 @@ public class WOMstoryWgraphics {	// class header
 				}
 				
 				pauseText(1);
-				System.out.println("Vertaine has joined the party! \n");
+				System.out.println("\nVertaine has joined the party! \n");
 				partyMembers.add(new PartyMember("Vertaine"));
                 Collections.sort(partyMembers, PartyMember.nameComp);
                 new_panel.updatePeople(frame, partyMembers);
