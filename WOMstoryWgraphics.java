@@ -296,10 +296,7 @@ public class WOMstoryWgraphics {	// class header
 				pauseText(3);
 				new_panel.updateSpeaker(frame, "Mercurion");
 				
-				if(charName.equals("Manasses"))
-					System.out.println("MERCURION: This- this is Manasses's doing. " + charName + ", go to the University of \n"
-								 + "Meyerstern and find- \n");
-				else {
+				if(charName.equals("Manasses")) {
 					System.out.println("MERCURION: This- this is Manasses's doing. " + charName + ". ");
 					new_panel.updateSpeaker(frame, user_speaker);
 					pauseText(2);
@@ -308,8 +305,10 @@ public class WOMstoryWgraphics {	// class header
 					pauseText(2);
 					System.out.println("MERCURION: No, not you! Another Manasses. Manasses... go to the University of \n"
 									 + "Meyerstern and find- \n");
-					
 				}
+				else
+					System.out.println("MERCURION: This- this is Manasses's doing. " + charName + ", go to the University of \n"
+							 + "Meyerstern and find- \n");
 				pauseText(2);
 				
 				System.out.println("There is a great pause. The man in the window seems to be fighting off a force- one \n"
