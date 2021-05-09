@@ -1061,7 +1061,8 @@ public class WOMstoryWgraphics {	// class header
         pauseText(2);
         System.out.println("Do you rescue the man from the goblins?\n"
                         +"\t1) Yes\n"
-                        +"\t2) No\n");
+                        +"\t2) No\n"
+                        + "Your choice? ");
         int op;
         do{
 			op = carl.nextInt(); carl.nextLine();
@@ -1092,11 +1093,11 @@ public class WOMstoryWgraphics {	// class header
                         +"but you are hesitant to use up the fuel.");
         pauseText(4);
         System.out.println("You decide to act as a distraction and hope that the man on the ground\n"
-                        +"makes it away. Maybe you can even try reasoning with these beasts …");       
+                        +"makes it away. Maybe you can even try reasoning with these beasts... ");       
         pauseText(3);
         System.out.println("but no, the goblin nearest the road lunges toward you.\n");
         pauseText(2);
-        System.out.println("How do you react to the goblin’s attack?\n"
+        System.out.println("How do you react to the goblin's attack?\n"
                         +"\t1) Cross your arms before you in a defensive position\n"
                         +"\t2) Leap out of the way\n"
                         +"\t3) Yell loudly\n"
@@ -1110,7 +1111,8 @@ public class WOMstoryWgraphics {	// class header
                         +"You must make another decision:\n"
                         +"\t1) Use dagger\n"
                         +"\t2) Use basic attack/defense spell\n"
-                        +"\t3) Use your fists");
+                        +"\t3) Use your fists\n"
+                        + "Your choice? ");
         do{
             op = carl.nextInt(); carl.nextLine();
             if(!(op==1 || op==2 || op==3))
@@ -1143,7 +1145,7 @@ public class WOMstoryWgraphics {	// class header
                 System.out.println("You realize that you will not make it to your destination in time. Pictures of Mercurion\n"
                                 +"and the castle, encased in stone, flash before your vision as the goblin leaps on top of you.\n"
                                 +"The situation is out of your control. \n"
-                                +"\n-=~[GAME OVER]~=-");
+                                +"\n-=~[GAME OVER]~=-\n");
 
             }
             else if(op==2){
@@ -1154,7 +1156,8 @@ public class WOMstoryWgraphics {	// class header
                     System.out.println("You are ready to fight again. What do you do?\n"
                                     +"\t1) Use dagger\n"
                                     +"\t2) Yell loudly\n"
-                                    +"\t3) Use basic attack/defense spell\n");
+                                    +"\t3) Use basic attack/defense spell\n"
+                                    + "Your choice? ");
                     op = carl.nextInt(); carl.nextLine();
                     System.out.println("Your action successfully distracts the goblins, and together, you and this stranger\n"
                                 +"fight them back into the woods.");
@@ -1195,7 +1198,8 @@ public class WOMstoryWgraphics {	// class header
                     pauseText(2);
                     System.out.println("\t1) Use dagger\n"
                                     +"\t2) Yell loudly\n"
-                                    +"\t3) Use basic attack/defense spell\n");
+                                    +"\t3) Use basic attack/defense spell\n"
+                                    + "Your choice? ");
                     op = carl.nextInt(); carl.nextLine();
                     System.out.println("Your action successfully distracts the goblins, and together, you and this stranger\n"
                                 +"fight them back into the woods.");
@@ -1264,7 +1268,8 @@ public class WOMstoryWgraphics {	// class header
 			}
             System.out.println("Would you like to go to Mihail’s tower?\n"
                             +"\t1) Yes, I will accept your kind offer.\n"
-                            +"\t2) Thank you, but I must continue along the road. We are on a quest.");
+                            +"\t2) Thank you, but I must continue along the road. We are on a quest."
+                            + "Your choice? ");
             do{
                 op = carl.nextInt(); carl.nextLine();
                 if(op==1){
