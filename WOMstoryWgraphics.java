@@ -73,14 +73,29 @@ public class WOMstoryWgraphics {	// class header
         }while(op!=0);
 	}
 
+	private void reset(){
+		charName = "";
+		gender = "";
+		user_speaker = "";
+		money = 20;
+		inventory = new ArrayList<>();
+		inventory.add(Integer.toString(money));
+		partyMembers = new ArrayList<>();
+		savepoint = "";
+	}
+
 	private void run() {	// either runs game from the beginning or opens up a previous save file
 
-        frame.setSize(600, 400);                
+        frame.setSize(600, 600);                
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
         frame.setLocation(50, 100);
         frame.setResizable(false);
 		new_panel.setLayout(null); //allows use of coordinates (rather than grid)
 									//discovered at: https://stackoverflow.com/questions/3195666/how-to-place-a-jbutton-at-a-desired-location-in-a-jframe-using-java
+		reset(); //reset main class variables
+		new_panel.reset(frame); //reset graphics window variables, just in case user plays >1 game in 1 sitting
+								//if program doesn't reset, graphics window still has old items/party members still showing up
+		
 		
 		// JButton b = new JButton("Leave Game");
 		// Font font = new Font("Times New Roman", Font.PLAIN, 12);
@@ -114,10 +129,14 @@ public class WOMstoryWgraphics {	// class header
 			charName = (String)(data.get(0));
 			gender = (String)(data.get(1));
 
-			if(gender.toLowerCase().equals("girl"))
+			//add user avatar to main class's party members list
+			if(gender.toLowerCase().equals("girl")){
 				partyMembers.add(new PartyMember("Reyna", charName));
-			if(gender.toLowerCase().equals("boy"))
+			}
+				
+			if(gender.toLowerCase().equals("boy")){
 				partyMembers.add(new PartyMember("Reinhardt", charName));
+			}
 			
 			if(!data.get(2).equals("")){ //if there are party members (if there aren't and this if weren't here,
 										//the program tries to create one w/blank name)
@@ -125,13 +144,16 @@ public class WOMstoryWgraphics {	// class header
 				for(int i=0; i<temp2.size(); i++) {
 				
 					String currMem = temp2.get(i);
-					if(!currMem.equals("Reyna") && !currMem.equals("Reinhardt"))
+					if(!currMem.equals("Reyna") && !currMem.equals("Reinhardt")) //don't user's avatar again
 						partyMembers.add(new PartyMember(currMem));
 				
 				}
 			}
+			//sort party, then update graphics window
+			Collections.sort(partyMembers, PartyMember.nameComp);
+			new_panel.updatePeople(frame, partyMembers);
 			
-			System.out.println("SIZE:"+partyMembers.size());
+			//System.out.println("SIZE:"+partyMembers.size()); //for debugging
 			if(!data.get(3).equals("")){
 				inventory = new ArrayList<String>(Arrays.asList(data.get(3).split(",")));
 			}
@@ -2233,7 +2255,7 @@ public class WOMstoryWgraphics {	// class header
 			fout.write(savepoint+"\n\n");
 			fout.close();
 		}
-		frame.dispose();
+		frame.setVisible(false);  //hide frame
 		return; //return to menu
 	}//leaveGame
 
@@ -2461,6 +2483,17 @@ class WOMpanel extends JPanel {
 		speaker = s;
 		frame.repaint(0);
         frame.setVisible(true);
+	}
+
+	public void reset(JFrame frame){
+		image = null;	// field variables
+		speaker = "";
+    	items = new ArrayList<>();
+		items.add("20"); //reset inventory
+    	people = new ArrayList<>(); 	// contains names
+    	people2 = new ArrayList<>();	// contains usernames
+		frame.repaint(0);
+		frame.setVisible(true);
 	}
 }//WOMpanel class
 
