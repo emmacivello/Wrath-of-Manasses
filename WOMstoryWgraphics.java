@@ -158,6 +158,8 @@ public class WOMstoryWgraphics {	// class header
 				inventory = new ArrayList<String>(Arrays.asList(data.get(3).split(",")));
 			}
 			
+			Collections.sort(inventory); //should have been written to file in a sorted manner, but sort again just in case
+			money = inventory[0]; //money is always the first item since inventory's sorted alphabetically
 			savepoint = (String)(data.get(4));
 
 			new_panel.updateItems(frame, inventory);
