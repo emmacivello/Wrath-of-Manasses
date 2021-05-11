@@ -1416,13 +1416,14 @@ public class WOMstoryWgraphics {	// class header
                             + "Your choice? ");
             do{
                 op = carl.nextInt(); carl.nextLine();
+				char choice;
                 if(op==1){
 					System.out.println("\nYou've reached a checkpoint! Continue to next scene or finish later?\n"
 										+"Type 'c' to continue or 'f' to finish later.");
 					do{
-						op = Character.toLowerCase(carl.nextLine().charAt(0));
-					}while(!(op=='c' || op=='f'));
-					if(op=='c'){
+						choice = Character.toLowerCase(carl.nextLine().charAt(0));
+					}while(!(choice=='c' || choice=='f'));
+					if(choice=='c'){
 						atMihailsTower(); //method call to trees scene
 					}
 					else{
@@ -1438,9 +1439,9 @@ public class WOMstoryWgraphics {	// class header
 					System.out.println("\nYou've reached a checkpoint! Continue to next scene or finish later?\n"
 									+"Type 'c' to continue or 'f' to finish later.");
 					do{
-						op = Character.toLowerCase(carl.nextLine().charAt(0));
-					}while(!(op=='c' || op=='f'));
-					if(op=='c'){
+						choice = Character.toLowerCase(carl.nextLine().charAt(0));
+					}while(!(choice=='c' || choice=='f'));
+					if(choice=='c'){
 						burningTrees(); //call to trees scene
 					}
 					else{
@@ -1536,6 +1537,7 @@ public class WOMstoryWgraphics {	// class header
                         +"\t1) Agree to Mihail's plan.\n"
                         +"\t2) Continue toward the trees.");
         int op;
+		char choice;
         do{
             op = carl.nextInt(); carl.nextLine();
             if(op==1){
@@ -1548,9 +1550,9 @@ public class WOMstoryWgraphics {	// class header
 				System.out.println("\nYou've reached a checkpoint! Continue to next scene or finish later?\n"
 									+"Type 'c' to continue or 'f' to finish later.");
 				do{
-					op = Character.toLowerCase(carl.nextLine().charAt(0));
-				}while(!(op=='c' || op=='f'));
-				if(op=='c'){
+					choice = Character.toLowerCase(carl.nextLine().charAt(0));
+				}while(!(choice=='c' || choice=='f'));
+				if(choice=='c'){
 					backAtCastle(); //call to back at the castle method
 				}
 				else{
@@ -1563,9 +1565,9 @@ public class WOMstoryWgraphics {	// class header
 				System.out.println("\nYou've reached a checkpoint! Continue to next scene or finish later?\n"
 									+"Type 'c' to continue or 'f' to finish later.");
 				do{
-					op = Character.toLowerCase(carl.nextLine().charAt(0));
-				}while(!(op=='c' || op=='f'));
-				if(op=='c'){
+					choice = Character.toLowerCase(carl.nextLine().charAt(0));
+				}while(!(choice=='c' || choice=='f'));
+				if(choice=='c'){
 					burningTrees(); //call to trees scene
 				}
 				else{
