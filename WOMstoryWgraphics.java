@@ -1676,7 +1676,7 @@ public class WOMstoryWgraphics {	// class header
 							 + "\t2) The branches. \n"
 							 + "\t3) The leaves. \n"
 							 + "Your choice? ");
-					choice = carl.nextInt(); carl.nextLine();
+					2choice = carl.nextInt(); carl.nextLine();
 					System.out.println();
 					
 					System.out.println("Again, the flames start and stop. Your head begins to feel heavy, and the flamethrower \n"
