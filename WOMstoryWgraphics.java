@@ -1741,9 +1741,9 @@ public class WOMstoryWgraphics {	// class header
 							
 					}
 					
-					if(partyMembers.size() == 1)
+					if(partyMembers.size() == 2)
 						System.out.println("Your companion is very impressed. \n");
-					else if(partyMembers.size() >= 2)
+					else if(partyMembers.size() > 2)
 						System.out.println("Your companions are very impressed. \n");
 					
 					if(checkMember("Ahkal")) {
