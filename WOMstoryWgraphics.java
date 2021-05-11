@@ -2002,7 +2002,7 @@ public class WOMstoryWgraphics {	// class header
                         +"as Manasses's spell strikes.\n");
         pauseText(5);
         System.out.println("How do you help?\n"
-                        +"\t1) Attack Manasses with Mihail's flame-thrower.\n"
+                        +"\t1) Attack Manasses with Ruthard's flame-thrower.\n"
                         +"\t2) Flip through the tome, searching for a helpful spell.\n"
                         +"\t3) Chuck the hefty tome toward Manasses.\n");
         int op;
