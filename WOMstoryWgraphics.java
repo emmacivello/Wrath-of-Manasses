@@ -2,12 +2,11 @@
  * Program title: WOMstory.java
  * Author: CEH Emma Civello, CA Alicia Chen
  * Description: The text-based portion of Wrath of Manasses
- * 
- * 
- * note to self: copy of github's but without button and with the continue/finish later option
  */
 
 //package wrathOfManasses;
+
+// import statements (first 3 and javax.imageio.ImageIO are related to graphics)
 import javax.swing.*;
 
 import java.awt.*;
@@ -16,41 +15,41 @@ import java.awt.event.*;
 import java.io.*;
 import javax.imageio.ImageIO;
 
-import java.util.*; // import statements
+import java.util.*; 
 
 public class WOMstoryWgraphics {	// class header
 
 	private Scanner carl;
-	private String charName;	// the name the character chooses
+	private String charName;	// the name the user chooses, 
+								// is related to: username ( = charName in WOMpanel class)
 	private String gender;	// gender the character chooses
-	private String user_speaker; //name of png representing speaker (depends on gender), either Reyna or Reinhardt
-	private int money;
+	private String user_speaker; // name of png representing speaker (depends on gender), either Reyna or Reinhardt.
+								 // is related to: name ( = user_speaker in WOMpanel class)
+	private int money; // = inventory.get(0) cast as int for easier math
 	private ArrayList<String> inventory;
-	private ArrayList<PartyMember> partyMembers;	// possibly change to a custom object (Character)
+	private ArrayList<PartyMember> partyMembers;
 	private JFrame frame;
     private WOMpanel new_panel;
-	private String savepoint;
-    // add sprite image name later
+	private String savepoint; //changes to be the name of current function, used to save user's progress
 	
 	public WOMstoryWgraphics() {	// constructor
 		carl = new Scanner(System.in);
 		charName = "";
 		gender = "";
 		user_speaker = "";
-		money = 20;
+		money = 20; //user starts with $20, is overwritten if a save file is read
 		inventory = new ArrayList<>();
 		inventory.add(Integer.toString(money));
 		partyMembers = new ArrayList<>();
         frame = new JFrame();
         new_panel = new WOMpanel(inventory, partyMembers);
 		savepoint = "";
-	}
+	}//constructor
 	
 	public static void main(String[] args) {	// main method header
 		WOMstoryWgraphics wom = new WOMstoryWgraphics();	// class instance
 		wom.menu();
-		
-	}
+	}//main
 
 	private void menu(){
 		int op;
@@ -69,11 +68,13 @@ public class WOMstoryWgraphics {	// class header
                 	break;
                 case 0: System.out.println("Goodbye! "); break;
                 default: System.out.println("Sorry, bad input.");
-            }
+            }//switch
         }while(op!=0);
-	}
+	}//menu
 
-	private void reset(){
+	private void reset(){ //used at the beginning of run() to reset variables,
+						// is important if the user plays >1 time without stopping program,
+						// is related to the reset method in the WOMpanel class
 		charName = "";
 		gender = "";
 		user_speaker = "";
@@ -82,7 +83,7 @@ public class WOMstoryWgraphics {	// class header
 		inventory.add(Integer.toString(money));
 		partyMembers = new ArrayList<>();
 		savepoint = "";
-	}
+	}//reset
 
 	private void run() {	// either runs game from the beginning or opens up a previous save file
 
@@ -90,81 +91,60 @@ public class WOMstoryWgraphics {	// class header
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
         frame.setLocation(50, 100);
         frame.setResizable(false);
-		new_panel.setLayout(null); //allows use of coordinates (rather than grid)
+		new_panel.setLayout(null); //method allows use of coordinates (rather than grid)
 									//discovered at: https://stackoverflow.com/questions/3195666/how-to-place-a-jbutton-at-a-desired-location-in-a-jframe-using-java
-		reset(); //reset main class variables
-		new_panel.reset(frame); //reset graphics window variables, just in case user plays >1 game in 1 sitting
-								//if program doesn't reset, graphics window still has old items/party members still showing up
-		
-		
-		// JButton b = new JButton("Leave Game");
-		// Font font = new Font("Times New Roman", Font.PLAIN, 12);
-		// b.setFont(font);
-		// b.setBounds(20, 320, 100, 30);
-		// // b.setVerticalAlignment(SwingConstants.CENTER);
-		// // b.setHorizontalAlignment(SwingConstants.BOTTOM);
-		
-		// new_panel.add(b);
-
-		// ActionListener actionListener = new ActionListener(){
-        //     public void actionPerformed(ActionEvent actionEvent){
-        //         //if action detected, set up next panel and button
-		// 		leaveGame();
-        //     }
-        // };
-		// b.addActionListener(actionListener);
+		//reset all variables:
+		reset(); //reset variables in main class
+		new_panel.reset(frame); //reset graphics window variables.
+								//if program doesn't reset, and user plays >1 time without stopping,
+								//old items/party members still show up in the graphics window
 
         frame.add(new_panel);
         frame.setVisible(true);
 
+		//try reading from progress-saved file:
 		WOMfilereader fr = new WOMfilereader();
 		ArrayList<String> data = fr.read();
 		
-		if(data.isEmpty()) {
+		if(data.isEmpty()) { //if nothing to read from file, set up new game
 			charSelection();
 		}
 		
-		else {
-			
+		else { //set class variables equal to data read from file
 			charName = (String)(data.get(0));
 			gender = (String)(data.get(1));
 
 			//add user avatar to main class's party members list
 			if(gender.toLowerCase().equals("girl")){
-				partyMembers.add(new PartyMember("Reyna", charName));
+				partyMembers.add(new PartyMember("Reyna", charName)); //constructor: name of image, name user chose
 			}
-				
 			if(gender.toLowerCase().equals("boy")){
 				partyMembers.add(new PartyMember("Reinhardt", charName));
 			}
 			
-			if(!data.get(2).equals("")){ //if there are party members (if there aren't and this if weren't here,
-										//the program tries to create one w/blank name)
+			if(!data.get(2).equals("")){ //if there aren't party members and this line were not here,
+										//the program tries to create member w/blank name
 				ArrayList<String> temp2 = new ArrayList<String>(Arrays.asList(data.get(2).split(",")));
 				for(int i=0; i<temp2.size(); i++) {
-				
 					String currMem = temp2.get(i);
-					if(!currMem.equals("Reyna") && !currMem.equals("Reinhardt")) //don't user's avatar again
+					if(!currMem.equals("Reyna") && !currMem.equals("Reinhardt")) //don't put user's avatar again
 						partyMembers.add(new PartyMember(currMem));
 				
-				}
-			}
-			//sort party, then update graphics window
+				}//for
+			}//if
+			//sort party (to put user's avatar in correct place - the rest should already be sorted), then update graphics window
 			Collections.sort(partyMembers, PartyMember.nameComp);
 			new_panel.updatePeople(frame, partyMembers);
 			
-			//System.out.println("SIZE:"+partyMembers.size()); //for debugging
+			//set up inventory:
 			if(!data.get(3).equals("")){
 				inventory = new ArrayList<String>(Arrays.asList(data.get(3).split(",")));
 			}
-			
-			Collections.sort(inventory); //should have been written to file in a sorted manner, but sort again just in case
 			money = Integer.parseInt(inventory.get(0)); //money is always the first item since inventory's sorted alphabetically
-			savepoint = (String)(data.get(4));
-
-			new_panel.updateItems(frame, inventory);
-			new_panel.updatePeople(frame, partyMembers);
+			new_panel.updateItems(frame, inventory);	
 			
+			//insert user in correct place:
+			savepoint = (String)(data.get(4));
 			switch(savepoint) {
 			case "castleScene":
 				castleScene();
@@ -190,23 +170,19 @@ public class WOMstoryWgraphics {	// class header
 			case "backAtCastle":
 				backAtCastle();
 				break;
-			}
-			
-		}
-		
-	}
+			}//switch
+		}//else
+	}//run
 	
-	private void charSelection() {	// name/gender selection
+	private void charSelection() {	// name and gender selection
 		
 		while(!gender.toLowerCase().equals("girl") && !gender.toLowerCase().equals("boy")) {
-			
 			System.out.print("Would you like to look like a BOY or a GIRL? ");
 			gender = carl.nextLine();	
 			if(!gender.toLowerCase().equals("girl") && !gender.toLowerCase().equals("boy")) {
 				System.out.println("Please choose one of the above choices. \n");
 			}
-			
-		}
+		}//while
 		System.out.println("\n");
 		
 		new_panel.updateSpeaker(frame, "Mercurion");
@@ -235,18 +211,14 @@ public class WOMstoryWgraphics {	// class header
 		}
 		inventory.add("Steel Dagger");
 		
-		//charName = "Rick Astley";
-		//gender = "boy";
-
 		castleScene();
-		
-	}
+	}//charSelection
 	
 	private void castleScene() {	// castle scene
 		
 		String ucname = charName.toUpperCase();	// for ease of formatting
 		
-		if(charName.equals("Mercurion")) {
+		if(charName.equals("Mercurion")) { //bonus Easter egg scene
 			System.out.println("MERCURION: *laughs* The fact that we share the same name will never fail to amuse me. \n");
 			pauseText(2);
 			new_panel.updateSpeaker(frame, user_speaker);
@@ -270,7 +242,7 @@ public class WOMstoryWgraphics {	// class header
 		
 		pauseText(1);
 		inventory.add("Leather satchel");	// add item to inventory ArrayList
-		System.out.println("ITEM GET! Leather satchel x1 has been added to your inventory. \n");	// maybe add an option later to check the inventory whenever
+		System.out.println("ITEM GET! Leather satchel x1 has been added to your inventory. \n");
 		Collections.sort(inventory);
         new_panel.updateItems(frame, inventory);
         pauseText(1);
@@ -419,13 +391,13 @@ public class WOMstoryWgraphics {	// class header
 							leaveGame();
 						}
 						break;
-					}
+					}//switch
 					
 
 					if(choice != 1 && choice != 2)
 						System.out.println("Please choose a valid answer. \n");
 					
-				}
+				}//while
 				break;
 				
 			case 2:	// staying in the castle
@@ -658,12 +630,12 @@ public class WOMstoryWgraphics {	// class header
 													leaveGame();
 												}
 												break;	
-											}
+											}//switch
 											
 											if(choice != 1 && choice != 2)
 												System.out.println("Please choose a valid answer. \n");
 											
-										}
+										}//while
 										break;
 										
 									case 2:	// surrender
@@ -674,41 +646,41 @@ public class WOMstoryWgraphics {	// class header
 										pauseText(4);
 										System.out.println("\n-=~[GAME OVER]~=-\n");
 										break;
-									}
+									}//switch
 									
 
 									if(choice != 1 && choice != 2)
 										System.out.println("Please choose a valid answer. \n");
 									
-								}
+								}//while
 								
 								break;
-							}
+							}//switch
 							
 
 							if(choice != 1 && choice != 2)
 								System.out.println("Please choose a valid answer. \n");
 							
-						}
+						}//while
 						
 						break;
-					}
+					}//switch
 					
 
 					if(choice != 1 && choice != 2)
 						System.out.println("Please choose a valid answer. \n");
 					
-				}
+				}//while
 				
 				break;
-			}
+			}//switch
 			
 			if(choice != 1 && choice != 2)
 				System.out.println("Please choose a valid answer. \n");
 			
-		}
+		}//while
 
-	}
+	}//castleScene
 
 	private void townScene() {	// town scene
 		String ucname = charName.toUpperCase();
@@ -1417,7 +1389,6 @@ public class WOMstoryWgraphics {	// class header
                             + "Your choice? ");
             do{
                 op = carl.nextInt(); carl.nextLine();
-				char choice;
                 if(op==1){
 					System.out.println("\nYou've reached a checkpoint! Continue to next scene or finish later?\n"
 										+"Type 'c' to continue or 'f' to finish later.");
@@ -1442,7 +1413,7 @@ public class WOMstoryWgraphics {	// class header
 					do{
 						choice = Character.toLowerCase(carl.nextLine().charAt(0));
 					}while(!(choice=='c' || choice=='f'));
-					if(op=='c'){
+					if(choice=='c'){
 						burningTrees(); //call to trees scene
 					}
 					else{
