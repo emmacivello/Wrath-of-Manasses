@@ -1597,8 +1597,7 @@ public class WOMstoryWgraphics {	// class header
 		pauseText(2);
 		
 		int op = -1; //controls outer while loop
-		int choice; //controls user actions within loop
-		int choice2, choice3, choice4; //control user actions within inner loop
+		int choice2, choice3, choice4; //control user actions within switch blocks and inner loops
 		char end; //controls the "finish later" response
 		while(op != 2) {
 			System.out.print("Choose an action. \n"
@@ -1606,9 +1605,9 @@ public class WOMstoryWgraphics {	// class header
 					 + "\t2) Head straight. \n"
 					 + "\t3) Head right. \n"
 					 + "Your choice? ");
-			choice = carl.nextInt(); carl.nextLine();
+			op = carl.nextInt(); carl.nextLine();
 			System.out.println();
-			switch(choice) {
+			switch(op) {
 			case 1:	// head left
 				System.out.println("After traveling for a while, you realize that this is not the correct path. \n"
 								 + "This path travels by a small pond and then veers off to the north, away from \n"
@@ -1676,7 +1675,7 @@ public class WOMstoryWgraphics {	// class header
 							 + "\t2) The branches. \n"
 							 + "\t3) The leaves. \n"
 							 + "Your choice? ");
-					2choice = carl.nextInt(); carl.nextLine();
+					choice2 = carl.nextInt(); carl.nextLine();
 					System.out.println();
 					
 					System.out.println("Again, the flames start and stop. Your head begins to feel heavy, and the flamethrower \n"
@@ -1698,7 +1697,7 @@ public class WOMstoryWgraphics {	// class header
 							 + "\t2) The branches. \n"
 							 + "\t3) The leaves. \n"
 							 + "Your choice? ");
-					carl.nextLine();
+					choice2 = carl.nextInt(); carl.nextLine();
 					System.out.println();
 					
 					System.out.println("This time, the right tree catches fire and stays lit. The flames must have gotten \n"
@@ -1940,7 +1939,7 @@ public class WOMstoryWgraphics {	// class header
 				break;
 			}
 			
-			if(choice != 1 && choice != 2 && choice != 3)
+			if(op != 1 && op != 2 && op != 3)
 				System.out.println("Please choose a valid answer. \n");
 			
 		}
