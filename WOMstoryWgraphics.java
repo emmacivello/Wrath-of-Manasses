@@ -1205,6 +1205,7 @@ public class WOMstoryWgraphics {	// class header
                         +"\t2) No\n"
                         + "Your choice? ");
         int op;
+		char choice;
         do{
 			op = carl.nextInt(); carl.nextLine();
             if(op==2){
@@ -1214,9 +1215,9 @@ public class WOMstoryWgraphics {	// class header
 				System.out.println("\nYou've reached a checkpoint! Continue to next scene or finish later?\n"
 								+"Type 'c' to continue or 'f' to finish later.");
 				do{
-					op = Character.toLowerCase(carl.nextLine().charAt(0));
-				}while(!(op=='c' || op=='f'));
-				if(op=='c'){
+					choice = Character.toLowerCase(carl.nextLine().charAt(0));
+				}while(!(choice=='c' || choice=='f'));
+				if(choice=='c'){
 					burningTrees(); //method call to trees scene
 				}
 				else{
@@ -1441,7 +1442,7 @@ public class WOMstoryWgraphics {	// class header
 					do{
 						choice = Character.toLowerCase(carl.nextLine().charAt(0));
 					}while(!(choice=='c' || choice=='f'));
-					if(choice=='c'){
+					if(op=='c'){
 						burningTrees(); //call to trees scene
 					}
 					else{
