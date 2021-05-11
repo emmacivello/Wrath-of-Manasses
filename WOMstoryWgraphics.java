@@ -66,7 +66,7 @@ public class WOMstoryWgraphics {	// class header
                 case 3:
                 	System.out.println("This game was coded by Emma Civello and Alicia Chen. \n");
                 	break;
-                case 0: System.out.println("Goodbye! "); break;
+                case 0: System.out.println("Goodbye! "); frame.dispose(); break;
                 default: System.out.println("Sorry, bad input.");
             }//switch
         }while(op!=0);
@@ -1944,7 +1944,7 @@ public class WOMstoryWgraphics {	// class header
 		System.out.println("KARALIUS: This woman here is Denise. She is a scribe for Mihail, the \n"
 						 + "Soothsayer of Sedes. She is going to ask you some questions about the \n"
 						 + "events that have just transpired, and we will send you a copy of the \n"
-						 + "record. Thank you again for you service. \n");
+						 + "record. Thank you again for your service. \n");
 		pauseText(4);
 		System.out.println("\n-=~[THE END]~=-\n");
 		
@@ -2203,7 +2203,7 @@ public class WOMstoryWgraphics {	// class header
 	}
 	
 	private void leaveGame(){
-		System.out.println("The game can save your progress in a folder called: "+charName.replace(" ", "")+"Savefile.txt\n"
+		System.out.println("The game can save your progress in a file called: "+charName.replace(" ", "")+"Savefile.txt\n"
 							+"If a file with this name already exists, it will be overwritten.\n"
 							+"Would you like to save your progress (y/n)?");
 		String op;
