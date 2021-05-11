@@ -2357,7 +2357,7 @@ class PartyMember{
 	}
     public static Comparator <PartyMember> nameComp = new Comparator <PartyMember> (){ //for Collections.sort()
         public int compare(PartyMember p1, PartyMember p2){
-            return p1.name.compareTo(p2.name);
+            return p1.username.compareTo(p2.username);
         }//compare
     };//pointComp
 
