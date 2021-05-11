@@ -159,7 +159,7 @@ public class WOMstoryWgraphics {	// class header
 			}
 			
 			Collections.sort(inventory); //should have been written to file in a sorted manner, but sort again just in case
-			money = inventory.get(0); //money is always the first item since inventory's sorted alphabetically
+			money = Integer.parseInt(inventory.get(0)); //money is always the first item since inventory's sorted alphabetically
 			savepoint = (String)(data.get(4));
 
 			new_panel.updateItems(frame, inventory);
