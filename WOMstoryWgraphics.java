@@ -1596,8 +1596,11 @@ public class WOMstoryWgraphics {	// class header
 						 + "but the path you are on splits into three. \n");
 		pauseText(2);
 		
-		int choice = -1;
-		while(choice != 2) {
+		int op = -1; //controls outer while loop
+		int choice; //controls user actions within loop
+		int choice2, choice3, choice4; //control user actions within inner loop
+		char end; //controls the "finish later" response
+		while(op != 2) {
 			System.out.print("Choose an action. \n"
 					 + "\t1) Head left. \n"
 					 + "\t2) Head straight. \n"
@@ -1628,16 +1631,16 @@ public class WOMstoryWgraphics {	// class header
 								 + "just to sightsee. You approach the tree on the left. \n");
 				pauseText(3);
 				
-				choice = -1;
-				while(choice != 1 && choice != 2 && choice != 3) {
+				choice2 = -1;
+				while(choice2 != 1 && choice2 != 2 && choice2 != 3) {
 					System.out.print("Which part would you like to burn first? \n"
 							 + "\t1) The trunk. \n"
 							 + "\t2) The branches. \n"
 							 + "\t3) The leaves. \n"
 							 + "Your choice? ");
-					choice = carl.nextInt(); carl.nextLine();
+					choice2 = carl.nextInt(); carl.nextLine();
 					System.out.println();
-					switch(choice) {
+					switch(choice2) {
 					case 1:
 						System.out.println("The trunk begins to blaze a fierce yellow, but the fire quickly dims to orange, then \n"
 										 + "red, then nothing. The bark seems to be flame resistant. You turn to the right tree, \n"
@@ -1660,13 +1663,13 @@ public class WOMstoryWgraphics {	// class header
 						break;
 					}
 					
-					if(choice != 1 && choice != 2 && choice != 3)
+					if(choice2 != 1 && choice2 != 2 && choice2 != 3)
 						System.out.println("Please choose a valid answer. \n");
 					
 				}
 				
-				choice = -1;
-				while(choice != 1 && choice != 2 && choice != 3) {
+				choice2 = -1;
+				while(choice2 != 1 && choice2 != 2 && choice2 != 3) {
 					
 					System.out.print("Which area do you light on fire? \n"
 							 + "\t1) The trunk. \n"
@@ -1682,20 +1685,20 @@ public class WOMstoryWgraphics {	// class header
 									 + "and it is invading your mind. You must concentrate, for you have one use of the flamethrower remaining. \n");
 					pauseText(4);
 					
-					if(choice != 1 && choice != 2 && choice != 3)
+					if(choice2 != 1 && choice2 != 2 && choice2 != 3)
 						System.out.println("Please choose a valid answer. \n");
 					
 				}
 				
-				choice = -1;
-				while(choice != 1 && choice != 2 && choice != 3) {
+				choice2 = -1;
+				while(choice2 != 1 && choice2 != 2 && choice2 != 3) {
 					
 					System.out.print("Which area do you light on fire? \n"
 							 + "\t1) The trunk. \n"
 							 + "\t2) The branches. \n"
 							 + "\t3) The leaves. \n"
 							 + "Your choice? ");
-					choice = carl.nextInt(); carl.nextLine();
+					carl.nextLine();
 					System.out.println();
 					
 					System.out.println("This time, the right tree catches fire and stays lit. The flames must have gotten \n"
@@ -1709,16 +1712,16 @@ public class WOMstoryWgraphics {	// class header
 									 + "don't even feel the heat. You lower it slowly to the ground as though it were a mere twig. \n");
 					pauseText(3);
 					
-					choice = -1;
-					while(choice != 1 && choice != 2 && choice != 3) {
+					choice3 = -1;
+					while(choice3 != 1 && choice3 != 2 && choice3 != 3) {
 						System.out.print("Eager to test out your new power, you: \n"
 								 + "\t1) Pick up a nearby boulder. \n"
 								 + "\t2) Cast a spell on a nearby ant. \n"
 								 + "\t3) Cast a flight spell on yourself. \n"
 								 + "Your choice? ");
-						choice = carl.nextInt(); carl.nextLine();
+						choice3 = carl.nextInt(); carl.nextLine();
 						System.out.println();
-						switch(choice) {
+						switch(choice3) {
 						case 1:	// pick up rock
 							System.out.println("The boulder is light, like a pebble. ");
 							pauseText(2);
@@ -1736,7 +1739,7 @@ public class WOMstoryWgraphics {	// class header
 							break;
 						}
 						
-						if(choice != 1 && choice != 2 && choice != 3)
+						if(choice3 != 1 && choice3 != 2 && choice3 != 3)
 							System.out.println("Please choose a valid answer. \n");
 							
 					}
@@ -1793,12 +1796,10 @@ public class WOMstoryWgraphics {	// class header
 					System.out.println("What do you do next?\n"
 									+"\t1) Immediately bind him to the bracelet\n"
 									+"\t2) Bring him over to the edge of the stone so that you can talk.\n");
-					choice = carl.nextInt();
 					
-					int op;
 					do{
-						op = carl.nextInt(); carl.nextLine();
-						if(op==1){
+						choice3 = carl.nextInt(); carl.nextLine();
+						if(choice3==1){
 							System.out.println("With another half-effort, you compel this powerful being to stand at your bidding.\n"
 											+"You watch him turn his hands over, attempting to cast a spell--probably one for protection.\n"
 											+"Manasses seems at first confused and then terrified when it does not work.\n");
@@ -1806,9 +1807,9 @@ public class WOMstoryWgraphics {	// class header
 							System.out.println("\nYou've reached a checkpoint! Continue to next scene or finish later?\n"
 											+"Type 'c' to continue or 'f' to finish later.");
 							do{
-								op = Character.toLowerCase(carl.nextLine().charAt(0));
-							}while(!(op=='c' || op=='f'));
-							if(op=='c'){
+								end = Character.toLowerCase(carl.nextLine().charAt(0));
+							}while(!(end=='c' || end=='f'));
+							if(end=='c'){
 								bindingManasses();
 							}
 							else{
@@ -1816,7 +1817,7 @@ public class WOMstoryWgraphics {	// class header
 								leaveGame();
 							}
 						}
-						else if(op==2){
+						else if(choice3==2){
 							System.out.println("He speaks first.\n");
 							pauseText(1);
 							new_panel.updateSpeaker(frame, "Manasses");
@@ -1859,10 +1860,9 @@ public class WOMstoryWgraphics {	// class header
 											+"\tin the past. It would be fitting. You shake his hand.\n"
 											+"\t2) No. If you did, you would be undoing all of your previous work, and besides someone else must know how to\n"
 											+"replant the trees. You decide to hold onto the guilt a while longer.\n");
-							op = -1;
 							do{
-								op = carl.nextInt(); carl.nextLine();
-								if(op==1){
+								choice4 = carl.nextInt(); carl.nextLine();
+								if(choice4==1){
 									System.out.println("As you shake his hand, you suddenly feel very heavy. You're not turning to rock--at least\n"
 													+"not yet--but you realize that you no longer have the trees' power. It also becomes evident that Manasses\n"
 													+"does . . . how?\n");
@@ -1902,13 +1902,13 @@ public class WOMstoryWgraphics {	// class header
 									}
 									System.out.println("-=~[THE END]~=-");
 								}//if
-								else if(op==2){
+								else if(choice4==2){
 									System.out.println("\nYou've reached a checkpoint! Continue to next scene or finish later?\n"
 											+"Type 'c' to continue or 'f' to finish later.");
 									do{
-										op = Character.toLowerCase(carl.nextLine().charAt(0));
-									}while(!(op=='c' || op=='f'));
-									if(op=='c'){
+										end = Character.toLowerCase(carl.nextLine().charAt(0));
+									}while(!(end=='c' || end=='f'));
+									if(end=='c'){
 										bindingManasses();
 									}
 									else{
@@ -1919,14 +1919,14 @@ public class WOMstoryWgraphics {	// class header
 								else{
 									System.out.println("Please choose a valid option.");
 								}
-							}while(!(op==1 || op==2));
+							}while(!(choice4==1 || choice4==2));
 						}
 						else{
 							System.out.println("Please enter a valid choice.");
 						}
-					}while(!(op==1||op==2));
+					}while(!(choice3==1||choice3==2));
 					
-					if(choice != 1 && choice != 2 && choice != 3)
+					if(choice2 != 1 && choice2 != 2 && choice2 != 3)
 						System.out.println("Please choose a valid answer. \n");
 					
 				}
@@ -1942,8 +1942,6 @@ public class WOMstoryWgraphics {	// class header
 			
 			if(choice != 1 && choice != 2 && choice != 3)
 				System.out.println("Please choose a valid answer. \n");
-			
-			choice = 2;
 			
 		}
 		
